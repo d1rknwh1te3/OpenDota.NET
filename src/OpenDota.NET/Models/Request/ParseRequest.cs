@@ -1,10 +1,7 @@
-﻿namespace OpenDotaDotNet.Models.Request
-{
-    using System.Text.Json.Serialization;
+﻿namespace OpenDotaDotNet.Models.Request;
 
-    public class ParseRequest
-    {
-        [JsonPropertyName("job")]
-        public Job Job { get; set; }
-    }
+public class ParseRequest
+{
+	[JsonProperty("job")]
+	public Job Job { get; set; }
 }

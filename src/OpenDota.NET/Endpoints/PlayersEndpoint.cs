@@ -1,218 +1,164 @@
-﻿namespace OpenDotaDotNet.Endpoints
+﻿namespace OpenDotaDotNet.Endpoints;
+
+public class PlayersEndpoint(Requester requester) : IPlayersEndpoint
 {
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Threading.Tasks;
+	/// <inheritdoc />
+	public Task<Player?> GetPlayerByIdAsync(long accountId) =>
+		requester.GetResponseAsync<Player>($"players/{accountId}");
 
-    using OpenDotaDotNet.Models.Players;
+	/// <inheritdoc />
+	public Task<PlayerWinLoss?> GetPlayerWinLossByIdAsync(
+		long accountId,
+		PlayerEndpointParameters? parameters = null) =>
+		requester.GetResponseAsync<PlayerWinLoss>(
+			$"players/{accountId}/wl",
+			GetArguments(parameters));
 
-    public class PlayersEndpoint : IPlayersEndpoint
-    {
-        private readonly Requester requester;
+	/// <inheritdoc />
+	public Task<IEnumerable<PlayerRecentMatch>?> GetPlayerRecentMatchesAsync(long accountId) =>
+		requester.GetResponseAsync<IEnumerable<PlayerRecentMatch>>($"players/{accountId}/recentMatches");
 
-        public PlayersEndpoint(Requester requester)
-        {
-            this.requester = requester;
-        }
+	/// <inheritdoc />
+	public Task<IEnumerable<PlayerMatch>?> GetPlayerMatchesAsync(
+		long accountId,
+		PlayerEndpointParameters? parameters = null) =>
+		requester.GetResponseAsync<IEnumerable<PlayerMatch>>(
+			$"players/{accountId}/matches",
+			GetArguments(parameters));
 
-        /// <inheritdoc />
-        public async Task<Player> GetPlayerByIdAsync(long playerId) =>
-            await this.requester.GetResponseAsync<Player>($"players/{playerId}");
+	/// <inheritdoc />
+	public Task<IEnumerable<PlayerHero>?> GetPlayerHeroesAsync(long accountId, PlayerEndpointParameters? parameters = null) =>
+		requester.GetResponseAsync<IEnumerable<PlayerHero>>(
+			$"players/{accountId}/heroes",
+			GetArguments(parameters));
 
-        /// <inheritdoc />
-        public async Task<PlayerWinLoss> GetPlayerWinLossByIdAsync(
-            long playerId,
-            PlayerEndpointParameters parameters = null) =>
-            await this.requester.GetResponseAsync<PlayerWinLoss>(
-                $"players/{playerId}/wl",
-                this.GetArguments(parameters));
+	/// <inheritdoc />
+	public Task<IEnumerable<PlayerPeer>?> GetPlayerPeersAsync(long accountId, PlayerEndpointParameters? parameters = null) =>
+		requester.GetResponseAsync<IEnumerable<PlayerPeer>>(
+			$"players/{accountId}/peers",
+			GetArguments(parameters));
 
-        /// <inheritdoc />
-        public async Task<IEnumerable<PlayerRecentMatch>> GetPlayerRecentMatchesAsync(long playerId) =>
-            await this.requester.GetResponseAsync<IEnumerable<PlayerRecentMatch>>($"players/{playerId}/recentMatches");
+	/// <inheritdoc />
+	public Task<IEnumerable<PlayerPro>?> GetPlayerProsAsync(long accountId, PlayerEndpointParameters? parameters = null) =>
+		requester.GetResponseAsync<IEnumerable<PlayerPro>>(
+			$"players/{accountId}/pros",
+			GetArguments(parameters));
 
-        /// <inheritdoc />
-        public async Task<IEnumerable<PlayerMatch>> GetPlayerMatchesAsync(
-            long playerId,
-            PlayerEndpointParameters parameters = null) =>
-            await this.requester.GetResponseAsync<IEnumerable<PlayerMatch>>(
-                $"players/{playerId}/matches",
-                this.GetArguments(parameters));
+	/// <inheritdoc />
+	public Task<IEnumerable<PlayerTotal>?> GetPlayerTotalsAsync(long accountId, PlayerEndpointParameters? parameters = null) =>
+		requester.GetResponseAsync<IEnumerable<PlayerTotal>>(
+			$"players/{accountId}/totals",
+			GetArguments(parameters));
 
-        /// <inheritdoc />
-        public async Task<IEnumerable<PlayerHero>>
-            GetPlayerHeroesAsync(long playerId, PlayerEndpointParameters parameters = null) =>
-            await this.requester.GetResponseAsync<IEnumerable<PlayerHero>>(
-                $"players/{playerId}/heroes",
-                this.GetArguments(parameters));
+	/// <inheritdoc />
+	public Task<PlayerCount?> GetPlayerCountsAsync(long accountId, PlayerEndpointParameters? parameters = null) =>
+		requester.GetResponseAsync<PlayerCount>(
+			$"players/{accountId}/counts",
+			GetArguments(parameters));
 
-        /// <inheritdoc />
-        public async Task<IEnumerable<PlayerPeer>> GetPlayerPeersAsync(long playerId, PlayerEndpointParameters parameters) =>
-            await this.requester.GetResponseAsync<IEnumerable<PlayerPeer>>(
-                $"players/{playerId}/peers",
-                this.GetArguments(parameters));
+	/// <inheritdoc />
+	public Task<IEnumerable<PlayerHistogram>?> GetPlayerHistogramsAsync(long accountId, string field, PlayerEndpointParameters? parameters = null) =>
+		requester.GetResponseAsync<IEnumerable<PlayerHistogram>>(
+			$"players/{accountId}/histograms/{field}",
+			GetArguments(parameters));
 
-        /// <inheritdoc />
-        public async Task<IEnumerable<PlayerPro>> GetPlayerProsAsync(long playerId, PlayerEndpointParameters parameters) =>
-            await this.requester.GetResponseAsync<IEnumerable<PlayerPro>>(
-                $"players/{playerId}/pros",
-                this.GetArguments(parameters));
+	/// <inheritdoc />
+	public Task<PlayerWardMap?> GetPlayerWardMapAsync(long accountId, PlayerEndpointParameters? parameters = null) =>
+		requester.GetResponseAsync<PlayerWardMap>(
+			$"players/{accountId}/wardmap",
+			GetArguments(parameters));
 
-        /// <inheritdoc />
-        public async Task<IEnumerable<PlayerTotal>> GetPlayerTotalsAsync(long playerId, PlayerEndpointParameters parameters) =>
-            await this.requester.GetResponseAsync<IEnumerable<PlayerTotal>>(
-                $"players/{playerId}/totals",
-                this.GetArguments(parameters));
+	/// <inheritdoc />
+	public Task<PlayerWordCloud?> GetPlayerWordCloudAsync(long accountId, PlayerEndpointParameters? parameters = null) =>
+		requester.GetResponseAsync<PlayerWordCloud>(
+			$"players/{accountId}/wordcloud",
+			GetArguments(parameters));
 
-        /// <inheritdoc />
-        public async Task<PlayerCount> GetPlayerCountsAsync(long playerId, PlayerEndpointParameters parameters) =>
-            await this.requester.GetResponseAsync<PlayerCount>(
-                $"players/{playerId}/counts",
-                this.GetArguments(parameters));
+	/// <inheritdoc />
+	public Task<IEnumerable<PlayerRating>?> GetPlayerRatingsAsync(long accountId) =>
+		requester.GetResponseAsync<IEnumerable<PlayerRating>>($"players/{accountId}/ratings");
 
-        /// <inheritdoc />
-        public async Task<IEnumerable<PlayerHistogram>> GetPlayerHistogramsAsync(long playerId, string field, PlayerEndpointParameters parameters) =>
-            await this.requester.GetResponseAsync<IEnumerable<PlayerHistogram>>(
-                $"players/{playerId}/histograms/{field}",
-                this.GetArguments(parameters));
+	/// <inheritdoc />
+	public Task<IEnumerable<PlayerHeroRanking>?> GetPlayerHeroRankingsAsync(long accountId) =>
+		requester.GetResponseAsync<IEnumerable<PlayerHeroRanking>>($"players/{accountId}/rankings");
 
-        /// <inheritdoc />
-        public async Task<PlayerWardmap> GetPlayerWardMapAsync(long playerId, PlayerEndpointParameters parameters) =>
-            await this.requester.GetResponseAsync<PlayerWardmap>(
-                $"players/{playerId}/wardmap",
-                this.GetArguments(parameters));
+	/// <inheritdoc />
+	public async Task<bool> RefreshPlayerMatchHistoryAsync(long accountId)
+	{
+		var response = await requester.PostRequestAsync($"players/{accountId}/refresh");
+		response.EnsureSuccessStatusCode();
+		
+		return true;
+	}
 
-        /// <inheritdoc />
-        public async Task<PlayerWordcloud> GetPlayerWordCloudAsync(long playerId, PlayerEndpointParameters parameters) =>
-            await this.requester.GetResponseAsync<PlayerWordcloud>(
-                $"players/{playerId}/wordcloud",
-                this.GetArguments(parameters));
+	private static List<string> GetArguments(PlayerEndpointParameters? parameters)
+	{
+		var addedArguments = new List<string>();
 
-        /// <inheritdoc />
-        public async Task<IEnumerable<PlayerRating>> GetPlayerRatingsAsync(long playerId) =>
-            await this.requester.GetResponseAsync<IEnumerable<PlayerRating>>($"players/{playerId}/ratings");
+		if (parameters == null)
+			return addedArguments;
 
-        /// <inheritdoc />
-        public async Task<IEnumerable<PlayerHeroRanking>> GetPlayerHeroRankingsAsync(long playerId) =>
-            await this.requester.GetResponseAsync<IEnumerable<PlayerHeroRanking>>($"players/{playerId}/rankings");
+		if (parameters.Limit != null) 
+			addedArguments.Add($"limit={parameters.Limit}");
 
-        /// <inheritdoc />
-        public async Task<bool> RefreshPlayerMatchHistoryAsync(long playerId)
-        {
-            var response = await this.requester.PostRequest($"players/{playerId}/refresh");
-            response.EnsureSuccessStatusCode();
-            return true;
-        }
+		if (parameters.Offset != null) 
+			addedArguments.Add($"offset={parameters.Offset}");
 
-        private IEnumerable<string> GetArguments(PlayerEndpointParameters parameters)
-        {
-            var addedArguments = new List<string>();
+		if (parameters.Win != null) 
+			addedArguments.Add($"win={parameters.Win}");
 
-            if (parameters == null)
-            {
-                return addedArguments;
-            }
+		if (parameters.Patch != null) 
+			addedArguments.Add($"patch={parameters.Patch}");
 
-            if (parameters.Limit != null)
-            {
-                addedArguments.Add($@"limit={parameters.Limit}");
-            }
+		if (parameters.GameMode != null) 
+			addedArguments.Add($"game_mode={parameters.GameMode}");
 
-            if (parameters.Offset != null)
-            {
-                addedArguments.Add($@"offset={parameters.Offset}");
-            }
+		if (parameters.LobbyType != null) 
+			addedArguments.Add($"lobby_type={parameters.LobbyType}");
 
-            if (parameters.Win != null)
-            {
-                addedArguments.Add($@"win={parameters.Win}");
-            }
+		if (parameters.Region != null) 
+			addedArguments.Add($"region={parameters.Region}");
 
-            if (parameters.Patch != null)
-            {
-                addedArguments.Add($@"patch={parameters.Patch}");
-            }
+		if (parameters.Date != null) 
+			addedArguments.Add($"date={parameters.Date}");
 
-            if (parameters.GameMode != null)
-            {
-                addedArguments.Add($@"game_mode={parameters.GameMode}");
-            }
+		if (parameters.LaneRole != null) 
+			addedArguments.Add($"lane_role={parameters.LaneRole}");
 
-            if (parameters.LobbyType != null)
-            {
-                addedArguments.Add($@"lobby_type={parameters.LobbyType}");
-            }
+		if (parameters.HeroId != null) 
+			addedArguments.Add($"hero_id={parameters.HeroId}");
 
-            if (parameters.Region != null)
-            {
-                addedArguments.Add($@"region={parameters.Region}");
-            }
+		if (parameters.IsRadiant != null) 
+			addedArguments.Add($"is_radiant={parameters.IsRadiant}");
 
-            if (parameters.Date != null)
-            {
-                addedArguments.Add($@"date={parameters.Date}");
-            }
+		if (parameters.IncludedAccountIds != null)
+			addedArguments.AddRange(
+				parameters.IncludedAccountIds.Select(
+					includedAccountId => $"included_account_id={includedAccountId}"));
 
-            if (parameters.LaneRole != null)
-            {
-                addedArguments.Add($@"lane_role={parameters.LaneRole}");
-            }
+		if (parameters.ExcludedAccountIds != null)
+			addedArguments.AddRange(
+				parameters.ExcludedAccountIds.Select(
+					excludedAccountId => $"excluded_account_id={excludedAccountId}"));
 
-            if (parameters.HeroId != null)
-            {
-                addedArguments.Add($@"hero_id={parameters.HeroId}");
-            }
+		if (parameters.WithHeroIds != null) 
+			addedArguments.AddRange(parameters.WithHeroIds.Select(withHeroId => $"with_hero_id={withHeroId}"));
 
-            if (parameters.IsRadiant != null)
-            {
-                addedArguments.Add($@"is_radiant={parameters.IsRadiant}");
-            }
+		if (parameters.AgainstHeroIds != null) 
+			addedArguments.AddRange(parameters.AgainstHeroIds.Select(againstHeroId => $"against_hero_id={againstHeroId}"));
 
-            if (parameters.IncludedAccountIds != null)
-            {
-                addedArguments.AddRange(
-                    parameters.IncludedAccountIds.Select(
-                        includedAccountId => $@"included_account_id={includedAccountId}"));
-            }
+		if (parameters.Significant != null) 
+			addedArguments.Add($"significant={parameters.Significant}");
 
-            if (parameters.ExcludedAccountIds != null)
-            {
-                addedArguments.AddRange(
-                    parameters.ExcludedAccountIds.Select(
-                        excludedAccountId => $@"excluded_account_id={excludedAccountId}"));
-            }
+		if (parameters.Having != null) 
+			addedArguments.Add($"having={parameters.Having}");
 
-            if (parameters.WithHeroIds != null)
-            {
-                addedArguments.AddRange(parameters.WithHeroIds.Select(withHeroId => $@"with_hero_id={withHeroId}"));
-            }
+		if (parameters.Sort != null) 
+			addedArguments.Add($"sort={parameters.Sort}");
 
-            if (parameters.AgainstHeroIds != null)
-            {
-                addedArguments.AddRange(parameters.AgainstHeroIds.Select(againstHeroId => $@"against_hero_id={againstHeroId}"));
-            }
+		if (parameters.Project != null) 
+			addedArguments.AddRange(parameters.Project.Select(project => $"project={project}"));
 
-            if (parameters.Significant != null)
-            {
-                addedArguments.Add($@"significant={parameters.Significant}");
-            }
-
-            if (parameters.Having != null)
-            {
-                addedArguments.Add($@"having={parameters.Having}");
-            }
-
-            if (parameters.Sort != null)
-            {
-                addedArguments.Add($@"sort={parameters.Sort}");
-            }
-
-            if (parameters.Project != null)
-            {
-                addedArguments.AddRange(parameters.Project.Select(project => $@"project={project}"));
-            }
-
-            return addedArguments;
-        }
-    }
+		return addedArguments;
+	}
 }

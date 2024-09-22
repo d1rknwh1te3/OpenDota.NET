@@ -1,16 +1,13 @@
-﻿namespace OpenDotaDotNet.Models.Players
+﻿namespace OpenDotaDotNet.Models.Players;
+
+public class PlayerMatchHero
 {
-    using System.Text.Json.Serialization;
+	[JsonProperty("account_id")]
+	public long? AccountId { get; set; }
 
-    public class PlayerMatchHero
-    {
-        [JsonPropertyName("account_id")]
-        public long? AccountId { get; set; }
+	[JsonProperty("hero_id")]
+	public long HeroId { get; set; }
 
-        [JsonPropertyName("hero_id")]
-        public long HeroId { get; set; }
-
-        [JsonPropertyName("player_slot")]
-        public long PlayerSlot { get; set; }
-    }
+	[JsonProperty("player_slot")]
+	public long PlayerSlot { get; set; }
 }

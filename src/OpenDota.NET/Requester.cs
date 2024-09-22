@@ -1,90 +1,90 @@
-﻿namespace OpenDotaDotNet
+﻿namespace OpenDotaDotNet;
+
+/// <summary>
+/// Represents an OpenDota API request.
+/// </summary>
+/// <seealso cref="System.IDisposable" />
+public sealed class Requester : IDisposable
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Net;
-    using System.Net.Http;
-    using System.Text.Json;
-    using System.Text.Json.Serialization;
-    using System.Threading.Tasks;
+	private readonly HttpClient _httpClient;
+	private readonly HttpClientHandler _httpClientHandler;
+	
+	private const string OpenDotaApi = "https://api.opendota.com/api/";
 
-    using OpenDotaDotNet.JsonConverters;
+	/// <summary>
+	/// Initializes a new instance of the <see cref="Requester"/> class.
+	/// </summary>
+	/// <param name="apiKey">OpenDota API Key.</param>
+	/// <param name="proxy">Proxy (if needed).</param>
+	public Requester(string? apiKey = null, IWebProxy? proxy = null)
+	{
+		ApiKey = apiKey;
 
-    public class Requester : IDisposable
-    {
-        private readonly HttpClient httpClient;
-        private readonly HttpClientHandler httpClientHandler;
+		_httpClientHandler = new HttpClientHandler { UseProxy = true, Proxy = proxy, };
+		_httpClient = new HttpClient(_httpClientHandler) { Timeout = TimeSpan.FromSeconds(60), BaseAddress = new Uri(OpenDotaApi), };
+	}
 
-        public Requester(string apiKey = null, IWebProxy proxy = null)
-        {
-            this.ApiKey = apiKey;
-            this.httpClientHandler = new HttpClientHandler { UseProxy = true, Proxy = proxy, };
-            this.httpClient = new HttpClient(this.httpClientHandler)
-            {
-                Timeout = TimeSpan.FromSeconds(60),
-                BaseAddress = new Uri("https://api.opendota.com/api/"),
-            };
-        }
+	private string? ApiKey { get; }
 
-        public string ApiKey { get; set; }
+	/// <summary>
+	/// Gets the response asynchronous.
+	/// </summary>
+	/// <typeparam name="T"></typeparam>
+	/// <param name="url">The URL.</param>
+	/// <param name="queryParameters">The query parameters.</param>
+	/// <returns>Response.</returns>
+	public async Task<T?> GetResponseAsync<T>(string url, IEnumerable<string>? queryParameters = null)
+		where T : class
+	{
+		var response = await GetRequestResponseMessageAsync(url, queryParameters?.ToList());
+		response.EnsureSuccessStatusCode();
 
-        public async Task<T> GetResponseAsync<T>(string url, IEnumerable<string> queryParameters = null)
-            where T : class
-        {
-            var response = await this.GetRequestResponseMessageAsync(url, queryParameters?.ToList());
-            response.EnsureSuccessStatusCode();
-            var options = new JsonSerializerOptions { IgnoreNullValues = true, PropertyNameCaseInsensitive = true };
-            options.Converters.Add(new JsonStringEnumConverter());
-            options.Converters.Add(new LongConverter());
-            options.Converters.Add(new IntConverter());
-            options.Converters.Add(new NullableIntConverter());
-            options.Converters.Add(new StringConverter());
-            options.Converters.Add(new BoolConverter());
-            var textResponse = await response.Content.ReadAsStringAsync();
-            if (string.IsNullOrEmpty(textResponse))
-            {
-                return null;
-            }
+		var textResponse = await response.Content.ReadAsStringAsync();
+		
+		if (string.IsNullOrEmpty(textResponse))
+			return null;
 
-            var data = JsonSerializer.Deserialize<T>(textResponse, options);
-            return data;
-        }
+		var serializer = new JsonSerializer();
+		var stringReader = new StringReader(textResponse);
+		var reader = new JsonTextReader(stringReader);
 
-        public async Task<HttpResponseMessage> PostRequest(string url, HttpContent content = null)
-        {
-            var response = await this.httpClient.PostAsync(url, content);
-            return response;
-        }
+		var data = serializer.Deserialize<T>(reader);
+		
+		return data;
+	}
 
-        public void Dispose()
-        {
-            this.Dispose(true);
-            GC.SuppressFinalize(this);
-        }
+	/// <summary>
+	/// Posts the request asynchronous.
+	/// </summary>
+	/// <param name="url">The URL.</param>
+	/// <param name="content">The content.</param>
+	/// <returns>Response message.</returns>
+	public async Task<HttpResponseMessage> PostRequestAsync(string url, HttpContent? content = null)
+	{
+		var response = await _httpClient.PostAsync(url, content);
+		return response;
+	}
 
-        protected virtual void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                this.httpClient?.Dispose();
-                this.httpClientHandler?.Dispose();
-            }
-        }
+	/// <summary>
+	/// Releases unmanaged and - optionally - managed resources.
+	/// </summary>
+	public void Dispose()
+	{
+		_httpClient?.Dispose();
+		_httpClientHandler?.Dispose();
+	}
 
-        private async Task<HttpResponseMessage> GetRequestResponseMessageAsync(string url, IList<string> queryParameters = null)
-        {
-            queryParameters ??= new List<string>();
-            if (this.ApiKey != null)
-            {
-                queryParameters.Add($@"api_key={this.ApiKey}");
-            }
+	private async Task<HttpResponseMessage> GetRequestResponseMessageAsync(string url, List<string>? queryParameters = null)
+	{
+		queryParameters ??= [];
+		
+		if (ApiKey != null)
+			queryParameters.Add($"api_key={ApiKey}");
+		
+		var argumentsString = string.Join("&", queryParameters.Where(arg => !string.IsNullOrEmpty(arg)));
+		var fullUrl = $"{url}?{argumentsString}";
 
-            var argumentsString = string.Join("&", queryParameters.Where(arg => !string.IsNullOrEmpty(arg)));
-            var fullUrl = $@"{url}?{argumentsString}";
-
-            var message = await this.httpClient.GetAsync(fullUrl);
-            return message;
-        }
-    }
+		var message = await _httpClient.GetAsync(fullUrl);
+		return message;
+	}
 }

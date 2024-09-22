@@ -1,14 +1,10 @@
-﻿namespace OpenDotaDotNet.Models.Players
+﻿namespace OpenDotaDotNet.Models.Players;
+
+public class PlayerWardMap
 {
-    using System.Collections.Generic;
-    using System.Text.Json.Serialization;
+	[JsonProperty("obs")]
+	public Dictionary<string, Dictionary<string, long>> Obs { get; set; }
 
-    public class PlayerWardmap
-    {
-        [JsonPropertyName("obs")]
-        public Dictionary<string, Dictionary<string, long>> Obs { get; set; }
-
-        [JsonPropertyName("sen")]
-        public Dictionary<string, Dictionary<string, long>> Sen { get; set; }
-    }
+	[JsonProperty("sen")]
+	public Dictionary<string, Dictionary<string, long>> Sen { get; set; }
 }

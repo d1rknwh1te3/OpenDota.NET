@@ -1,15 +1,12 @@
-﻿namespace OpenDotaDotNet.Models.Matches
+﻿namespace OpenDotaDotNet.Models.Matches;
+
+public class KillLog
 {
-    using System.Text.Json.Serialization;
+	// The unit who got killed
+	[JsonProperty("key")]
+	public string Key { get; set; }
 
-    public class KillLog
-    {
-        // The unit who got killed
-        [JsonPropertyName("key")]
-        public string Key { get; set; }
-
-        // Time in seconds when the kill happened
-        [JsonPropertyName("time")]
-        public long Time { get; set; }
-    }
+	// Time in seconds when the kill happened
+	[JsonProperty("time")]
+	public long Time { get; set; }
 }

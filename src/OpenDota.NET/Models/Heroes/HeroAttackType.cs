@@ -1,8 +1,17 @@
-﻿namespace OpenDotaDotNet.Models.Heroes
+﻿namespace OpenDotaDotNet.Models.Heroes;
+
+/// <summary>
+/// The attack type of the hero.
+/// </summary>
+public enum HeroAttackType
 {
-    public enum HeroAttackType
-    {
-        Melee = 0,
-        Ranged = 1,
-    }
+	/// <summary>
+	/// The melee attack type.
+	/// </summary>
+	Melee = 0,
+
+	/// <summary>
+	/// The ranged attack type.
+	/// </summary>
+	Ranged = 1,
 }

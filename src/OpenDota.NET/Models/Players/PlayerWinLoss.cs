@@ -1,13 +1,10 @@
-﻿namespace OpenDotaDotNet.Models.Players
+﻿namespace OpenDotaDotNet.Models.Players;
+
+public class PlayerWinLoss
 {
-    using System.Text.Json.Serialization;
+	[JsonProperty("win")]
+	public int Wins { get; set; }
 
-    public class PlayerWinLoss
-    {
-        [JsonPropertyName("win")]
-        public int Wins { get; set; }
-
-        [JsonPropertyName("lose")]
-        public int Losses { get; set; }
-    }
+	[JsonProperty("lose")]
+	public int Losses { get; set; }
 }

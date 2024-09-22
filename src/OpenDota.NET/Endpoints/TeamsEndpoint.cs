@@ -1,37 +1,24 @@
-﻿namespace OpenDotaDotNet.Endpoints
+﻿namespace OpenDotaDotNet.Endpoints;
+
+public class TeamsEndpoint(Requester requester) : ITeamsEndpoint
 {
-    using System.Collections.Generic;
-    using System.Threading.Tasks;
+	/// <inheritdoc />
+	public Task<IEnumerable<Team>?> GetTeamsAsync() =>
+		requester.GetResponseAsync<IEnumerable<Team>>("teams");
 
-    using OpenDotaDotNet.Models.Teams;
+	/// <inheritdoc />
+	public Task<Team?> GetTeamByIdAsync(int teamId) =>
+		requester.GetResponseAsync<Team>($"teams/{teamId}");
 
-    public class TeamsEndpoint : ITeamsEndpoint
-    {
-        private readonly Requester requester;
+	/// <inheritdoc />
+	public Task<IEnumerable<TeamMatch>?> GetTeamMatchesByIdAsync(int teamId) =>
+		requester.GetResponseAsync<IEnumerable<TeamMatch>>($"teams/{teamId}/matches");
 
-        public TeamsEndpoint(Requester requester)
-        {
-            this.requester = requester;
-        }
+	/// <inheritdoc />
+	public Task<IEnumerable<TeamPlayer>?> GetTeamPlayersByIdAsync(int teamId) =>
+		requester.GetResponseAsync<IEnumerable<TeamPlayer>>($"teams/{teamId}/players");
 
-        /// <inheritdoc />
-        public async Task<IEnumerable<Team>> GetTeamsAsync() =>
-            await this.requester.GetResponseAsync<IEnumerable<Team>>("teams");
-
-        /// <inheritdoc />
-        public async Task<Team> GetTeamByIdAsync(int teamId) =>
-            await this.requester.GetResponseAsync<Team>($"teams/{teamId}");
-
-        /// <inheritdoc />
-        public async Task<IEnumerable<TeamMatch>> GetTeamMatchesByIdAsync(int teamId) =>
-            await this.requester.GetResponseAsync<IEnumerable<TeamMatch>>($"teams/{teamId}/matches");
-
-        /// <inheritdoc />
-        public async Task<IEnumerable<TeamPlayer>> GetTeamPlayersByIdAsync(int teamId) =>
-            await this.requester.GetResponseAsync<IEnumerable<TeamPlayer>>($"teams/{teamId}/players");
-
-        /// <inheritdoc />
-        public async Task<IEnumerable<TeamHero>> GetTeamHeroesByIdAsync(int teamId) =>
-            await this.requester.GetResponseAsync<IEnumerable<TeamHero>>($"teams/{teamId}/heroes");
-    }
+	/// <inheritdoc />
+	public Task<IEnumerable<TeamHero>?> GetTeamHeroesByIdAsync(int teamId) =>
+		requester.GetResponseAsync<IEnumerable<TeamHero>>($"teams/{teamId}/heroes");
 }

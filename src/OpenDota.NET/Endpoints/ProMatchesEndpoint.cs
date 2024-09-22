@@ -1,34 +1,20 @@
-﻿namespace OpenDotaDotNet.Endpoints
+﻿namespace OpenDotaDotNet.Endpoints;
+
+public class ProMatchesEndpoint(Requester requester) : IProMatchEndpoint
 {
-    using System.Collections.Generic;
-    using System.Threading.Tasks;
+	/// <inheritdoc />
+	public Task<IEnumerable<ProMatch>?> GetProMatchesAsync(long? lessThanMatchId = null) =>
+		requester.GetResponseAsync<IEnumerable<ProMatch>>(
+			"proMatches",
+			GetArguments(lessThanMatchId));
 
-    using OpenDotaDotNet.Models.ProMatches;
+	private static IEnumerable<string> GetArguments(long? lessThanMatchId = null)
+	{
+		var addedArguments = new List<string>();
+		
+		if (lessThanMatchId != null)
+			addedArguments.Add($"less_than_match_id={lessThanMatchId}");
 
-    public class ProMatchesEndpoint : IProMatchEndpoint
-    {
-        private readonly Requester requester;
-
-        public ProMatchesEndpoint(Requester requester)
-        {
-            this.requester = requester;
-        }
-
-        /// <inheritdoc />
-        public async Task<IEnumerable<ProMatch>> GetProMatchesAsync(long? lessThanMatchId = null) =>
-            await this.requester.GetResponseAsync<IEnumerable<ProMatch>>(
-                "proMatches",
-                this.GetArguments(lessThanMatchId));
-
-        private IEnumerable<string> GetArguments(long? lessThanMatchId = null)
-        {
-            var addedArguments = new List<string>();
-            if (lessThanMatchId != null)
-            {
-                addedArguments.Add($@"less_than_match_id={lessThanMatchId}");
-            }
-
-            return addedArguments;
-        }
-    }
+		return addedArguments;
+	}
 }

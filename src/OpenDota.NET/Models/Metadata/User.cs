@@ -1,10 +1,7 @@
-﻿namespace OpenDotaDotNet.Models.Metadata
-{
-    using System.Text.Json.Serialization;
+﻿namespace OpenDotaDotNet.Models.Metadata;
 
-    public class User
-    {
-        [JsonPropertyName("account_id")]
-        public int AccountId { get; set; }
-    }
+public class User
+{
+	[JsonProperty("account_id")]
+	public int AccountId { get; set; }
 }

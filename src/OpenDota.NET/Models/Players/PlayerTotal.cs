@@ -1,16 +1,13 @@
-﻿namespace OpenDotaDotNet.Models.Players
+﻿namespace OpenDotaDotNet.Models.Players;
+
+public class PlayerTotal
 {
-    using System.Text.Json.Serialization;
+	[JsonProperty("field")]
+	public string Field { get; set; }
 
-    public class PlayerTotal
-    {
-        [JsonPropertyName("field")]
-        public string Field { get; set; }
+	[JsonProperty("n")]
+	public long Number { get; set; }
 
-        [JsonPropertyName("n")]
-        public long Number { get; set; }
-
-        [JsonPropertyName("sum")]
-        public double Sum { get; set; }
-    }
+	[JsonProperty("sum")]
+	public double Sum { get; set; }
 }

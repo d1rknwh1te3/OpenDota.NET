@@ -1,19 +1,16 @@
-﻿namespace OpenDotaDotNet.Models.Metadata
+﻿namespace OpenDotaDotNet.Models.Metadata;
+
+public class Scenarios
 {
-    using System.Text.Json.Serialization;
+	[JsonProperty("itemCost")]
+	public int ItemCost { get; set; }
 
-    public class Scenarios
-    {
-        [JsonPropertyName("itemCost")]
-        public int ItemCost { get; set; }
+	[JsonProperty("timings")]
+	public int[] Timings { get; set; }
 
-        [JsonPropertyName("timings")]
-        public int[] Timings { get; set; }
+	[JsonProperty("gameDurationBucket")]
+	public int[] GameDurationBucket { get; set; }
 
-        [JsonPropertyName("gameDurationBucket")]
-        public int[] GameDurationBucket { get; set; }
-
-        [JsonPropertyName("teamScenariosQueryParams")]
-        public string[] TeamScenariosQueryParams { get; set; }
-    }
+	[JsonProperty("teamScenariosQueryParams")]
+	public string[] TeamScenariosQueryParams { get; set; }
 }

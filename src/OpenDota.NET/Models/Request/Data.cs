@@ -1,26 +1,22 @@
-﻿namespace OpenDotaDotNet.Models.Request
+﻿namespace OpenDotaDotNet.Models.Request;
+
+public class Data
 {
-    using System.Collections.Generic;
-    using System.Text.Json.Serialization;
+	[JsonProperty("match_id")]
+	public long MatchId { get; set; }
 
-    public class Data
-    {
-        [JsonPropertyName("match_id")]
-        public long MatchId { get; set; }
+	[JsonProperty("radiant_win")]
+	public bool RadiantWin { get; set; }
 
-        [JsonPropertyName("radiant_win")]
-        public bool RadiantWin { get; set; }
+	[JsonProperty("start_time")]
+	public long StartTime { get; set; }
 
-        [JsonPropertyName("start_time")]
-        public long StartTime { get; set; }
+	[JsonProperty("duration")]
+	public int Duration { get; set; }
 
-        [JsonPropertyName("duration")]
-        public int Duration { get; set; }
+	[JsonProperty("pgroup")]
+	public Dictionary<string, Pgroup> Pgroup { get; set; }
 
-        [JsonPropertyName("pgroup")]
-        public Dictionary<string, Pgroup> Pgroup { get; set; }
-
-        [JsonPropertyName("ability_upgrades")]
-        public IEnumerable<object> AbilityUpgrades { get; set; }
-    }
+	[JsonProperty("ability_upgrades")]
+	public IEnumerable<object> AbilityUpgrades { get; set; }
 }

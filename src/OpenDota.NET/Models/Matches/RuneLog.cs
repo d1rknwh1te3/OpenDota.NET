@@ -1,15 +1,12 @@
-﻿namespace OpenDotaDotNet.Models.Matches
+﻿namespace OpenDotaDotNet.Models.Matches;
+
+public class RuneLog
 {
-    using System.Text.Json.Serialization;
+	// Key of the picked up rune
+	[JsonProperty("key")]
+	public long Key { get; set; }
 
-    public class RuneLog
-    {
-        // Key of the picked up rune
-        [JsonPropertyName("key")]
-        public long Key { get; set; }
-
-        // Time in seconds when the rune was picked up
-        [JsonPropertyName("time")]
-        public long Time { get; set; }
-    }
+	// Time in seconds when the rune was picked up
+	[JsonProperty("time")]
+	public long Time { get; set; }
 }

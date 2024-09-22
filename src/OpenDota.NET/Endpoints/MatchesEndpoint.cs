@@ -1,20 +1,8 @@
-﻿namespace OpenDotaDotNet.Endpoints
+﻿namespace OpenDotaDotNet.Endpoints;
+
+public class MatchesEndpoint(Requester requester) : IMatchesEndpoint
 {
-    using System.Threading.Tasks;
-
-    using OpenDotaDotNet.Models.Matches;
-
-    public class MatchesEndpoint : IMatchesEndpoint
-    {
-        private readonly Requester requester;
-
-        public MatchesEndpoint(Requester requester)
-        {
-            this.requester = requester;
-        }
-
-        /// <inheritdoc />
-        public async Task<Match> GetMatchByIdAsync(long matchId) =>
-            await this.requester.GetResponseAsync<Match>($"matches/{matchId}");
-    }
+	/// <inheritdoc />
+	public Task<Match?> GetMatchByIdAsync(long matchId) =>
+		requester.GetResponseAsync<Match>($"matches/{matchId}");
 }

@@ -1,22 +1,19 @@
-﻿namespace OpenDotaDotNet.Models.Records
+﻿namespace OpenDotaDotNet.Models.Records;
+
+public class Record
 {
-    using System.Text.Json.Serialization;
+	[JsonProperty("match_id")]
+	public long MatchId { get; set; }
 
-    public class Record
-    {
-        [JsonPropertyName("match_id")]
-        public long MatchId { get; set; }
+	[JsonProperty("start_time")]
+	public long StartTime { get; set; }
 
-        [JsonPropertyName("start_time")]
-        public long StartTime { get; set; }
+	/// <summary>
+	/// Gets or sets the ID value of the hero played.
+	/// </summary>
+	[JsonProperty("hero_id")]
+	public int? HeroId { get; set; }
 
-        /// <summary>
-        /// Gets or sets the ID value of the hero played.
-        /// </summary>
-        [JsonPropertyName("hero_id")]
-        public int? HeroId { get; set; }
-
-        [JsonPropertyName("score")]
-        public long Score { get; set; }
-    }
+	[JsonProperty("score")]
+	public long Score { get; set; }
 }

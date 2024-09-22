@@ -1,16 +1,13 @@
-﻿namespace OpenDotaDotNet.Models.HealthStatus
+﻿namespace OpenDotaDotNet.Models.HealthStatus;
+
+public class ServiceUsage
 {
-    using System.Text.Json.Serialization;
+	[JsonProperty("metric")]
+	public double Metric { get; set; }
 
-    public class ServiceUsage
-    {
-        [JsonPropertyName("metric")]
-        public double Metric { get; set; }
+	[JsonProperty("threshold")]
+	public long Threshold { get; set; }
 
-        [JsonPropertyName("threshold")]
-        public long Threshold { get; set; }
-
-        [JsonPropertyName("timestamp")]
-        public long Timestamp { get; set; }
-    }
+	[JsonProperty("timestamp")]
+	public long Timestamp { get; set; }
 }

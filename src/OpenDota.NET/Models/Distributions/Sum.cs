@@ -1,10 +1,7 @@
-﻿namespace OpenDotaDotNet.Models.Distributions
-{
-    using System.Text.Json.Serialization;
+﻿namespace OpenDotaDotNet.Models.Distributions;
 
-    public class Sum
-    {
-        [JsonPropertyName("count")]
-        public long Count { get; set; }
-    }
+public class Sum
+{
+	[JsonProperty("count")]
+	public long Count { get; set; }
 }

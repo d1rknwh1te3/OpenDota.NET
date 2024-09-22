@@ -1,14 +1,10 @@
-﻿namespace OpenDotaDotNet.Models.Rankings
+﻿namespace OpenDotaDotNet.Models.Rankings;
+
+public class HeroRanking
 {
-    using System.Collections.Generic;
-    using System.Text.Json.Serialization;
+	[JsonProperty("hero_id")]
+	public long HeroId { get; set; }
 
-    public class HeroRanking
-    {
-        [JsonPropertyName("hero_id")]
-        public long HeroId { get; set; }
-
-        [JsonPropertyName("rankings")]
-        public IEnumerable<RankingPlayer> Rankings { get; set; }
-    }
+	[JsonProperty("rankings")]
+	public IEnumerable<RankingPlayer> Rankings { get; set; }
 }

@@ -1,41 +1,37 @@
-﻿namespace OpenDotaDotNet.Models.Teams
+﻿namespace OpenDotaDotNet.Models.Teams;
+
+public class TeamMatch
 {
-    using System;
-    using System.Text.Json.Serialization;
+	[JsonProperty("match_id")]
+	public long MatchId { get; set; }
 
-    public class TeamMatch
-    {
-        [JsonPropertyName("match_id")]
-        public long MatchId { get; set; }
+	[JsonProperty("radiant_win")]
+	public bool RadiantWin { get; set; }
 
-        [JsonPropertyName("radiant_win")]
-        public bool RadiantWin { get; set; }
+	[JsonProperty("radiant")]
+	public bool Radiant { get; set; }
 
-        [JsonPropertyName("radiant")]
-        public bool Radiant { get; set; }
+	[JsonProperty("duration")]
+	public long Duration { get; set; }
 
-        [JsonPropertyName("duration")]
-        public long Duration { get; set; }
+	[JsonProperty("start_time")]
+	public long StartTime { get; set; }
 
-        [JsonPropertyName("start_time")]
-        public long StartTime { get; set; }
+	[JsonProperty("leagueid")]
+	public long Leagueid { get; set; }
 
-        [JsonPropertyName("leagueid")]
-        public long Leagueid { get; set; }
+	[JsonProperty("league_name")]
+	public string LeagueName { get; set; }
 
-        [JsonPropertyName("league_name")]
-        public string LeagueName { get; set; }
+	[JsonProperty("cluster")]
+	public long Cluster { get; set; }
 
-        [JsonPropertyName("cluster")]
-        public long Cluster { get; set; }
+	[JsonProperty("opposing_team_id")]
+	public long OpposingTeamId { get; set; }
 
-        [JsonPropertyName("opposing_team_id")]
-        public long OpposingTeamId { get; set; }
+	[JsonProperty("opposing_team_name")]
+	public string OpposingTeamName { get; set; }
 
-        [JsonPropertyName("opposing_team_name")]
-        public string OpposingTeamName { get; set; }
-
-        [JsonPropertyName("opposing_team_logo")]
-        public Uri OpposingTeamLogo { get; set; }
-    }
+	[JsonProperty("opposing_team_logo")]
+	public Uri OpposingTeamLogo { get; set; }
 }

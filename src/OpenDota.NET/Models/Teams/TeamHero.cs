@@ -1,19 +1,16 @@
-﻿namespace OpenDotaDotNet.Models.Teams
+﻿namespace OpenDotaDotNet.Models.Teams;
+
+public class TeamHero
 {
-    using System.Text.Json.Serialization;
+	[JsonProperty("hero_id")]
+	public int HeroId { get; set; }
 
-    public class TeamHero
-    {
-        [JsonPropertyName("hero_id")]
-        public int HeroId { get; set; }
+	[JsonProperty("localized_name")]
+	public string LocalizedName { get; set; }
 
-        [JsonPropertyName("localized_name")]
-        public string LocalizedName { get; set; }
+	[JsonProperty("games_played")]
+	public int GamesPlayed { get; set; }
 
-        [JsonPropertyName("games_played")]
-        public int GamesPlayed { get; set; }
-
-        [JsonPropertyName("wins")]
-        public int Wins { get; set; }
-    }
+	[JsonProperty("wins")]
+	public int Wins { get; set; }
 }

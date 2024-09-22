@@ -1,24 +1,20 @@
-﻿namespace OpenDotaDotNet.Models.Matches
+﻿namespace OpenDotaDotNet.Models.Matches;
+
+public class MatchTeam
 {
-    using System;
-    using System.Text.Json.Serialization;
+	// Id of team
+	[JsonProperty("team_id")]
+	public int TeamId { get; set; }
 
-    public class MatchTeam
-    {
-        // Id of team
-        [JsonPropertyName("team_id")]
-        public int TeamId { get; set; }
+	// Name of the team
+	[JsonProperty("name")]
+	public string Name { get; set; }
 
-        // Name of the team
-        [JsonPropertyName("name")]
-        public string Name { get; set; }
+	// Tag of the team
+	[JsonProperty("tag")]
+	public string Tag { get; set; }
 
-        // Tag of the team
-        [JsonPropertyName("tag")]
-        public string Tag { get; set; }
-
-        // Url of the team logo
-        [JsonPropertyName("logo_url")]
-        public Uri LogoUrl { get; set; }
-    }
+	// Url of the team logo
+	[JsonProperty("logo_url")]
+	public Uri LogoUrl { get; set; }
 }

@@ -1,22 +1,19 @@
-﻿namespace OpenDotaDotNet.Models.Scenarios
+﻿namespace OpenDotaDotNet.Models.Scenarios;
+
+public class HeroItemTiming
 {
-    using System.Text.Json.Serialization;
+	[JsonProperty("hero_id")]
+	public int HeroId { get; set; }
 
-    public class HeroItemTiming
-    {
-        [JsonPropertyName("hero_id")]
-        public int HeroId { get; set; }
+	[JsonProperty("item")]
+	public string Item { get; set; }
 
-        [JsonPropertyName("item")]
-        public string Item { get; set; }
+	[JsonProperty("time")]
+	public int Time { get; set; }
 
-        [JsonPropertyName("time")]
-        public int Time { get; set; }
+	[JsonProperty("games")]
+	public int Games { get; set; }
 
-        [JsonPropertyName("games")]
-        public int Games { get; set; }
-
-        [JsonPropertyName("wins")]
-        public int Wins { get; set; }
-    }
+	[JsonProperty("wins")]
+	public int Wins { get; set; }
 }

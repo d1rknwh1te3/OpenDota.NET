@@ -1,16 +1,13 @@
-﻿namespace OpenDotaDotNet.Models.Request
+﻿namespace OpenDotaDotNet.Models.Request;
+
+public class Pgroup
 {
-    using System.Text.Json.Serialization;
+	[JsonProperty("account_id")]
+	public long? AccountId { get; set; }
 
-    public class Pgroup
-    {
-        [JsonPropertyName("account_id")]
-        public long? AccountId { get; set; }
+	[JsonProperty("hero_id")]
+	public int HeroId { get; set; }
 
-        [JsonPropertyName("hero_id")]
-        public int HeroId { get; set; }
-
-        [JsonPropertyName("player_slot")]
-        public int PlayerSlot { get; set; }
-    }
+	[JsonProperty("player_slot")]
+	public int PlayerSlot { get; set; }
 }

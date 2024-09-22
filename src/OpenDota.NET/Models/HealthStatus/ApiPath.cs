@@ -1,13 +1,10 @@
-﻿namespace OpenDotaDotNet.Models.HealthStatus
+﻿namespace OpenDotaDotNet.Models.HealthStatus;
+
+public class ApiPath
 {
-    using System.Text.Json.Serialization;
+	[JsonProperty("hostname")]
+	public string Hostname { get; set; }
 
-    public class ApiPath
-    {
-        [JsonPropertyName("hostname")]
-        public string Hostname { get; set; }
-
-        [JsonPropertyName("count")]
-        public string Count { get; set; }
-    }
+	[JsonProperty("count")]
+	public string Count { get; set; }
 }

@@ -1,48 +1,29 @@
-﻿namespace OpenDotaDotNet.Endpoints
+﻿namespace OpenDotaDotNet.Endpoints;
+
+public class PublicMatchesEndpoint(Requester requester) : IPublicMatchesEndpoint
 {
-    using System.Collections.Generic;
-    using System.Threading.Tasks;
+	/// <inheritdoc />
+	public Task<IEnumerable<PublicMatch>?> GetPublicMatchesAsync(
+		int? mmrAscending = null,
+		int? mmrDescending = null,
+		long? lessThanMatchId = null) =>
+		requester.GetResponseAsync<IEnumerable<PublicMatch>>(
+			"publicMatches",
+			GetArguments(mmrAscending, mmrDescending, lessThanMatchId));
 
-    using OpenDotaDotNet.Models.PublicMatches;
+	private static List<string> GetArguments(int? mmrAscending = null, int? mmrDescending = null, long? lessThanMatchId = null)
+	{
+		var addedArguments = new List<string>();
 
-    public class PublicMatchesEndpoint : IPublicMatchesEndpoint
-    {
-        private readonly Requester requester;
+		if (mmrAscending != null)
+			addedArguments.Add($"mmr_ascending={mmrAscending}");
 
-        public PublicMatchesEndpoint(Requester requester)
-        {
-            this.requester = requester;
-        }
+		if (mmrDescending != null) 
+			addedArguments.Add($"mmr_descending={mmrDescending}");
 
-        /// <inheritdoc />
-        public async Task<IEnumerable<PublicMatch>> GetPublicMatchesAsync(
-            int? mmrAscending = null,
-            int? mmrDescending = null,
-            long? lessThanMatchId = null) =>
-            await this.requester.GetResponseAsync<IEnumerable<PublicMatch>>(
-                "publicMatches",
-                this.GetArguments(mmrAscending, mmrDescending, lessThanMatchId));
+		if (lessThanMatchId != null) 
+			addedArguments.Add($"less_than_match_id={lessThanMatchId}");
 
-        private IEnumerable<string> GetArguments(int? mmrAscending = null, int? mmrDescending = null, long? lessThanMatchId = null)
-        {
-            var addedArguments = new List<string>();
-
-            if (mmrAscending != null)
-            {
-                addedArguments.Add($@"mmr_ascending={mmrAscending}");
-            }
-
-            if (mmrDescending != null)
-            {
-                addedArguments.Add($@"mmr_descending={mmrDescending}");
-            }
-
-            if (lessThanMatchId != null)
-            {
-                addedArguments.Add($@"less_than_match_id={lessThanMatchId}");
-            }
-
-            return addedArguments;
-        }
-    }
+		return addedArguments;
+	}
 }

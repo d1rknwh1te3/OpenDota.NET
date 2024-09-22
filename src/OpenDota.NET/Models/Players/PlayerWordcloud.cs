@@ -1,14 +1,10 @@
-﻿namespace OpenDotaDotNet.Models.Players
+﻿namespace OpenDotaDotNet.Models.Players;
+
+public class PlayerWordCloud
 {
-    using System.Collections.Generic;
-    using System.Text.Json.Serialization;
+	[JsonProperty("my_word_counts")]
+	public Dictionary<string, long> MyWordCounts { get; set; }
 
-    public class PlayerWordcloud
-    {
-        [JsonPropertyName("my_word_counts")]
-        public Dictionary<string, long> MyWordCounts { get; set; }
-
-        [JsonPropertyName("all_word_counts")]
-        public Dictionary<string, long> AllWordCounts { get; set; }
-    }
+	[JsonProperty("all_word_counts")]
+	public Dictionary<string, long> AllWordCounts { get; set; }
 }

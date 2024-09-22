@@ -1,19 +1,16 @@
-﻿namespace OpenDotaDotNet.Models.Metadata
+﻿namespace OpenDotaDotNet.Models.Metadata;
+
+public class Metadata
 {
-    using System.Text.Json.Serialization;
+	[JsonProperty("scenarios")]
+	public Scenarios Scenarios { get; set; }
 
-    public class Metadata
-    {
-        [JsonPropertyName("scenarios")]
-        public Scenarios Scenarios { get; set; }
+	[JsonProperty("user")]
+	public User User { get; set; }
 
-        [JsonPropertyName("user")]
-        public User User { get; set; }
+	[JsonProperty("banner")]
+	public object Banner { get; set; }
 
-        [JsonPropertyName("banner")]
-        public object Banner { get; set; }
-
-        [JsonPropertyName("cheese")]
-        public Cheese Cheese { get; set; }
-    }
+	[JsonProperty("cheese")]
+	public Cheese Cheese { get; set; }
 }

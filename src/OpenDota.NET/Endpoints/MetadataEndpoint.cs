@@ -1,20 +1,8 @@
-﻿namespace OpenDotaDotNet.Endpoints
+﻿namespace OpenDotaDotNet.Endpoints;
+
+public class MetadataEndpoint(Requester requester) : IMetadataEndpoint
 {
-    using System.Threading.Tasks;
-
-    using OpenDotaDotNet.Models.Metadata;
-
-    public class MetadataEndpoint : IMetadataEndpoint
-    {
-        private readonly Requester requester;
-
-        public MetadataEndpoint(Requester requester)
-        {
-            this.requester = requester;
-        }
-
-        /// <inheritdoc />
-        public async Task<Metadata> GetMetadataAsync() =>
-            await this.requester.GetResponseAsync<Metadata>("metadata");
-    }
+	/// <inheritdoc />
+	public Task<Metadata?> GetMetadataAsync() =>
+		requester.GetResponseAsync<Metadata>("metadata");
 }
