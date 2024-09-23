@@ -8,7 +8,7 @@ Full documentation is available on [OpenDota](https://docs.opendota.com/).
 
 Some of the data types can be found in the [dotaconstants](https://github.com/odota/dotaconstants) repository.
 
-[![NuGet version](https://badge.fury.io/nu/OpenDota.NET.svg)](https://badge.fury.io/nu/OpenDota.NET)
+[![NuGet version](https://badge.fury.io/nu/OpenDota.NET.Remade.svg)](https://badge.fury.io/nu/OpenDota.NET.Remade/)
 
 ## Example
 

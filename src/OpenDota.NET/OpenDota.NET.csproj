@@ -7,7 +7,6 @@
 	 </PropertyGroup>
   
 	<PropertyGroup>
-	    <CodeAnalysisRuleSet>..\Rules.ruleset</CodeAnalysisRuleSet>
 	    <Copyright>NikolayIT, rist0, d1rknwh1te3</Copyright>
 	    <Authors>NikolayIT, rist0, d1rknwh1te3</Authors>
 	    <PackageLicenseExpression>MIT</PackageLicenseExpression>
@@ -17,7 +16,7 @@
 	    </PackageReleaseNotes>
 	    <PackageTags>dota, dota2, api, opendota, opendota.com, client</PackageTags>
 	    <RepositoryType>GitHub</RepositoryType>
-	    <Description>.NET Standard wrapper for the OpenDota API. The OpenDota API provides Dota 2 related data including advanced match data extracted from match replays. Project URL: https://github.com/NikolayIT/OpenDota.NET</Description>
+	    <Description>.NET wrapper for the OpenDota API. The OpenDota API provides Dota 2 related data including advanced match data extracted from match replays.</Description>
 	    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 	    <PackageIcon>icon-144x144.png</PackageIcon>
 	    <PackageIconUrl />
@@ -28,6 +27,8 @@
 	    <AssemblyVersion>3.0.0</AssemblyVersion>
 	    <FileVersion>3.0.0</FileVersion>
 	    <AnalysisLevel>preview</AnalysisLevel>
+	    <PackageId>OpenDota.NET.Remade</PackageId>
+	    <Title>OpenDota.NET Remade</Title>
   </PropertyGroup>
   
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
