@@ -1,5 +1,8 @@
 ﻿namespace OpenDotaDotNet.Routes.Players.Models;
 
+/// <summary>
+/// Represents player peer.
+/// </summary>
 public class PlayerPeer
 {
 	/// <summary>

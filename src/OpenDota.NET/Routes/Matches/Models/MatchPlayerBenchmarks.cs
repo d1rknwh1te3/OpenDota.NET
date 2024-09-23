@@ -1,5 +1,8 @@
 ﻿namespace OpenDotaDotNet.Routes.Matches.Models;
 
+/// <summary>
+/// Represents match player benchmarks.
+/// </summary>
 public class MatchPlayerBenchmarks
 {
 	[JsonProperty("gold_per_min")]

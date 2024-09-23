@@ -1,12 +1,19 @@
 ﻿namespace OpenDotaDotNet.Routes.Matches.Models;
 
+/// <summary>
+/// Represents a kill log.
+/// </summary>
 public class KillLog
 {
-	// The unit who got killed
+	/// <summary>
+	/// Gets or sets the unit who got killed
+	/// </summary>
 	[JsonProperty("key")]
-	public string Key { get; set; }
+	public string? Key { get; set; }
 
-	// Time in seconds when the kill happened
+	/// <summary>
+	/// Gets or sets the time in seconds when the kill happened.
+	/// </summary>
 	[JsonProperty("time")]
 	public long Time { get; set; }
 }

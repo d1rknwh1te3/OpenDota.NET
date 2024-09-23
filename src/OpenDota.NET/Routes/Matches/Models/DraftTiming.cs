@@ -20,7 +20,9 @@ public class DraftTiming
 	[JsonProperty("hero_id")]
 	public int HeroId { get; set; }
 
-	// Which slot the player playing the picked hero is in. 0-127 are Radiant, 128-255 are Dire
+	/// <summary>
+	/// Gets or sets which slot the player is in. 0-127 are Radiant, 128-255 are Dire.
+	/// </summary>
 	[JsonProperty("player_slot")]
 	public long? PlayerSlot { get; set; }
 

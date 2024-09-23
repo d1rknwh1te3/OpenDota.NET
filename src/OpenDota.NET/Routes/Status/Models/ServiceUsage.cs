@@ -1,5 +1,8 @@
 ﻿namespace OpenDotaDotNet.Routes.Status.Models;
 
+/// <summary>
+/// Represents service usage.
+/// </summary>
 public class ServiceUsage
 {
 	/// <summary>

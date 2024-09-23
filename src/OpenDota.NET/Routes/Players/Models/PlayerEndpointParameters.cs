@@ -23,12 +23,14 @@ public class PlayerEndpointParameters
 	public int? Patch { get; set; }
 
 	/// <summary>
-	/// Gets or sets the game Mode ID.
+	/// Gets or sets an integer corresponding to game mode played.
+	/// List of constants can be found here: https://github.com/odota/dotaconstants/blob/master/json/game_mode.json.
 	/// </summary>
 	public int? GameMode { get; set; }
-
+	
 	/// <summary>
-	/// Gets or sets the lobby type ID.
+	/// Gets or sets integer corresponding to lobby type of match.
+	/// List of constants can be found here: https://github.com/odota/dotaconstants/blob/master/json/lobby_type.json.
 	/// </summary>
 	public int? LobbyType { get; set; }
 

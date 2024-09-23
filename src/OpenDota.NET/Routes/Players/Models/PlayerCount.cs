@@ -1,5 +1,8 @@
 ﻿namespace OpenDotaDotNet.Routes.Players.Models;
 
+/// <summary>
+/// Represents player count.
+/// </summary>
 public class PlayerCount
 {
 	/// <summary>

@@ -1,5 +1,8 @@
 ﻿namespace OpenDotaDotNet.Routes.Rankings;
 
+/// <summary>
+/// Represents rankings endpoint.
+/// </summary>
 public interface IRankingsEndpoint
 {
 	/// <summary>

@@ -1,5 +1,8 @@
 ﻿namespace OpenDotaDotNet.Routes.Players.Models;
 
+/// <summary>
+/// Represents a pro player.
+/// </summary>
 public class PlayerPro
 {
 	/// <summary>

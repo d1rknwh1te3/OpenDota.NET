@@ -48,7 +48,7 @@ public class HeroMatch
 	public bool Radiant { get; set; }
 
 	/// <summary>
-	/// Gets or sets the slot in which the hero/player was.
+	/// Gets or sets which slot the player is in. 0-127 are Radiant, 128-255 are Dire.
 	/// </summary>
 	[JsonProperty("player_slot")]
 	public long PlayerSlot { get; set; }

@@ -14,7 +14,6 @@ public class SchemaEndpointTests(ITestOutputHelper testOutputHelper)
 		{
 			var schema = result as DatabaseSchema[] ?? result.ToArray();
 
-			//Assert.True(schema.Length >= 335); TODO: Fix schema length
 			Assert.Contains(schema, x => x.TableName == "api_key_usage");
 		}
 	}

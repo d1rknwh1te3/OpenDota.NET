@@ -1,5 +1,8 @@
 ﻿namespace OpenDotaDotNet.Routes.Matches.Models;
 
+/// <summary>
+/// Represents a match team.
+/// </summary>
 public class MatchTeam
 {
 	// Id of team

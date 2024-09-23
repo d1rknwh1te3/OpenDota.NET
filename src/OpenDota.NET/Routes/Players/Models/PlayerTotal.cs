@@ -1,5 +1,8 @@
 ﻿namespace OpenDotaDotNet.Routes.Players.Models;
 
+/// <summary>
+/// Represents player total.
+/// </summary>
 public class PlayerTotal
 {
 	[JsonProperty("field")]

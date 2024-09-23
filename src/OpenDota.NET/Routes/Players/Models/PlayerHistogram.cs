@@ -1,5 +1,8 @@
 ﻿namespace OpenDotaDotNet.Routes.Players.Models;
 
+/// <summary>
+/// Represents player histogram.
+/// </summary>
 public class PlayerHistogram
 {
 	/// <summary>

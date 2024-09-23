@@ -1,5 +1,8 @@
 ﻿namespace OpenDotaDotNet.Routes.Players.Models;
 
+/// <summary>
+/// Represents a player match.
+/// </summary>
 public class PlayerMatch
 {
 	/// <summary>

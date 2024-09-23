@@ -1,5 +1,8 @@
 ﻿namespace OpenDotaDotNet.Routes.Players.Models;
 
+/// <summary>
+/// Represents player ward map.
+/// </summary>
 public class PlayerWardMap
 {
 	[JsonProperty("obs")]

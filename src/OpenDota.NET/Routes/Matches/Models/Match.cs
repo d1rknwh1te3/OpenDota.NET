@@ -47,7 +47,10 @@ public class Match
 	[JsonProperty("first_blood_time")]
 	public long FirstBloodTime { get; set; }
 
-	// Integer corresponding to game mode played. List of constants can be found here: https://github.com/odota/dotaconstants/blob/master/json/game_mode.json
+	/// <summary>
+	/// Gets or sets an integer corresponding to game mode played.
+	/// List of constants can be found here: https://github.com/odota/dotaconstants/blob/master/json/game_mode.json.
+	/// </summary>
 	[JsonProperty("game_mode")]
 	public int GameMode { get; set; }
 
@@ -57,9 +60,12 @@ public class Match
 
 	// The ID of league
 	[JsonProperty("leagueid")]
-	public int Leagueid { get; set; }
+	public int LeagueId { get; set; }
 
-	// Integer corresponding to lobby type of match. List of constants can be found here: https://github.com/odota/dotaconstants/blob/master/json/lobby_type.json
+	/// <summary>
+	/// Gets or sets integer corresponding to lobby type of match.
+	/// List of constants can be found here: https://github.com/odota/dotaconstants/blob/master/json/lobby_type.json.
+	/// </summary>
 	[JsonProperty("lobby_type")]
 	public long LobbyType { get; set; }
 
@@ -106,27 +112,39 @@ public class Match
 	[JsonProperty("skill")]
 	public int? Skill { get; set; }
 
-	// The Unix timestamp at which the game started
+	/// <summary>
+	/// Gets or sets the Unix timestamp at which the game started.
+	/// </summary>
 	[JsonProperty("start_time")]
 	public long StartTime { get; set; }
 
-	// Detailed list of teamfights
+	/// <summary>
+	/// Gets or sets the detailed list of teamfights.
+	/// </summary>
 	[JsonProperty("teamfights")]
 	public IEnumerable<Teamfight> Teamfights { get; set; }
 
-	// Bitmask. An integer that represents a binary of which Dire towers are still standing.
+	/// <summary>
+	/// Gets or sets the bitmask. An integer that represents a binary of which Dire towers are still standing.
+	/// </summary>
 	[JsonProperty("tower_status_dire")]
 	public int TowerStatusDire { get; set; }
 
-	// Bitmask. An integer that represents a binary of which Radiant towers are still standing.
+	/// <summary>
+	/// Gets or sets the bitmask. An integer that represents a binary of which Radiant towers are still standing.
+	/// </summary>
 	[JsonProperty("tower_status_radiant")]
 	public int TowerStatusRadiant { get; set; }
 
-	// Parse version, used internally by OpenDota
+	/// <summary>
+	/// Gets or sets parse version, used internally by OpenDota.
+	/// </summary>
 	[JsonProperty("version")]
 	public int? Version { get; set; }
 
-	// Salt of the replay file
+	/// <summary>
+	/// Gets or sets salt of the replay file.
+	/// </summary>
 	[JsonProperty("replay_salt")]
 	public long ReplaySalt { get; set; }
 
@@ -156,11 +174,15 @@ public class Match
 	[JsonProperty("patch")]
 	public int Patch { get; set; }
 
-	// Integer corresponding to the region the game was played on
+	/// <summary>
+	/// Gets or sets the integer corresponding to the region the game was played on.
+	/// </summary>
 	[JsonProperty("region")]
 	public int Region { get; set; }
 
-	// Word counts of the all chat messages in the player's games (string-message, int-amount of times used)
+	/// <summary>
+	/// Gets or sets word counts of the all chat messages in the player's games (string - message, int - amount of times used).
+	/// </summary>
 	[JsonProperty("all_word_counts")]
 	public IDictionary<string, int> AllWordCounts { get; set; }
 
@@ -168,26 +190,36 @@ public class Match
 	[JsonProperty("my_word_counts")]
 	public IDictionary<string, int> MyWordCounts { get; set; }
 
-	// Maximum gold advantage of the player's team if they lost the match
+	/// <summary>
+	/// Gets or sets the maximum gold advantage of the player's team if they lost the match.
+	/// </summary>
 	[JsonProperty("throw")]
 	public int Throw { get; set; }
 
-	// Maximum gold disadvantage of the player's team if they won the match
+	/// <summary>
+	/// Gets or sets the maximum gold disadvantage of the player's team if they won the match.
+	/// </summary>
 	[JsonProperty("comeback")]
 	public int Comeback { get; set; }
 
 	[JsonProperty("stomp")]
 	public int Stomp { get; set; }
 
-	// Maximum gold disadvantage of the player's team if they lost the match
+	/// <summary>
+	/// Gets or sets the maximum gold disadvantage of the player's team if they lost the match.
+	/// </summary>
 	[JsonProperty("loss")]
 	public int Loss { get; set; }
 
-	// Maximum gold advantage of the player's team if they won the match
+	/// <summary>
+	/// Gets or sets the maximum gold advantage of the player's team if they won the match.
+	/// </summary>
 	[JsonProperty("win")]
 	public int Win { get; set; }
 
-	// The url
+	/// <summary>
+	/// Gets or sets the replay URL.
+	/// </summary>
 	[JsonProperty("replay_url")]
 	public Uri ReplayUrl { get; set; }
 }

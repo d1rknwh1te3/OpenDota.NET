@@ -1,5 +1,8 @@
 ﻿namespace OpenDotaDotNet.Routes.Benchmarks.Models;
 
+/// <summary>
+/// Represents a benchmark value.
+/// </summary>
 public class BenchmarkValue
 {
 	/// <summary>

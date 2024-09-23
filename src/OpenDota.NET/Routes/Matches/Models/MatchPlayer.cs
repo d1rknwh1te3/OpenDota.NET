@@ -8,7 +8,9 @@ public class MatchPlayer
 	[JsonProperty("match_id")]
 	public long MatchId { get; set; }
 
-	// Which slot the player is in. 0-127 are Radiant, 128-255 are Dire
+	/// <summary>
+	/// Gets or sets which slot the player is in. 0-127 are Radiant, 128-255 are Dire.
+	/// </summary>
 	[JsonProperty("player_slot")]
 	public int PlayerSlot { get; set; }
 
@@ -366,11 +368,17 @@ public class MatchPlayer
 	[JsonProperty("cluster")]
 	public long Cluster { get; set; }
 
-	// Integer corresponding to lobby type of match. List of constants can be found here: https://github.com/odota/dotaconstants/blob/master/json/lobby_type.json
+	/// <summary>
+	/// Gets or sets integer corresponding to lobby type of match.
+	/// List of constants can be found here: https://github.com/odota/dotaconstants/blob/master/json/lobby_type.json.
+	/// </summary>
 	[JsonProperty("lobby_type")]
 	public int LobbyType { get; set; }
 
-	// Integer corresponding to game mode played. List of constants can be found here: https://github.com/odota/dotaconstants/blob/master/json/game_mode.json
+	/// <summary>
+	/// Gets or sets an integer corresponding to game mode played.
+	/// List of constants can be found here: https://github.com/odota/dotaconstants/blob/master/json/game_mode.json.
+	/// </summary>
 	[JsonProperty("game_mode")]
 	public int GameMode { get; set; }
 

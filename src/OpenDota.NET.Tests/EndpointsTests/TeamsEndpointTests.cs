@@ -99,11 +99,6 @@ public class TeamsEndpointTests(ITestOutputHelper testOutputHelper)
 			var teamPlayers = result as TeamPlayer[] ?? result.ToArray();
 
 			Assert.Equal(7, teamPlayers.Count(x => x.IsCurrentTeamMember == true));
-			//Assert.Contains(teamPlayers, x => x.Name == "KuroKy"); TODO: Fix names
-			//Assert.Contains(teamPlayers, x => x.Name == "GH");
-			//Assert.Contains(teamPlayers, x => x.Name == "Miracle-");
-			//Assert.Contains(teamPlayers, x => x.Name == "MinD_ContRoL");
-			//Assert.Contains(teamPlayers, x => x.Name == "Yuma");
 			Assert.True(Array.TrueForAll(teamPlayers, x => x.GamesPlayed >= 0));
 			Assert.True(Array.TrueForAll(teamPlayers, x => x.Wins >= 0));
 			Assert.True(Array.TrueForAll(teamPlayers, x => x.AccountId > 0));

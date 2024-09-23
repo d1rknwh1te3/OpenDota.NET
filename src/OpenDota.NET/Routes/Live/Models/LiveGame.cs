@@ -20,6 +20,10 @@ public class LiveGame
 	[JsonProperty("league_id")]
 	public long LeagueId { get; set; }
 
+	/// <summary>
+	/// Gets or sets integer corresponding to lobby type of match.
+	/// List of constants can be found here: https://github.com/odota/dotaconstants/blob/master/json/lobby_type.json.
+	/// </summary>
 	[JsonProperty("lobby_type")]
 	public long LobbyType { get; set; }
 
@@ -32,6 +36,10 @@ public class LiveGame
 	[JsonProperty("spectators")]
 	public int Spectators { get; set; }
 
+	/// <summary>
+	/// Gets or sets an integer corresponding to game mode played.
+	/// List of constants can be found here: https://github.com/odota/dotaconstants/blob/master/json/game_mode.json.
+	/// </summary>
 	[JsonProperty("game_mode")]
 	public int GameMode { get; set; }
 
