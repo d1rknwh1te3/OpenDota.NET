@@ -1,21 +1,10 @@
-﻿namespace OpenDotaDotNet.Endpoints
+﻿using League = OpenDotaDotNet.Models.Leagues.League;
+
+namespace OpenDotaDotNet.Endpoints;
+
+public class LeagueEndpoint(Requester requester) : ILeagueEndpoint
 {
-    using System.Collections.Generic;
-    using System.Threading.Tasks;
-
-    using OpenDotaDotNet.Models.Leagues;
-
-    public class LeagueEndpoint : ILeagueEndpoint
-    {
-        private readonly Requester requester;
-
-        public LeagueEndpoint(Requester requester)
-        {
-            this.requester = requester;
-        }
-
-        /// <inheritdoc />
-        public async Task<IEnumerable<League>> GetLeaguesAsync() =>
-            await this.requester.GetResponseAsync<IEnumerable<League>>("leagues");
-    }
+	/// <inheritdoc />
+	public Task<IEnumerable<League>?> GetLeaguesAsync() =>
+		requester.GetResponseAsync<IEnumerable<League>>("leagues");
 }

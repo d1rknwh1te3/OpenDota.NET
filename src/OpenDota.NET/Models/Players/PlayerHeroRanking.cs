@@ -1,19 +1,16 @@
-﻿namespace OpenDotaDotNet.Models.Players
+﻿namespace OpenDotaDotNet.Models.Players;
+
+public class PlayerHeroRanking
 {
-    using System.Text.Json.Serialization;
+	[JsonProperty("hero_id")]
+	public long HeroId { get; set; }
 
-    public class PlayerHeroRanking
-    {
-        [JsonPropertyName("hero_id")]
-        public long HeroId { get; set; }
+	[JsonProperty("score")]
+	public double Score { get; set; }
 
-        [JsonPropertyName("score")]
-        public double Score { get; set; }
+	[JsonProperty("percent_rank")]
+	public double PercentRank { get; set; }
 
-        [JsonPropertyName("percent_rank")]
-        public double PercentRank { get; set; }
-
-        [JsonPropertyName("card")]
-        public long Card { get; set; }
-    }
+	[JsonProperty("card")]
+	public long Card { get; set; }
 }

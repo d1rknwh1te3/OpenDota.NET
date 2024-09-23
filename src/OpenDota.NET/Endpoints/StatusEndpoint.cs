@@ -1,20 +1,9 @@
-﻿namespace OpenDotaDotNet.Endpoints
+﻿namespace OpenDotaDotNet.Endpoints;
+
+/// <inheritdoc />
+public class StatusEndpoint(Requester requester) : IStatusEndpoint
 {
-    using System.Threading.Tasks;
-
-    using OpenDotaDotNet.Models.HealthStatus;
-
-    public class StatusEndpoint : IStatusEndpoint
-    {
-        private readonly Requester requester;
-
-        public StatusEndpoint(Requester requester)
-        {
-            this.requester = requester;
-        }
-
-        /// <inheritdoc />
-        public async Task<ServiceStatistics> GetServiceStatisticsAsync() =>
-            await this.requester.GetResponseAsync<ServiceStatistics>("status");
-    }
+	/// <inheritdoc />
+	public Task<ServiceStatistics?> GetServiceStatisticsAsync() =>
+		requester.GetResponseAsync<ServiceStatistics>("status");
 }

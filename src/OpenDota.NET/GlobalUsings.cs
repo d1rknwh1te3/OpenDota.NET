@@ -1,0 +1,36 @@
+// Global using directives
+
+global using Newtonsoft.Json;
+global using Newtonsoft.Json.Linq;
+global using OpenDotaDotNet.Endpoints;
+global using OpenDotaDotNet.Interfaces;
+global using OpenDotaDotNet.Interfaces.Endpoints;
+global using OpenDotaDotNet.Models.Benchmarks;
+global using OpenDotaDotNet.Models.Distributions;
+global using OpenDotaDotNet.Models.FindMatches;
+global using OpenDotaDotNet.Models.HealthStatus;
+global using OpenDotaDotNet.Models.Heroes;
+global using OpenDotaDotNet.Models.HeroStats;
+global using OpenDotaDotNet.Models.Live;
+global using OpenDotaDotNet.Models.Matches;
+global using OpenDotaDotNet.Models.Metadata;
+global using OpenDotaDotNet.Models.Players;
+global using OpenDotaDotNet.Models.ProMatches;
+global using OpenDotaDotNet.Models.ProPlayers;
+global using OpenDotaDotNet.Models.PublicMatches;
+global using OpenDotaDotNet.Models.Rankings;
+global using OpenDotaDotNet.Models.Records;
+global using OpenDotaDotNet.Models.Replays;
+global using OpenDotaDotNet.Models.Request;
+global using OpenDotaDotNet.Models.Scenarios;
+global using OpenDotaDotNet.Models.Schema;
+global using OpenDotaDotNet.Models.Search;
+global using OpenDotaDotNet.Models.Teams;
+global using System;
+global using System.Collections.Generic;
+global using System.IO;
+global using System.Linq;
+global using System.Net;
+global using System.Net.Http;
+global using System.Threading.Tasks;
+global using OpenDotaDotNet.Models.ParsedMatches;

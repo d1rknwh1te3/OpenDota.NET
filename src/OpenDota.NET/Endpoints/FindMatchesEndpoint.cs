@@ -1,45 +1,28 @@
-﻿namespace OpenDotaDotNet.Endpoints
+﻿namespace OpenDotaDotNet.Endpoints;
+
+/// <inheritdoc />
+public class FindMatchesEndpoint(Requester requester) : IFindMatchesEndpoint
 {
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Threading.Tasks;
+	/// <inheritdoc />
+	public Task<IEnumerable<FindMatch>?> FindMatchesByHeroesPlayedAsync(
+		List<int>? teamA = null,
+		List<int>? teamB = null) =>
+		requester.GetResponseAsync<IEnumerable<FindMatch>>(
+			"findMatches",
+			GetArguments(teamA, teamB));
 
-    using OpenDotaDotNet.Models.FindMatches;
+	private List<string> GetArguments(
+		List<int>? teamA = null,
+		List<int>? teamB = null)
+	{
+		var addedArguments = new List<string>();
 
-    public class FindMatchesEndpoint : IFindMatchesEndpoint
-    {
-        private readonly Requester requester;
+		if (teamA != null) 
+			addedArguments.AddRange(teamA.Select(heroId => $"teamA={heroId}"));
 
-        public FindMatchesEndpoint(Requester requester)
-        {
-            this.requester = requester;
-        }
+		if (teamB != null) 
+			addedArguments.AddRange(teamB.Select(heroId => $"teamB={heroId}"));
 
-        /// <inheritdoc />
-        public async Task<IEnumerable<FindMatch>> FindMatchesByHeroesPlayedAsync(
-            IEnumerable<int> teamA = null,
-            IEnumerable<int> teamB = null) =>
-            await this.requester.GetResponseAsync<IEnumerable<FindMatch>>(
-                "findMatches",
-                this.GetArguments(teamA, teamB));
-
-        private IEnumerable<string> GetArguments(
-            IEnumerable<int> teamA = null,
-            IEnumerable<int> teamB = null)
-        {
-            var addedArguments = new List<string>();
-
-            if (teamA != null)
-            {
-                addedArguments.AddRange(teamA.Select(heroId => $"teamA={heroId}"));
-            }
-
-            if (teamB != null)
-            {
-                addedArguments.AddRange(teamB.Select(heroId => $"teamB={heroId}"));
-            }
-
-            return addedArguments;
-        }
-    }
+		return addedArguments;
+	}
 }

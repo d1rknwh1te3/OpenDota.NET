@@ -1,13 +1,19 @@
-﻿namespace OpenDotaDotNet.Models.HealthStatus
+﻿namespace OpenDotaDotNet.Models.HealthStatus;
+
+/// <summary>
+/// Represents an API path.
+/// </summary>
+public class ApiPath
 {
-    using System.Text.Json.Serialization;
+	/// <summary>
+	/// Gets or sets the hostname.
+	/// </summary>
+	[JsonProperty("hostname")]
+	public string Hostname { get; set; }
 
-    public class ApiPath
-    {
-        [JsonPropertyName("hostname")]
-        public string Hostname { get; set; }
-
-        [JsonPropertyName("count")]
-        public string Count { get; set; }
-    }
+	/// <summary>
+	/// Gets or sets the count.
+	/// </summary>
+	[JsonProperty("count")]
+	public string Count { get; set; }
 }

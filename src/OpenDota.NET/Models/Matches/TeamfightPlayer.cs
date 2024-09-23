@@ -1,58 +1,54 @@
-﻿namespace OpenDotaDotNet.Models.Matches
+﻿namespace OpenDotaDotNet.Models.Matches;
+
+public class TeamfightPlayer
 {
-    using System.Collections.Generic;
-    using System.Text.Json.Serialization;
+	// Position where the hero died? Only has value if deaths is greater than 0
+	[JsonProperty("deaths_pos")]
+	public Dictionary<string, Dictionary<string, int>> DeathsPos { get; set; }
 
-    public class TeamfightPlayer
-    {
-        // Position where the hero died? Only has value if deaths is greater than 0
-        [JsonPropertyName("deaths_pos")]
-        public Dictionary<string, Dictionary<string, int>> DeathsPos { get; set; }
+	// The name of abilities used and how many times they were used
+	[JsonProperty("ability_uses")]
+	public Dictionary<string, int> AbilityUses { get; set; }
 
-        // The name of abilities used and how many times they were used
-        [JsonPropertyName("ability_uses")]
-        public Dictionary<string, int> AbilityUses { get; set; }
+	// NOTE: No value is returned for this param
+	// [JsonProperty("ability_targets")]
+	// public MyWordCounts AbilityTargets { get; set; }
 
-        // NOTE: No value is returned for this param
-        // [JsonPropertyName("ability_targets")]
-        // public MyWordCounts AbilityTargets { get; set; }
+	// The name of items used and how many times they were used
+	[JsonProperty("item_uses")]
+	public Dictionary<string, long> ItemUses { get; set; }
 
-        // The name of items used and how many times they were used
-        [JsonPropertyName("item_uses")]
-        public Dictionary<string, long> ItemUses { get; set; }
+	// The heroes killed and how many times they were killed
+	[JsonProperty("killed")]
+	public Dictionary<string, long> Killed { get; set; }
 
-        // The heroes killed and how many times they were killed
-        [JsonPropertyName("killed")]
-        public Dictionary<string, long> Killed { get; set; }
+	// How many deaths the player got during the teamfight
+	[JsonProperty("deaths")]
+	public long Deaths { get; set; }
 
-        // How many deaths the player got during the teamfight
-        [JsonPropertyName("deaths")]
-        public long Deaths { get; set; }
+	// If the player bought back or not
+	[JsonProperty("buybacks")]
+	public long Buybacks { get; set; }
 
-        // If the player bought back or not
-        [JsonPropertyName("buybacks")]
-        public long Buybacks { get; set; }
+	// Total amount of damage
+	[JsonProperty("damage")]
+	public long Damage { get; set; }
 
-        // Total amount of damage
-        [JsonPropertyName("damage")]
-        public long Damage { get; set; }
+	// Total amount of healing
+	[JsonProperty("healing")]
+	public long Healing { get; set; }
 
-        // Total amount of healing
-        [JsonPropertyName("healing")]
-        public long Healing { get; set; }
+	// Gold gained from the teamfight
+	[JsonProperty("gold_delta")]
+	public long GoldDelta { get; set; }
 
-        // Gold gained from the teamfight
-        [JsonPropertyName("gold_delta")]
-        public long GoldDelta { get; set; }
+	// Experience gained from the teamfight
+	[JsonProperty("xp_delta")]
+	public long XpDelta { get; set; }
 
-        // Experience gained from the teamfight
-        [JsonPropertyName("xp_delta")]
-        public long XpDelta { get; set; }
+	[JsonProperty("xp_start")]
+	public long XpStart { get; set; }
 
-        [JsonPropertyName("xp_start")]
-        public long XpStart { get; set; }
-
-        [JsonPropertyName("xp_end")]
-        public long XpEnd { get; set; }
-    }
+	[JsonProperty("xp_end")]
+	public long XpEnd { get; set; }
 }

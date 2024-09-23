@@ -1,32 +1,28 @@
-﻿namespace OpenDotaDotNet.Models.Request
+﻿namespace OpenDotaDotNet.Models.Request;
+
+public class ParseRequestState
 {
-    using System;
-    using System.Text.Json.Serialization;
+	[JsonProperty("id")]
+	public long Id { get; set; }
 
-    public class ParseRequestState
-    {
-        [JsonPropertyName("id")]
-        public long Id { get; set; }
+	[JsonProperty("type")]
+	public string Type { get; set; }
 
-        [JsonPropertyName("type")]
-        public string Type { get; set; }
+	[JsonProperty("timestamp")]
+	public DateTimeOffset Timestamp { get; set; }
 
-        [JsonPropertyName("timestamp")]
-        public DateTimeOffset Timestamp { get; set; }
+	[JsonProperty("attempts")]
+	public int Attempts { get; set; }
 
-        [JsonPropertyName("attempts")]
-        public int Attempts { get; set; }
+	[JsonProperty("data")]
+	public Data Data { get; set; }
 
-        [JsonPropertyName("data")]
-        public Data Data { get; set; }
+	[JsonProperty("next_attempt_time")]
+	public DateTimeOffset NextAttemptTime { get; set; }
 
-        [JsonPropertyName("next_attempt_time")]
-        public DateTimeOffset NextAttemptTime { get; set; }
+	[JsonProperty("priority")]
+	public int Priority { get; set; }
 
-        [JsonPropertyName("priority")]
-        public int Priority { get; set; }
-
-        [JsonPropertyName("jobId")]
-        public long JobId { get; set; }
-    }
+	[JsonProperty("jobId")]
+	public long JobId { get; set; }
 }

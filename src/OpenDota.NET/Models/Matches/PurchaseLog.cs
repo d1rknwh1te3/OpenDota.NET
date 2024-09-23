@@ -1,15 +1,12 @@
-﻿namespace OpenDotaDotNet.Models.Matches
+﻿namespace OpenDotaDotNet.Models.Matches;
+
+public class PurchaseLog
 {
-    using System.Text.Json.Serialization;
+	// Key of the item purchased
+	[JsonProperty("key")]
+	public string Key { get; set; }
 
-    public class PurchaseLog
-    {
-        // Key of the item purchased
-        [JsonPropertyName("key")]
-        public string Key { get; set; }
-
-        // Time in seconds when the item was purchased
-        [JsonPropertyName("time")]
-        public long Time { get; set; }
-    }
+	// Time in seconds when the item was purchased
+	[JsonProperty("time")]
+	public long Time { get; set; }
 }

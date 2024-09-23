@@ -1,28 +1,34 @@
-﻿namespace OpenDotaDotNet.Models.Players
+﻿namespace OpenDotaDotNet.Models.Players;
+
+public class Player
 {
-    using System.Text.Json.Serialization;
+	/// <summary>
+	/// Gets or sets the solo competitive rank.
+	/// </summary>
+	[JsonProperty("solo_competitive_rank")]
+	public int? SoloCompetitiveRank { get; set; }
 
-    public class Player
-    {
-        [JsonPropertyName("tracked_until")]
-        public string TrackedUntil { get; set; }
+	/// <summary>
+	/// Gets or sets the competitive rank.
+	/// </summary>
+	[JsonProperty("competitive_rank")]
+	public int? CompetitiveRank { get; set; }
 
-        [JsonPropertyName("solo_competitive_rank")]
-        public int? SoloCompetitiveRank { get; set; }
+	/// <summary>
+	/// Gets or sets the rank tier.
+	/// </summary>
+	[JsonProperty("rank_tier")]
+	public int? RankTier { get; set; }
 
-        [JsonPropertyName("competitive_rank")]
-        public int? CompetitiveRank { get; set; }
+	/// <summary>
+	/// Gets or sets the leaderboard rank.
+	/// </summary>
+	[JsonProperty("leaderboard_rank")]
+	public int? LeaderboardRank { get; set; }
 
-        [JsonPropertyName("rank_tier")]
-        public int? RankTier { get; set; }
-
-        [JsonPropertyName("leaderboard_rank")]
-        public int? LeaderboardRank { get; set; }
-
-        [JsonPropertyName("mmr_estimate")]
-        public MmrEstimate MmrEstimate { get; set; }
-
-        [JsonPropertyName("profile")]
-        public Profile Profile { get; set; }
-    }
+	/// <summary>
+	/// Gets or sets the profile.
+	/// </summary>
+	[JsonProperty("profile")]
+	public Profile Profile { get; set; }
 }

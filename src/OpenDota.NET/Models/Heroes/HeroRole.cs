@@ -1,15 +1,52 @@
-﻿namespace OpenDotaDotNet.Models.Heroes
+﻿namespace OpenDotaDotNet.Models.Heroes;
+
+/// <summary>
+/// The role of the hero.
+/// </summary>
+public enum HeroRole
 {
-    public enum HeroRole
-    {
-        Carry = 0,
-        Disabler = 1,
-        Durable = 2,
-        Escape = 3,
-        Initiator = 4,
-        Jungler = 5,
-        Nuker = 6,
-        Pusher = 7,
-        Support = 8,
-    }
+	/// <summary>
+	/// The carry role.
+	/// </summary>
+	Carry = 0,
+
+	/// <summary>
+	/// The disabler role.
+	/// </summary>
+	Disabler = 1,
+
+	/// <summary>
+	/// The durable role.
+	/// </summary>
+	Durable = 2,
+
+	/// <summary>
+	/// The escape role.
+	/// </summary>
+	Escape = 3,
+
+	/// <summary>
+	/// The initiator role.
+	/// </summary>
+	Initiator = 4,
+
+	/// <summary>
+	/// The jungler role.
+	/// </summary>
+	Jungler = 5,
+
+	/// <summary>
+	/// The nuker role.
+	///	</summary>
+	Nuker = 6,
+
+	/// <summary>
+	/// The pusher role.
+	/// </summary>
+	Pusher = 7,
+
+	/// <summary>
+	/// The support role.
+	/// </summary>
+	Support = 8,
 }

@@ -1,62 +1,41 @@
-﻿namespace OpenDotaDotNet.Endpoints
+﻿namespace OpenDotaDotNet.Endpoints;
+
+public class ScenariosEndpoint(Requester requester) : IScenariosEndpoint
 {
-    using System.Collections.Generic;
-    using System.Threading.Tasks;
+	/// <inheritdoc />
+	public Task<IEnumerable<HeroItemTiming>?> GetWinRateForCertainItemTimingsOnHeroesAsync(string? item = null, int? heroId = null) =>
+		requester.GetResponseAsync<IEnumerable<HeroItemTiming>>(
+			"scenarios/itemTimings",
+			GetArguments(item, heroId));
 
-    using OpenDotaDotNet.Models.Scenarios;
+	/// <inheritdoc />
+	public Task<IEnumerable<HeroLaneRoleWinrate>?> GetWinRateForHeroesInCertainLaneRolesAsync(int? laneRole = null, int? heroId = null) =>
+		requester.GetResponseAsync<IEnumerable<HeroLaneRoleWinrate>>(
+			"scenarios/laneRoles",
+			GetArguments(null, heroId, laneRole));
 
-    public class ScenariosEndpoint : IScenariosEndpoint
-    {
-        private readonly Requester requester;
+	/// <inheritdoc />
+	public Task<IEnumerable<MiscellaneousTeamScenario>?> GetMiscellaneousTeamScenariosAsync(string? scenario = null) =>
+		requester.GetResponseAsync<IEnumerable<MiscellaneousTeamScenario>>(
+			"scenarios/misc",
+			GetArguments(null, null, null, scenario));
 
-        public ScenariosEndpoint(Requester requester)
-        {
-            this.requester = requester;
-        }
+	private List<string> GetArguments(string? item = null, int? heroId = null, int? laneRole = null, string? scenario = null)
+	{
+		var addedArguments = new List<string>();
 
-        /// <inheritdoc />
-        public async Task<IEnumerable<HeroItemTiming>> GetWinRateForCertainItemTimingsOnHeroesAsync(string item = null, int? heroId = null) =>
-            await this.requester.GetResponseAsync<IEnumerable<HeroItemTiming>>(
-                "scenarios/itemTimings",
-                this.GetArguments(item, heroId));
+		if (item != null) 
+			addedArguments.Add($"item={item}");
 
-        /// <inheritdoc />
-        public async Task<IEnumerable<HeroLaneRoleWinrate>> GetWinRateForHeroesInCertainLaneRolesAsync(int? laneRole = null, int? heroId = null) =>
-            await this.requester.GetResponseAsync<IEnumerable<HeroLaneRoleWinrate>>(
-                "scenarios/laneRoles",
-                this.GetArguments(null, heroId, laneRole));
+		if (heroId != null) 
+			addedArguments.Add($"hero_id={heroId}");
 
-        /// <inheritdoc />
-        public async Task<IEnumerable<MiscellaneousTeamScenario>> GetMiscellaneousTeamScenariosAsync(string scenario = null) =>
-            await this.requester.GetResponseAsync<IEnumerable<MiscellaneousTeamScenario>>(
-                "scenarios/misc",
-                this.GetArguments(null, null, null, scenario));
+		if (laneRole != null) 
+			addedArguments.Add($"lane_role={laneRole}");
 
-        private IEnumerable<string> GetArguments(string item = null, int? heroId = null, int? laneRole = null, string scenario = null)
-        {
-            var addedArguments = new List<string>();
+		if (scenario != null) 
+			addedArguments.Add($"scenario={scenario}");
 
-            if (item != null)
-            {
-                addedArguments.Add($"item={item}");
-            }
-
-            if (heroId != null)
-            {
-                addedArguments.Add($"hero_id={heroId}");
-            }
-
-            if (laneRole != null)
-            {
-                addedArguments.Add($"lane_role={laneRole}");
-            }
-
-            if (scenario != null)
-            {
-                addedArguments.Add($"scenario={scenario}");
-            }
-
-            return addedArguments;
-        }
-    }
+		return addedArguments;
+	}
 }

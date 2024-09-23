@@ -1,45 +1,51 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-
-  <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
-    <RootNamespace>OpenDotaDotNet</RootNamespace>
-    <AssemblyName>OpenDota.NET</AssemblyName>
-    <LangVersion>latest</LangVersion>
+	<PropertyGroup>
+	    <TargetFramework>net9.0</TargetFramework>
+	    <RootNamespace>OpenDotaDotNet</RootNamespace>
+	    <AssemblyName>OpenDota.NET</AssemblyName>
+	    <LangVersion>latest</LangVersion>
+	 </PropertyGroup>
+  
+	<PropertyGroup>
+	    <CodeAnalysisRuleSet>..\Rules.ruleset</CodeAnalysisRuleSet>
+	    <Copyright>NikolayIT, rist0, d1rknwh1te3</Copyright>
+	    <Authors>NikolayIT, rist0, d1rknwh1te3</Authors>
+	    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+	    <PackageProjectUrl>https://github.com/d1rknwh1te3/OpenDota.NET</PackageProjectUrl>
+	    <RepositoryUrl>https://github.com/d1rknwh1te3/OpenDota.NET</RepositoryUrl>
+	    <PackageReleaseNotes>
+	    </PackageReleaseNotes>
+	    <PackageTags>dota, dota2, api, opendota, opendota.com, client</PackageTags>
+	    <RepositoryType>GitHub</RepositoryType>
+	    <Description>.NET Standard wrapper for the OpenDota API. The OpenDota API provides Dota 2 related data including advanced match data extracted from match replays. Project URL: https://github.com/NikolayIT/OpenDota.NET</Description>
+	    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+	    <PackageIcon>icon-144x144.png</PackageIcon>
+	    <PackageIconUrl />
+	    <Version>3.0.0</Version>
+	    <Company>d1rknwh1te3</Company>
+	    <Nullable>enable</Nullable>
+	    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+	    <AssemblyVersion>3.0.0</AssemblyVersion>
+	    <FileVersion>3.0.0</FileVersion>
+	    <AnalysisLevel>preview</AnalysisLevel>
   </PropertyGroup>
-
-  <PropertyGroup>
-    <CodeAnalysisRuleSet>..\Rules.ruleset</CodeAnalysisRuleSet>
-    <Copyright>NikolayIT, rist0</Copyright>
-    <Authors>NikolayIT, rist0</Authors>
-    <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <PackageProjectUrl>https://github.com/NikolayIT/OpenDota.NET</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/NikolayIT/OpenDota.NET</RepositoryUrl>
-    <PackageReleaseNotes></PackageReleaseNotes>
-    <PackageTags>dota, dota2, api, opendota, opendota.com, client</PackageTags>
-    <RepositoryType>GitHub</RepositoryType>
-    <Description>.NET Standard wrapper for the OpenDota API. The OpenDota API provides Dota 2 related data including advanced match data extracted from match replays. Project URL: https://github.com/NikolayIT/OpenDota.NET</Description>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <PackageIcon>icon-144x144.png</PackageIcon>
-    <PackageIconUrl />
-    <Version>2.2.0</Version>
-    <Company>Nikolay.IT</Company>
-  </PropertyGroup>
-  <ItemGroup>
-    <AdditionalFiles Include="..\stylecop.json" />
-  </ItemGroup>
+  
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+	  <WarningLevel>9999</WarningLevel>
+	</PropertyGroup>
+  
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+	  <WarningLevel>9999</WarningLevel>
+	</PropertyGroup>
+  
+	<ItemGroup>
+	  <None Include="..\..\icon-144x144.png">
+	    <Pack>True</Pack>
+	    <PackagePath>\</PackagePath>
+	  </None>
+	</ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="StyleCop.Analyzers" Version="1.2.0-beta.164" PrivateAssets="all">
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
-    </PackageReference>
-    <PackageReference Include="System.Text.Json" Version="4.7.1" />
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
   </ItemGroup>
-
-  <ItemGroup>
-    <None Include="..\..\icon-144x144.png">
-      <Pack>True</Pack>
-      <PackagePath></PackagePath>
-    </None>
-  </ItemGroup>
-
 </Project>

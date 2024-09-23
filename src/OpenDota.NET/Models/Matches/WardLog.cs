@@ -1,40 +1,37 @@
-﻿namespace OpenDotaDotNet.Models.Matches
+﻿namespace OpenDotaDotNet.Models.Matches;
+
+public class WardLog
 {
-    using System.Text.Json.Serialization;
+	[JsonProperty("attackername")]
+	public string Attackername { get; set; }
 
-    public class WardLog
-    {
-        [JsonPropertyName("attackername")]
-        public string Attackername { get; set; }
+	[JsonProperty("ehandle")]
+	public long Ehandle { get; set; }
 
-        [JsonPropertyName("ehandle")]
-        public long Ehandle { get; set; }
+	[JsonProperty("entityleft")]
+	public bool Entityleft { get; set; }
 
-        [JsonPropertyName("entityleft")]
-        public bool Entityleft { get; set; }
+	[JsonProperty("key")]
+	public string Key { get; set; }
 
-        [JsonPropertyName("key")]
-        public string Key { get; set; }
+	[JsonProperty("player_slot")]
+	public int PlayerSlot { get; set; }
 
-        [JsonPropertyName("player_slot")]
-        public int PlayerSlot { get; set; }
+	[JsonProperty("slot")]
+	public int Slot { get; set; }
 
-        [JsonPropertyName("slot")]
-        public int Slot { get; set; }
+	[JsonProperty("time")]
+	public int Time { get; set; }
 
-        [JsonPropertyName("time")]
-        public int Time { get; set; }
+	[JsonProperty("type")]
+	public string Type { get; set; }
 
-        [JsonPropertyName("type")]
-        public string Type { get; set; }
+	[JsonProperty("x")]
+	public long X { get; set; }
 
-        [JsonPropertyName("x")]
-        public long X { get; set; }
+	[JsonProperty("y")]
+	public long Y { get; set; }
 
-        [JsonPropertyName("y")]
-        public long Y { get; set; }
-
-        [JsonPropertyName("z")]
-        public long Z { get; set; }
-    }
+	[JsonProperty("z")]
+	public long Z { get; set; }
 }

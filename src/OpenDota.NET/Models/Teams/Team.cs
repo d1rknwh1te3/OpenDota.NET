@@ -1,32 +1,28 @@
-﻿namespace OpenDotaDotNet.Models.Teams
+﻿namespace OpenDotaDotNet.Models.Teams;
+
+public class Team
 {
-    using System;
-    using System.Text.Json.Serialization;
+	[JsonProperty("team_id")]
+	public int TeamId { get; set; }
 
-    public class Team
-    {
-        [JsonPropertyName("team_id")]
-        public int TeamId { get; set; }
+	[JsonProperty("rating")]
+	public double Rating { get; set; }
 
-        [JsonPropertyName("rating")]
-        public double Rating { get; set; }
+	[JsonProperty("wins")]
+	public int Wins { get; set; }
 
-        [JsonPropertyName("wins")]
-        public int Wins { get; set; }
+	[JsonProperty("losses")]
+	public int Losses { get; set; }
 
-        [JsonPropertyName("losses")]
-        public int Losses { get; set; }
+	[JsonProperty("last_match_time")]
+	public long LastMatchTime { get; set; }
 
-        [JsonPropertyName("last_match_time")]
-        public long LastMatchTime { get; set; }
+	[JsonProperty("name")]
+	public string? Name { get; set; }
 
-        [JsonPropertyName("name")]
-        public string Name { get; set; }
+	[JsonProperty("tag")]
+	public string? Tag { get; set; }
 
-        [JsonPropertyName("tag")]
-        public string Tag { get; set; }
-
-        [JsonPropertyName("logo_url")]
-        public Uri LogoUrl { get; set; }
-    }
+	[JsonProperty("logo_url")]
+	public Uri LogoUrl { get; set; }
 }

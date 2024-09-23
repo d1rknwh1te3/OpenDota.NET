@@ -1,47 +1,46 @@
-﻿namespace OpenDotaDotNet.Models.Players
+﻿namespace OpenDotaDotNet.Models.Players;
+
+public class Profile
 {
-    using System;
-    using System.Text.Json.Serialization;
+	[JsonProperty("account_id")]
+	public long AccountId { get; set; }
 
-    public class Profile
-    {
-        [JsonPropertyName("account_id")]
-        public long AccountId { get; set; }
+	[JsonProperty("personaname")]
+	public string PersonaName { get; set; }
 
-        [JsonPropertyName("personaname")]
-        public string Personaname { get; set; }
+	[JsonProperty("name")]
+	public string Name { get; set; }
 
-        [JsonPropertyName("name")]
-        public string Name { get; set; }
+	[JsonProperty("plus")]
+	public bool? Plus { get; set; }
 
-        [JsonPropertyName("plus")]
-        public bool? Plus { get; set; }
+	[JsonProperty("cheese")]
+	public long Cheese { get; set; }
 
-        [JsonPropertyName("cheese")]
-        public long Cheese { get; set; }
+	[JsonProperty("steamid")]
+	public string SteamId { get; set; }
 
-        [JsonPropertyName("steamid")]
-        public string Steamid { get; set; }
+	[JsonProperty("avatar")]
+	public Uri Avatar { get; set; }
 
-        [JsonPropertyName("avatar")]
-        public Uri Avatar { get; set; }
+	[JsonProperty("avatarmedium")]
+	public Uri AvatarMedium { get; set; }
 
-        [JsonPropertyName("avatarmedium")]
-        public Uri Avatarmedium { get; set; }
+	[JsonProperty("avatarfull")]
+	public Uri AvatarFull { get; set; }
 
-        [JsonPropertyName("avatarfull")]
-        public Uri Avatarfull { get; set; }
+	[JsonProperty("profileurl")]
+	public Uri ProfileUrl { get; set; }
 
-        [JsonPropertyName("profileurl")]
-        public Uri Profileurl { get; set; }
+	[JsonProperty("last_login")]
+	public DateTimeOffset? LastLogin { get; set; }
 
-        [JsonPropertyName("last_login")]
-        public DateTimeOffset? LastLogin { get; set; }
+	[JsonProperty("loccountrycode")]
+	public string LocCountryCode { get; set; }
 
-        [JsonPropertyName("loccountrycode")]
-        public string Loccountrycode { get; set; }
+	[JsonProperty("is_contributor")]
+	public bool IsContributor { get; set; }
 
-        [JsonPropertyName("is_contributor")]
-        public bool IsContributor { get; set; }
-    }
+	[JsonProperty("is_subscriber")]
+	public bool IsSubscriber { get; set; }
 }

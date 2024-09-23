@@ -1,25 +1,22 @@
-﻿namespace OpenDotaDotNet.Models.Leagues
+﻿namespace OpenDotaDotNet.Models.Leagues;
+
+public class League
 {
-    using System.Text.Json.Serialization;
+	[JsonProperty("leagueid")]
+	public long Leagueid { get; set; }
 
-    public class League
-    {
-        [JsonPropertyName("leagueid")]
-        public long Leagueid { get; set; }
+	[JsonProperty("ticket")]
+	public string Ticket { get; set; }
 
-        [JsonPropertyName("ticket")]
-        public string Ticket { get; set; }
+	[JsonProperty("banner")]
+	public string Banner { get; set; }
 
-        [JsonPropertyName("banner")]
-        public string Banner { get; set; }
+	/// <summary>
+	/// Gets or sets the tier for the tournament.
+	/// </summary>
+	[JsonProperty("tier")]
+	public LeagueTier? Tier { get; set; }
 
-        /// <summary>
-        /// Gets or sets the tier for the tournament.
-        /// </summary>
-        [JsonPropertyName("tier")]
-        public LeagueTier? Tier { get; set; }
-
-        [JsonPropertyName("name")]
-        public string Name { get; set; }
-    }
+	[JsonProperty("name")]
+	public string Name { get; set; }
 }

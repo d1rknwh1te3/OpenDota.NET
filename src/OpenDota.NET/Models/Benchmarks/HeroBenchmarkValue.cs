@@ -1,19 +1,16 @@
-﻿namespace OpenDotaDotNet.Models.Benchmarks
+﻿namespace OpenDotaDotNet.Models.Benchmarks;
+
+public class HeroBenchmarkValue
 {
-    using System.Text.Json.Serialization;
+	/// <summary>
+	/// Gets or sets the percentile.
+	/// </summary>
+	[JsonProperty("percentile")]
+	public double Percentile { get; set; }
 
-    public class HeroBenchmarkValue
-    {
-        /// <summary>
-        /// Gets or sets the percentile.
-        /// </summary>
-        [JsonPropertyName("percentile")]
-        public double Percentile { get; set; }
-
-        /// <summary>
-        /// Gets or sets the value.
-        /// </summary>
-        [JsonPropertyName("value")]
-        public double? Value { get; set; }
-    }
+	/// <summary>
+	/// Gets or sets the value.
+	/// </summary>
+	[JsonProperty("value")]
+	public double? Value { get; set; }
 }

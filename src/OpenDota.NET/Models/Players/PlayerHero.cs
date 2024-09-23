@@ -1,31 +1,28 @@
-﻿namespace OpenDotaDotNet.Models.Players
+﻿namespace OpenDotaDotNet.Models.Players;
+
+public class PlayerHero
 {
-    using System.Text.Json.Serialization;
+	[JsonProperty("hero_id")]
+	public int HeroId { get; set; }
 
-    public class PlayerHero
-    {
-        [JsonPropertyName("hero_id")]
-        public int HeroId { get; set; }
+	[JsonProperty("last_played")]
+	public long LastPlayed { get; set; }
 
-        [JsonPropertyName("last_played")]
-        public long LastPlayed { get; set; }
+	[JsonProperty("games")]
+	public int Games { get; set; }
 
-        [JsonPropertyName("games")]
-        public int Games { get; set; }
+	[JsonProperty("win")]
+	public int Win { get; set; }
 
-        [JsonPropertyName("win")]
-        public int Win { get; set; }
+	[JsonProperty("with_games")]
+	public int WithGames { get; set; }
 
-        [JsonPropertyName("with_games")]
-        public int WithGames { get; set; }
+	[JsonProperty("with_win")]
+	public int WithWin { get; set; }
 
-        [JsonPropertyName("with_win")]
-        public int WithWin { get; set; }
+	[JsonProperty("against_games")]
+	public int AgainstGames { get; set; }
 
-        [JsonPropertyName("against_games")]
-        public int AgainstGames { get; set; }
-
-        [JsonPropertyName("against_win")]
-        public int AgainstWin { get; set; }
-    }
+	[JsonProperty("against_win")]
+	public int AgainstWin { get; set; }
 }

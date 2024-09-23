@@ -1,29 +1,25 @@
-﻿namespace OpenDotaDotNet.Models.Rankings
+﻿namespace OpenDotaDotNet.Models.Rankings;
+
+public class RankingPlayer
 {
-    using System;
-    using System.Text.Json.Serialization;
+	[JsonProperty("account_id")]
+	public long AccountId { get; set; }
 
-    public class RankingPlayer
-    {
-        [JsonPropertyName("account_id")]
-        public long AccountId { get; set; }
+	[JsonProperty("score")]
+	public double Score { get; set; }
 
-        [JsonPropertyName("score")]
-        public double Score { get; set; }
+	[JsonProperty("personaname")]
+	public string Personaname { get; set; }
 
-        [JsonPropertyName("personaname")]
-        public string Personaname { get; set; }
+	[JsonProperty("name")]
+	public string Name { get; set; }
 
-        [JsonPropertyName("name")]
-        public string Name { get; set; }
+	[JsonProperty("avatar")]
+	public Uri Avatar { get; set; }
 
-        [JsonPropertyName("avatar")]
-        public Uri Avatar { get; set; }
+	[JsonProperty("last_login")]
+	public DateTimeOffset? LastLogin { get; set; }
 
-        [JsonPropertyName("last_login")]
-        public DateTimeOffset? LastLogin { get; set; }
-
-        [JsonPropertyName("rank_tier")]
-        public int? RankTier { get; set; }
-    }
+	[JsonProperty("rank_tier")]
+	public int? RankTier { get; set; }
 }
