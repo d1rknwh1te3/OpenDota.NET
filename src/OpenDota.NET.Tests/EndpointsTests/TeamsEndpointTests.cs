@@ -1,6 +1,4 @@
-﻿using OpenDotaDotNet.Routes.Teams.Models;
-
-namespace OpenDota.NET.Tests.EndpointsTests;
+﻿namespace OpenDota.NET.Tests.EndpointsTests;
 
 public class TeamsEndpointTests(ITestOutputHelper testOutputHelper)
 {

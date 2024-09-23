@@ -1,10 +1,9 @@
-﻿using League = OpenDotaDotNet.Routes.League.Models.League;
+﻿namespace OpenDotaDotNet.Routes.League;
 
-namespace OpenDotaDotNet.Routes.League;
-
+/// <inheritdoc />
 public class LeagueEndpoint(Requester requester) : ILeagueEndpoint
 {
 	/// <inheritdoc />
-	public Task<IEnumerable<League>?> GetLeaguesAsync() =>
-		requester.GetResponseAsync<IEnumerable<League>>("leagues");
+	public Task<IEnumerable<Models.League>?> GetLeaguesAsync() =>
+		requester.GetResponseAsync<IEnumerable<Models.League>>("leagues");
 }

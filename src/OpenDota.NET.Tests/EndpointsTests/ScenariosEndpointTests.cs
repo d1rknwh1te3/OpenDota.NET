@@ -1,4 +1,4 @@
-﻿using OpenDotaDotNet.Routes.Scenarios.Models;
+﻿using OpenDotaDotNet.Routes.Scenarios.Enums;
 
 namespace OpenDota.NET.Tests.EndpointsTests;
 
@@ -55,7 +55,8 @@ public class ScenariosEndpointTests(ITestOutputHelper testOutputHelper)
 	[Fact]
 	public async Task TestGetMiscellaneousTeamScenarios()
 	{
-		const string scenario = "courier_kill";
+		const Scenario scenario = Scenario.CourierKill;
+
 		var result =
 			await _openDotaApi.Scenarios.GetMiscTeamScenariosAsync(scenario);
 		testOutputHelper.WriteLine(result.ToJsonString());

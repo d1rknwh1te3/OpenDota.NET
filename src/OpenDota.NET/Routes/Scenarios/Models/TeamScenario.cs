@@ -9,7 +9,7 @@ public class TeamScenario
 	/// Gets or sets the scenario's name or description.
 	/// </summary>
 	[JsonProperty("scenario")]
-	public string Scenario { get; set; }
+	public Scenario Scenario { get; set; }
 
 	/// <summary>
 	/// Gets or sets a value indicating whether Radiant executed this scenario.

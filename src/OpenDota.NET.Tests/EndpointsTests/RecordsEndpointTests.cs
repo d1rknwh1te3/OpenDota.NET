@@ -1,5 +1,4 @@
-﻿using OpenDotaDotNet.Routes.Records.Enums;
-using Record = OpenDotaDotNet.Routes.Records.Models.Record;
+﻿using Record = OpenDotaDotNet.Routes.Records.Models.Record;
 
 namespace OpenDota.NET.Tests.EndpointsTests;
 

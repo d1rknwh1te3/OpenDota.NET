@@ -1,6 +1,4 @@
-﻿using League = OpenDotaDotNet.Routes.League.Models.League;
-
-namespace OpenDotaDotNet.Routes.League;
+﻿namespace OpenDotaDotNet.Routes.League;
 
 /// <summary>
 /// League endpoint.
@@ -11,5 +9,5 @@ public interface ILeagueEndpoint
 	/// Get league data.
 	/// </summary>
 	/// <returns>League data.</returns>
-	Task<IEnumerable<League>?> GetLeaguesAsync();
+	Task<IEnumerable<Models.League>?> GetLeaguesAsync();
 }

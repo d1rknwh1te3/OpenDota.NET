@@ -3,6 +3,6 @@
 public class MetadataEndpoint(Requester requester) : IMetadataEndpoint
 {
 	/// <inheritdoc />
-	public Task<Metadata?> GetMetadataAsync() =>
-		requester.GetResponseAsync<Metadata>("metadata");
+	public Task<Models.Metadata?> GetMetadataAsync() =>
+		requester.GetResponseAsync<Models.Metadata>("metadata");
 }

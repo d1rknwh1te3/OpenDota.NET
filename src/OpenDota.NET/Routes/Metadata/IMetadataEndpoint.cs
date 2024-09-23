@@ -9,5 +9,5 @@ public interface IMetadataEndpoint
 	/// Gets site metadata.
 	/// </summary>
 	/// <returns>Site metadata.</returns>
-	Task<Metadata?> GetMetadataAsync();
+	Task<Models.Metadata?> GetMetadataAsync();
 }
