@@ -1,4 +1,6 @@
-﻿namespace OpenDota.NET.Tests.EndpointsTests;
+﻿using OpenDotaDotNet.Routes.Search.Models;
+
+namespace OpenDota.NET.Tests.EndpointsTests;
 
 public class SearchEndpointTests(ITestOutputHelper testOutputHelper)
 {
@@ -12,7 +14,7 @@ public class SearchEndpointTests(ITestOutputHelper testOutputHelper)
 
 		if (result != null)
 		{
-			var playerResponses = result as SearchPlayerResponse[] ?? result.ToArray();
+			var playerResponses = result as PlayerResponse[] ?? result.ToArray();
 
 			Assert.Equal(50, playerResponses.Length);
 

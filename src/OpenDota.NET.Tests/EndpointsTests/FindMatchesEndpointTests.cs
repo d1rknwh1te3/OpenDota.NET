@@ -1,4 +1,6 @@
-﻿namespace OpenDota.NET.Tests.EndpointsTests;
+﻿using OpenDotaDotNet.Routes.FindMatches.Models;
+
+namespace OpenDota.NET.Tests.EndpointsTests;
 
 public class FindMatchesEndpointTests(ITestOutputHelper testOutputHelper)
 {

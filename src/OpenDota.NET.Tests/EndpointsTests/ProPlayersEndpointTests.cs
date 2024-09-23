@@ -1,4 +1,6 @@
-﻿namespace OpenDota.NET.Tests.EndpointsTests;
+﻿using OpenDotaDotNet.Routes.ProPlayers.Models;
+
+namespace OpenDota.NET.Tests.EndpointsTests;
 
 public class ProPlayersEndpointTests(ITestOutputHelper testOutputHelper)
 {

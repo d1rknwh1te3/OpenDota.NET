@@ -1,4 +1,5 @@
-﻿using Record = OpenDotaDotNet.Models.Records.Record;
+﻿using OpenDotaDotNet.Routes.Records.Enums;
+using Record = OpenDotaDotNet.Routes.Records.Models.Record;
 
 namespace OpenDota.NET.Tests.EndpointsTests;
 
@@ -9,7 +10,7 @@ public class RecordsEndpointTests(ITestOutputHelper testOutputHelper)
 	[Fact]
 	public async Task TestGetRecordsByField()
 	{
-		var result = await _openDotaApi.Records.GetRecordsByFieldAsync(RecordField.Duration);
+		var result = await _openDotaApi.Records.GetRecordsByFieldAsync(Field.Duration);
 		testOutputHelper.WriteLine(result.ToJsonString());
 
 		if (result != null)

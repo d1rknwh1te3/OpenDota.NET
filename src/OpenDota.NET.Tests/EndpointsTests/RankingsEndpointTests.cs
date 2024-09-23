@@ -24,7 +24,7 @@ public class RankingsEndpointTests(ITestOutputHelper testOutputHelper)
 			Assert.True(result.Rankings.All(x => !x.LastLogin.HasValue || x.LastLogin > new DateTime(2000, 1, 1)));
 			Assert.Contains(result.Rankings, x => !string.IsNullOrWhiteSpace(x.Name));
 			Assert.True(result.Rankings.All(x => !string.IsNullOrWhiteSpace(x.Avatar.ToString())));
-			Assert.True(result.Rankings.All(x => !string.IsNullOrWhiteSpace(x.Personaname)));
+			Assert.True(result.Rankings.All(x => !string.IsNullOrWhiteSpace(x.PersonaName)));
 		}
 	}
 }

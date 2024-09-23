@@ -1,4 +1,6 @@
-﻿namespace OpenDota.NET.Tests.EndpointsTests;
+﻿using OpenDotaDotNet.Routes.Heroes.Models;
+
+namespace OpenDota.NET.Tests.EndpointsTests;
 
 public class HeroesEndpointTests(ITestOutputHelper testOutputHelper)
 {

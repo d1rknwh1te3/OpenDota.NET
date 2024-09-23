@@ -1,4 +1,6 @@
-﻿namespace OpenDota.NET.Tests.EndpointsTests;
+﻿using OpenDotaDotNet.Routes.Live.Models;
+
+namespace OpenDota.NET.Tests.EndpointsTests;
 
 public class LiveEndpointTests(ITestOutputHelper testOutputHelper)
 {

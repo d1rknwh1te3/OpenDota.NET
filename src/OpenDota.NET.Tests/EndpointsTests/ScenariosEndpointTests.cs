@@ -1,4 +1,6 @@
-﻿namespace OpenDota.NET.Tests.EndpointsTests;
+﻿using OpenDotaDotNet.Routes.Scenarios.Models;
+
+namespace OpenDota.NET.Tests.EndpointsTests;
 
 public class ScenariosEndpointTests(ITestOutputHelper testOutputHelper)
 {
@@ -11,12 +13,12 @@ public class ScenariosEndpointTests(ITestOutputHelper testOutputHelper)
 		const string itemName = "sange_and_yasha";
 
 		var result =
-			await _openDotaApi.Scenarios.GetWinRateForCertainItemTimingsOnHeroesAsync(itemName, heroId);
+			await _openDotaApi.Scenarios.GetItemNamingAsync(itemName, heroId);
 		testOutputHelper.WriteLine(result.ToJsonString());
 
 		if (result != null)
 		{
-			var timings = result as HeroItemTiming[] ?? result.ToArray();
+			var timings = result as ItemTiming[] ?? result.ToArray();
 
 			Assert.True(timings.Length > 0);
 			Assert.True(Array.TrueForAll(timings, x => x.Item == itemName));
@@ -34,12 +36,12 @@ public class ScenariosEndpointTests(ITestOutputHelper testOutputHelper)
 		const int heroId = 40; // Venomancer
 
 		var result =
-			await _openDotaApi.Scenarios.GetWinRateForHeroesInCertainLaneRolesAsync(laneId, heroId);
+			await _openDotaApi.Scenarios.GetLaneRolesAsync(laneId, heroId);
 		testOutputHelper.WriteLine(result.ToJsonString());
 
 		if (result != null)
 		{
-			var roleWinrates = result as HeroLaneRoleWinrate[] ?? result.ToArray();
+			var roleWinrates = result as LaneRoles[] ?? result.ToArray();
 
 			Assert.True(roleWinrates.Length > 0);
 			Assert.True(Array.TrueForAll(roleWinrates, x => x.LaneRole == laneId));
@@ -55,12 +57,12 @@ public class ScenariosEndpointTests(ITestOutputHelper testOutputHelper)
 	{
 		const string scenario = "courier_kill";
 		var result =
-			await _openDotaApi.Scenarios.GetMiscellaneousTeamScenariosAsync(scenario);
+			await _openDotaApi.Scenarios.GetMiscTeamScenariosAsync(scenario);
 		testOutputHelper.WriteLine(result.ToJsonString());
 
 		if (result != null)
 		{
-			var scenarios = result as MiscellaneousTeamScenario[] ?? result.ToArray();
+			var scenarios = result as TeamScenario[] ?? result.ToArray();
 
 			Assert.True(scenarios.Length > 0);
 			Assert.True(Array.TrueForAll(scenarios, x => x.Scenario == scenario));

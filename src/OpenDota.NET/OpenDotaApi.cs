@@ -16,7 +16,7 @@ public class OpenDotaApi : IOpenDotaApi
 		
 		Matches = new MatchesEndpoint(request);
 		Players = new PlayersEndpoint(request);
-		ProPlayers = new ProPlayerEndpoint(request);
+		ProPlayers = new ProPlayersEndpoint(request);
 		ProMatches = new ProMatchesEndpoint(request);
 		PublicMatches = new PublicMatchesEndpoint(request);
 		ParsedMatches = new ParsedMatchesEndpoint(request);
@@ -48,7 +48,7 @@ public class OpenDotaApi : IOpenDotaApi
 	public IPlayersEndpoint Players { get; }
 
 	/// <inheritdoc />
-	public IProPlayerEndpoint ProPlayers { get; }
+	public IProPlayersEndpoint ProPlayers { get; }
 
 	/// <inheritdoc />
 	public IProMatchEndpoint ProMatches { get; }
