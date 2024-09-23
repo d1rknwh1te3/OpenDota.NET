@@ -29,7 +29,7 @@ public sealed class Requester : IDisposable
 	/// <summary>
 	/// Gets the response asynchronous.
 	/// </summary>
-	/// <typeparam name="T"></typeparam>
+	/// <typeparam name="T">Response type.</typeparam>
 	/// <param name="url">The URL.</param>
 	/// <param name="queryParameters">The query parameters.</param>
 	/// <returns>Response.</returns>
@@ -70,8 +70,8 @@ public sealed class Requester : IDisposable
 	/// </summary>
 	public void Dispose()
 	{
-		_httpClient?.Dispose();
-		_httpClientHandler?.Dispose();
+		_httpClient.Dispose();
+		_httpClientHandler.Dispose();
 	}
 
 	private async Task<HttpResponseMessage> GetRequestResponseMessageAsync(string url, List<string>? queryParameters = null)

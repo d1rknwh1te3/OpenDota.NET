@@ -1,7 +1,7 @@
 ﻿namespace OpenDotaDotNet.Interfaces.Endpoints;
 
 /// <summary>
-/// Players endpoint.
+/// Represents players endpoint.
 /// </summary>
 public interface IPlayersEndpoint
 {
@@ -13,7 +13,7 @@ public interface IPlayersEndpoint
 	Task<Player?> GetPlayerByIdAsync(long accountId);
 
 	/// <summary>
-	/// Gets win/Loss count.
+	/// Gets Win/Loss count.
 	/// </summary>
 	/// <param name="accountId">Steam32 account ID.</param>
 	/// <param name="parameters">Query parameters.</param>

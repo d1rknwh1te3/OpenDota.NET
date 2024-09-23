@@ -5,5 +5,5 @@
 /// </summary>
 public interface IExplorerEndpoint
 {
-	
+	public Task<JObject?> GetFromExplorerAsync(string query);
 }

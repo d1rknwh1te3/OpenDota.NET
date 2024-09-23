@@ -2,10 +2,13 @@
 
 /// <summary>
 /// The OpenDota API provides Dota 2 related data including advanced match data extracted from match replays.
-/// Full documentation is available on https://docs.opendota.com/
-/// You can find data that can be used to convert hero and ability IDs and other information provided by the
-/// API from the [dotaconstants](https://github.com/odota/dotaconstants) repository.
+/// 
 /// </summary>
+/// <remarks>
+/// Full documentation is available on <see href="https://docs.opendota.com/">OpenDota</see>.
+/// You can find data that can be used to convert hero and ability IDs and other information provided by
+/// the API from the <see href="https://github.com/odota/dotaconstants">Dota Constants</see> repository.
+/// </remarks>
 public interface IOpenDotaApi
 {
 	/// <inheritdoc cref="IMatchesEndpoint" />
@@ -22,6 +25,9 @@ public interface IOpenDotaApi
 
 	/// <inheritdoc cref="IPublicMatchesEndpoint" />
 	IPublicMatchesEndpoint PublicMatches { get; }
+
+	/// <inheritdoc cref="IParsedMatchesEndpoint" />
+	IParsedMatchesEndpoint ParsedMatches { get; }
 
 	/// <inheritdoc cref="IExplorerEndpoint" />
 	IExplorerEndpoint Explorer { get; }
@@ -65,8 +71,6 @@ public interface IOpenDotaApi
 	/// <inheritdoc cref="ITeamsEndpoint" />
 	ITeamsEndpoint Teams { get; }
 
-	//IReplaysEndpoint Replays { get; } TODO: ???
-
 	/// <inheritdoc cref="IRecordsEndpoint" />
 	IRecordsEndpoint Records { get; }
 
@@ -81,6 +85,4 @@ public interface IOpenDotaApi
 
 	/// <inheritdoc cref="IConstantsEndpoint" />
 	IConstantsEndpoint Constants { get; }
-
-	//IFeedEndpoint Feed { get; } TODO: ???
 }

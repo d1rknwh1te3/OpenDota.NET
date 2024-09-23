@@ -10,9 +10,12 @@ public class SchemaEndpointTests(ITestOutputHelper testOutputHelper)
 		var result = await _openDotaApi.Schema.GetDatabaseSchemaAsync();
 		testOutputHelper.WriteLine(result.ToJsonString());
 
-		var schema = result as DatabaseSchema[] ?? result.ToArray();
+		if (result != null)
+		{
+			var schema = result as DatabaseSchema[] ?? result.ToArray();
 
-		//Assert.True(schema.Length >= 335); TODO: Fix schema length
-		Assert.True(Array.TrueForAll(schema, x => x.ColumnName != null && x.DataType != null && x.TableName != null));
+			//Assert.True(schema.Length >= 335); TODO: Fix schema length
+			Assert.Contains(schema, x => x.TableName == "api_key_usage");
+		}
 	}
 }

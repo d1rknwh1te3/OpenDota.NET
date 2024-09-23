@@ -35,6 +35,9 @@ public class LiveGame
 	[JsonProperty("average_mmr")]
 	public int AverageMmr { get; set; }
 
+	/// <summary>
+	/// Gets or sets ID used to identify individual matches, e.g. 3703866531.
+	/// </summary>
 	[JsonProperty("match_id")]
 	public long MatchId { get; set; }
 

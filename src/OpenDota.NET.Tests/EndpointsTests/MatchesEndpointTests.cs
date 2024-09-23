@@ -9,5 +9,7 @@ public class MatchesEndpointTests(ITestOutputHelper testOutputHelper)
 	{
 		var result = await _openDotaApi.Matches.GetMatchByIdAsync(4986133311);
 		testOutputHelper.WriteLine(result.ToJsonString());
+
+		Assert.NotNull(result);
 	}
 }

@@ -1,5 +1,8 @@
 ﻿namespace OpenDotaDotNet.Models.Heroes;
 
+/// <summary>
+/// Represents a hero duration.
+/// </summary>
 public class HeroDuration
 {
 	/// <summary>

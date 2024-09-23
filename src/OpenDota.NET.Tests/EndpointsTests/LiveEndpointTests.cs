@@ -10,8 +10,13 @@ public class LiveEndpointTests(ITestOutputHelper testOutputHelper)
 		var result = await _openDotaApi.Live.GetTopLiveGamesAsync();
 		testOutputHelper.WriteLine(result.ToJsonString());
 
-		Assert.Equal(100, result.Count());
-		Assert.True(result.All(x => !string.IsNullOrEmpty(x.LobbyId)));
-		Assert.True(result.All(x => x.Players.Any()));
+		if (result != null)
+		{
+			var liveGames = result as LiveGame[] ?? result.ToArray();
+
+			Assert.Equal(100, liveGames.Length);
+			Assert.True(Array.TrueForAll(liveGames, x => !string.IsNullOrEmpty(x.LobbyId)));
+			Assert.True(Array.TrueForAll(liveGames, x => x.Players.Any()));
+		}
 	}
 }

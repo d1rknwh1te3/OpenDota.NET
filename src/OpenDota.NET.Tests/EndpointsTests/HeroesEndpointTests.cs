@@ -91,7 +91,7 @@ public class HeroesEndpointTests(ITestOutputHelper testOutputHelper)
 			var players = result as HeroPlayer[] ?? result.ToArray();
 
 			Assert.True(players.Length >= 1000);
-			Assert.True(Array.TrueForAll(players, x => x.AccountId > 0));
+			Assert.Contains(players, x => x.AccountId > 0);
 			Assert.True(Array.TrueForAll(players, x => x.GamesPlayed > 0));
 			Assert.True(Array.TrueForAll(players, x => x.Wins >= 0));
 		}

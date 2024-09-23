@@ -1,5 +1,8 @@
 ﻿namespace OpenDotaDotNet.Models.Live;
 
+/// <summary>
+/// Represents a player in a live game.
+/// </summary>
 public class LiveGamePlayer
 {
 	[JsonProperty("account_id")]

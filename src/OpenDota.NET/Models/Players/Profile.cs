@@ -6,7 +6,7 @@ public class Profile
 	public long AccountId { get; set; }
 
 	[JsonProperty("personaname")]
-	public string Personaname { get; set; }
+	public string PersonaName { get; set; }
 
 	[JsonProperty("name")]
 	public string Name { get; set; }
@@ -18,25 +18,25 @@ public class Profile
 	public long Cheese { get; set; }
 
 	[JsonProperty("steamid")]
-	public string Steamid { get; set; }
+	public string SteamId { get; set; }
 
 	[JsonProperty("avatar")]
 	public Uri Avatar { get; set; }
 
 	[JsonProperty("avatarmedium")]
-	public Uri Avatarmedium { get; set; }
+	public Uri AvatarMedium { get; set; }
 
 	[JsonProperty("avatarfull")]
-	public Uri Avatarfull { get; set; }
+	public Uri AvatarFull { get; set; }
 
 	[JsonProperty("profileurl")]
-	public Uri Profileurl { get; set; }
+	public Uri ProfileUrl { get; set; }
 
 	[JsonProperty("last_login")]
-	public DateTimeOffset LastLogin { get; set; }
+	public DateTimeOffset? LastLogin { get; set; }
 
 	[JsonProperty("loccountrycode")]
-	public string Loccountrycode { get; set; }
+	public string LocCountryCode { get; set; }
 
 	[JsonProperty("is_contributor")]
 	public bool IsContributor { get; set; }

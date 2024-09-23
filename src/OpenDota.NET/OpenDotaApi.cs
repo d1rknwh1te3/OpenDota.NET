@@ -1,13 +1,15 @@
 ﻿namespace OpenDotaDotNet;
 
 // TODO: Implement PLAYERS BY RANK endpoint
-// TODO: Implement PARSED MATCHES endpoint
-// TODO: Implement EXPLORER endpoint
-// TODO: Implement CONSTANTS endpoint
 
 /// <inheritdoc />
 public class OpenDotaApi : IOpenDotaApi
 {
+	/// <summary>
+	/// Creates new instance of <see cref="OpenDotaApi"/>
+	/// </summary>
+	/// <param name="apiKey">OpenDota API Key.</param>
+	/// <param name="proxy">Proxy (if needed).</param>
 	public OpenDotaApi(string? apiKey = null, IWebProxy? proxy = null)
 	{
 		var request = new Requester(apiKey, proxy);
@@ -17,6 +19,7 @@ public class OpenDotaApi : IOpenDotaApi
 		ProPlayers = new ProPlayerEndpoint(request);
 		ProMatches = new ProMatchesEndpoint(request);
 		PublicMatches = new PublicMatchesEndpoint(request);
+		ParsedMatches = new ParsedMatchesEndpoint(request);
 		Explorer = new ExplorerEndpoint(request);
 		Metadata = new MetadataEndpoint(request);
 		Distributions = new DistributionsEndpoint(request);
@@ -31,13 +34,11 @@ public class OpenDotaApi : IOpenDotaApi
 		HeroStats = new HeroStatsEndpoint(request);
 		League = new LeagueEndpoint(request);
 		Teams = new TeamsEndpoint(request);
-		//Replays = new ReplaysEndpoint(request);
 		Records = new RecordsEndpoint(request);
 		Live = new LiveEndpoint(request);
 		Scenarios = new ScenariosEndpoint(request);
 		Schema = new SchemaEndpoint(request);
 		Constants = new ConstantsEndpoint(request);
-		//Feed = new FeedEndpoint(request);
 	}
 
 	/// <inheritdoc />
@@ -54,6 +55,9 @@ public class OpenDotaApi : IOpenDotaApi
 
 	/// <inheritdoc />
 	public IPublicMatchesEndpoint PublicMatches { get; }
+
+	/// <inheritdoc />
+	public IParsedMatchesEndpoint ParsedMatches { get; }
 
 	/// <inheritdoc />
 	public IExplorerEndpoint Explorer { get; }
@@ -97,8 +101,6 @@ public class OpenDotaApi : IOpenDotaApi
 	/// <inheritdoc />
 	public ITeamsEndpoint Teams { get; }
 
-	//public IReplaysEndpoint Replays { get; }
-
 	/// <inheritdoc />
 	public IRecordsEndpoint Records { get; }
 
@@ -113,6 +115,4 @@ public class OpenDotaApi : IOpenDotaApi
 
 	/// <inheritdoc />
 	public IConstantsEndpoint Constants { get; }
-
-	//public IFeedEndpoint Feed { get; }
 }

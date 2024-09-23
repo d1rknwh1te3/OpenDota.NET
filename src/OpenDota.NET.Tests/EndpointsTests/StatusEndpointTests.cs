@@ -72,9 +72,7 @@ public class StatusEndpointTests(ITestOutputHelper testOutputHelper)
 			Assert.True(result.SecondaryScannerLastDay > 0);
 		}
 		else
-		{
-			Assert.Null(result);
-		}
+			Assert.NotNull(result);
 	}
 
 	[Fact]
@@ -83,33 +81,48 @@ public class StatusEndpointTests(ITestOutputHelper testOutputHelper)
 		var result = await _openDotaApi.Status.GetServiceStatisticsAsync();
 		testOutputHelper.WriteLine(result.ToJsonString());
 
+		var health = result?.Health;
+
 		if (result != null)
 		{
-			var health = result.Health;
-
 			Assert.True(health.CassandraUsage.Timestamp > 0);
 			Assert.True(health.GcDelay.Timestamp > 0);
 			Assert.True(health.ParseDelay.Timestamp > 0);
 			Assert.True(health.PostgresUsage.Timestamp > 0);
 			Assert.True(health.RedisUsage.Timestamp > 0);
 			Assert.True(health.SeqNumDelay.Timestamp > 0);
+			Assert.True(health.FhDelay.Timestamp > 0);
+			Assert.True(health.CacheDelay.Timestamp > 0);
+			Assert.True(health.MmrDelay.Timestamp > 0);
+			Assert.True(health.CountsDelay.Timestamp > 0);
+			Assert.True(health.ScenariosDelay.Timestamp > 0);
+			
 			Assert.True(health.CassandraUsage.Threshold > 0);
 			Assert.True(health.GcDelay.Threshold > 0);
 			Assert.True(health.ParseDelay.Threshold > 0);
 			Assert.True(health.PostgresUsage.Threshold > 0);
 			Assert.True(health.RedisUsage.Threshold > 0);
 			Assert.True(health.SeqNumDelay.Threshold > 0);
+			Assert.True(health.FhDelay.Threshold > 0);
+			Assert.True(health.CacheDelay.Threshold > 0);
+			Assert.True(health.MmrDelay.Threshold > 0);
+			Assert.True(health.CountsDelay.Threshold > 0);
+			Assert.True(health.ScenariosDelay.Threshold > 0);
+
 			Assert.True(health.CassandraUsage.Metric >= 0);
 			Assert.True(health.GcDelay.Metric >= 0);
 			Assert.True(health.ParseDelay.Metric >= 0);
 			Assert.True(health.PostgresUsage.Metric >= 0);
 			Assert.True(health.RedisUsage.Metric >= 0);
 			Assert.True(health.SeqNumDelay.Metric <= 0);
+			Assert.True(health.FhDelay.Metric >= 0);
+			Assert.True(health.CacheDelay.Metric >= 0);
+			Assert.True(health.MmrDelay.Metric >= 0);
+			Assert.True(health.CountsDelay.Metric >= 0);
+			Assert.True(health.ScenariosDelay.Metric >= 0);
 		}
 		else
-		{
-			Assert.Null(result);
-		}
+			Assert.Fail();
 	}
 
 	[Fact]
@@ -118,16 +131,12 @@ public class StatusEndpointTests(ITestOutputHelper testOutputHelper)
 		var result = await _openDotaApi.Status.GetServiceStatisticsAsync();
 		testOutputHelper.WriteLine(result.ToJsonString());
 
-		if (result != null)
-		{
-			var times = result.LoadTimes;
+		var times = result?.LoadTimes;
 
+		if (result != null)
 			Assert.True(times.Count > 0);
-		}
 		else
-		{
-			Assert.Null(result);
-		}
+			Assert.NotNull(result);
 	}
 
 	[Fact]
@@ -136,16 +145,11 @@ public class StatusEndpointTests(ITestOutputHelper testOutputHelper)
 		var result = await _openDotaApi.Status.GetServiceStatisticsAsync();
 		testOutputHelper.WriteLine(result.ToJsonString());
 
+		var apistatus = result?.ApiStatus;
+
 		if (result != null)
-		{
-			var apistatus = result.ApiStatus;
-
 			Assert.True(apistatus.Any());
-		}
-
 		else
-		{
-			Assert.Null(result);
-		}
+			Assert.Fail();
 	}
 }

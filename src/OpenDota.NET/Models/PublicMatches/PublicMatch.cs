@@ -1,5 +1,8 @@
 ﻿namespace OpenDotaDotNet.Models.PublicMatches;
 
+/// <summary>
+/// Represents a public match.
+/// </summary>
 public class PublicMatch
 {
 	[JsonProperty("match_id")]
@@ -17,12 +20,6 @@ public class PublicMatch
 	[JsonProperty("duration")]
 	public int Duration { get; set; }
 
-	[JsonProperty("avg_mmr")]
-	public int? AvgMmr { get; set; }
-
-	[JsonProperty("num_mmr")]
-	public int? NumMmr { get; set; }
-
 	[JsonProperty("lobby_type")]
 	public int LobbyType { get; set; }
 
@@ -38,11 +35,9 @@ public class PublicMatch
 	[JsonProperty("cluster")]
 	public int Cluster { get; set; }
 
-	// TODO: Convert to int array
 	[JsonProperty("radiant_team")]
-	public string RadiantTeam { get; set; }
+	public int[] RadiantTeam { get; set; }
 
-	// TODO: Convert to int array
 	[JsonProperty("dire_team")]
-	public string DireTeam { get; set; }
+	public int[] DireTeam { get; set; }
 }

@@ -1,5 +1,6 @@
 ﻿namespace OpenDotaDotNet.Endpoints;
 
+/// <inheritdoc />
 public class PlayersEndpoint(Requester requester) : IPlayersEndpoint
 {
 	/// <inheritdoc />

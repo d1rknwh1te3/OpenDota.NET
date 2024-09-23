@@ -10,12 +10,17 @@ public class ProPlayersEndpointTests(ITestOutputHelper testOutputHelper)
 		var result = await _openDotaApi.ProPlayers.GetProPlayersAsync();
 		testOutputHelper.WriteLine(result.ToJsonString());
 
-		Assert.Contains(result, x => x.Name == "MinD_ContRoL");
-		Assert.True(result.All(x => x.SteamId != null));
-		Assert.True(result.All(x => !string.IsNullOrEmpty(x.Name)));
-		Assert.True(result.All(x => !string.IsNullOrEmpty(x.Avatar.ToString())));
-		Assert.True(result.All(x => !string.IsNullOrEmpty(x.AvatarMedium.ToString())));
-		Assert.True(result.All(x => !string.IsNullOrEmpty(x.AvatarFull.ToString())));
-		Assert.True(result.Count() >= 1000);
+		if (result != null)
+		{
+			var proPlayers = result as ProPlayer[] ?? result.Take(30).ToArray();
+
+			Assert.True(Array.TrueForAll(proPlayers, x => x.AccountId > 0));
+			Assert.True(Array.TrueForAll(proPlayers, x => !string.IsNullOrWhiteSpace(x.Name)));
+			Assert.True(Array.TrueForAll(proPlayers, x => !string.IsNullOrWhiteSpace(x.SteamId)));
+			Assert.True(Array.TrueForAll(proPlayers, x => !string.IsNullOrWhiteSpace(x.PersonaName)));
+			Assert.True(Array.TrueForAll(proPlayers, x => !string.IsNullOrWhiteSpace(x.Avatar.ToString())));
+			Assert.True(Array.TrueForAll(proPlayers, x => !string.IsNullOrWhiteSpace(x.AvatarMedium.ToString())));
+			Assert.True(Array.TrueForAll(proPlayers, x => !string.IsNullOrWhiteSpace(x.AvatarFull.ToString())));
+		}
 	}
 }

@@ -1,5 +1,8 @@
 ﻿namespace OpenDotaDotNet.Models.Heroes;
 
+/// <summary>
+/// Represents a hero.
+/// </summary>
 public class Hero
 {
 	/// <summary>

@@ -38,15 +38,27 @@ public class HeroStats
 	[JsonProperty("roles")]
 	public required IEnumerable<HeroRole> Roles { get; set; }
 
+	/// <summary>
+	/// Gets or sets the image.
+	/// </summary>
 	[JsonProperty("img")]
-	public string Image { get; set; }
+	public required string Image { get; set; }
 
+	/// <summary>
+	/// Gets or sets the icon.
+	/// </summary>
 	[JsonProperty("icon")]
-	public string Icon { get; set; }
+	public required string Icon { get; set; }
 
+	/// <summary>
+	/// Gets or sets the base health.
+	/// </summary>
 	[JsonProperty("base_health")]
 	public int BaseHealth { get; set; }
 
+	/// <summary>
+	/// Gets or sets the base health regen.
+	/// </summary>
 	[JsonProperty("base_health_regen")]
 	public double? BaseHealthRegen { get; set; }
 
@@ -95,11 +107,14 @@ public class HeroStats
 	[JsonProperty("attack_rate")]
 	public double AttackRate { get; set; }
 
+	[JsonProperty("attack_point")]
+	public double AttackPoint { get; set; }
+
 	[JsonProperty("move_speed")]
 	public int MoveSpeed { get; set; }
 
 	[JsonProperty("turn_rate")]
-	public double TurnRate { get; set; }
+	public double? TurnRate { get; set; }
 
 	[JsonProperty("cm_enabled")]
 	public bool CmEnabled { get; set; }
@@ -110,11 +125,14 @@ public class HeroStats
 	[JsonProperty("legs")]
 	public int Legs { get; set; }
 
+	[JsonProperty("day_vision")]
+	public int DayVision { get; set; }
+
+	[JsonProperty("night_vision")]
+	public int NightVision { get; set; }
+
 	[JsonProperty("pro_ban")]
 	public int ProBan { get; set; }
-
-	[JsonProperty("hero_id")]
-	public int HeroId { get; set; }
 
 	[JsonProperty("pro_win")]
 	public int ProWin { get; set; }
@@ -170,9 +188,27 @@ public class HeroStats
 	[JsonProperty("8_win")]
 	public int ImmortalWins { get; set; }
 
-	[JsonProperty("null_pick")]
-	public long NullPicks { get; set; }
+	[JsonProperty("turbo_pick")]
+	public int TurboPicks { get; set; }
 
-	[JsonProperty("null_win")]
-	public long NullWins { get; set; }
+	[JsonProperty("turbo_pick_trend")]
+	public int[] TurboPicksTrend { get; set; }
+
+	[JsonProperty("turbo_win")]
+	public int TurboWins { get; set; }
+
+	[JsonProperty("turbo_win_trend")]
+	public int[] TurboWinsTrend { get; set; }
+
+	[JsonProperty("pub_pick")]
+	public int PubPicks { get; set; }
+
+	[JsonProperty("pub_pick_trend")]
+	public int[] PubPicksTrend { get; set; }
+
+	[JsonProperty("pub_win")]
+	public int PubWins { get; set; }
+
+	[JsonProperty("pub_win_trend")]
+	public int[] PubWinsTrend { get; set; }
 }

@@ -1,5 +1,8 @@
 ﻿namespace OpenDotaDotNet.Models.Heroes;
 
+/// <summary>
+/// Contains information about a hero match.
+/// </summary>
 public class HeroMatch
 {
 	/// <summary>
@@ -36,7 +39,7 @@ public class HeroMatch
 	/// Gets or sets name of league the match took place in.
 	/// </summary>
 	[JsonProperty("league_name")]
-	public string LeagueName { get; set; }
+	public required string LeagueName { get; set; }
 
 	/// <summary>
 	/// Gets or sets a value indicating whether the team/player/hero was on Radiant.

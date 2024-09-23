@@ -1,5 +1,8 @@
 ﻿namespace OpenDotaDotNet.Models.HealthStatus;
 
+/// <summary>
+/// Represents service statistics.
+/// </summary>
 public class ServiceStatistics
 {
 	[JsonProperty("user_players")]
@@ -189,17 +192,17 @@ public class ServiceStatistics
 	/// Gets or sets the load times.
 	/// </summary>
 	[JsonProperty("load_times")]
-	public IDictionary<string, long> LoadTimes { get; set; }
+	public required IDictionary<string, long> LoadTimes { get; set; }
 
 	/// <summary>
 	/// Gets or sets the API status.
 	/// </summary>
 	[JsonProperty("api_status")]
-	public IEnumerable<ApiStatus> ApiStatus { get; set; }
+	public required IEnumerable<ApiStatus> ApiStatus { get; set; }
 
 	/// <summary>
 	/// Gets or sets the health.
 	/// </summary>
 	[JsonProperty("health")]
-	public ServiceHealth Health { get; set; }
+	public required ServiceHealth Health { get; set; }
 }

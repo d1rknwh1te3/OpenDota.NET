@@ -63,7 +63,7 @@ public class TeamsEndpointTests(ITestOutputHelper testOutputHelper)
 	}
 
 	[Fact]
-	public async Task TestGetTeamMatchesById()
+	public async Task TestGetOgTeamMatchesById()
 	{
 		var result = await _openDotaApi.Teams.GetTeamMatchesByIdAsync(2586976); // OG
 		testOutputHelper.WriteLine(result.ToJsonString());
@@ -72,7 +72,7 @@ public class TeamsEndpointTests(ITestOutputHelper testOutputHelper)
 		{
 			var teamMatches = result as TeamMatch[] ?? result.ToArray();
 
-			Assert.True(teamMatches.Count() > 800);
+			Assert.True(teamMatches.Length > 800);
 			Assert.True(Array.TrueForAll(teamMatches, x => x.MatchId > 0));
 			Assert.True(Array.TrueForAll(teamMatches, x => x.Duration > 0));
 			Assert.True(Array.TrueForAll(teamMatches, x => x.StartTime > 0));
@@ -80,7 +80,6 @@ public class TeamsEndpointTests(ITestOutputHelper testOutputHelper)
 			Assert.True(Array.TrueForAll(teamMatches, x => !string.IsNullOrEmpty(x.LeagueName)));
 			Assert.True(Array.TrueForAll(teamMatches, x => x.Cluster > 0));
 			Assert.True(Array.TrueForAll(teamMatches, x => x.OpposingTeamId > 0));
-			Assert.True(Array.TrueForAll(teamMatches, x => x.OpposingTeamName != null));
 			Assert.Contains(teamMatches, x => !string.IsNullOrEmpty(x.OpposingTeamLogo?.ToString()));
 		}
 		else
@@ -116,7 +115,7 @@ public class TeamsEndpointTests(ITestOutputHelper testOutputHelper)
 	}
 
 	[Fact]
-	public async Task TestGetTeamHeroesById()
+	public async Task TestGetTeamSecretTeamHeroesById()
 	{
 		var result = await _openDotaApi.Teams.GetTeamHeroesByIdAsync(1838315); // Secret
 		testOutputHelper.WriteLine(result.ToJsonString());

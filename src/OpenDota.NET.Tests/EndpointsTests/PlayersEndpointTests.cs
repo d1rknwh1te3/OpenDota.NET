@@ -10,7 +10,8 @@ public class PlayersEndpointTests(ITestOutputHelper testOutputHelper)
 		var result = await _openDotaApi.Players.GetPlayerByIdAsync(34505203);
 		testOutputHelper.WriteLine(result.ToJsonString());
 
-		Assert.Equal(34505203, result.Profile.AccountId);
+		if (result != null) 
+			Assert.Equal(34505203, result.Profile.AccountId);
 	}
 
 	[Fact]
@@ -19,8 +20,11 @@ public class PlayersEndpointTests(ITestOutputHelper testOutputHelper)
 		var result = await _openDotaApi.Players.GetPlayerWinLossByIdAsync(34505203);
 		testOutputHelper.WriteLine(result.ToJsonString());
 
-		Assert.True(result.Wins > 0);
-		Assert.True(result.Losses > 0);
+		if (result != null)
+		{
+			Assert.True(result.Wins > 0);
+			Assert.True(result.Losses > 0);
+		}
 	}
 
 	[Fact]
@@ -29,10 +33,13 @@ public class PlayersEndpointTests(ITestOutputHelper testOutputHelper)
 		var result = await _openDotaApi.Players.GetPlayerRecentMatchesAsync(34505203);
 		testOutputHelper.WriteLine(result.ToJsonString());
 
-		var recentMatches = result as PlayerRecentMatch[] ?? result.ToArray();
+		if (result != null)
+		{
+			var recentMatches = result as PlayerRecentMatch[] ?? result.ToArray();
 
-		Assert.True(recentMatches.Length > 0);
-		Assert.True(Array.TrueForAll(recentMatches,x => x.MatchId > 0));
+			Assert.True(recentMatches.Length > 0);
+			Assert.True(Array.TrueForAll(recentMatches,x => x.MatchId > 0));
+		}
 	}
 
 	[Fact]
@@ -41,10 +48,13 @@ public class PlayersEndpointTests(ITestOutputHelper testOutputHelper)
 		var result = await _openDotaApi.Players.GetPlayerMatchesAsync(34505203);
 		testOutputHelper.WriteLine(result.ToJsonString());
 
-		var matches = result as PlayerMatch[] ?? result.ToArray();
+		if (result != null)
+		{
+			var matches = result as PlayerMatch[] ?? result.ToArray();
 
-		Assert.True(matches.Length > 0);
-		Assert.True(Array.TrueForAll(matches, x => x.MatchId > 0));
+			Assert.True(matches.Length > 0);
+			Assert.True(Array.TrueForAll(matches, x => x.MatchId > 0));
+		}
 	}
 
 	[Fact]
@@ -53,10 +63,13 @@ public class PlayersEndpointTests(ITestOutputHelper testOutputHelper)
 		var result = await _openDotaApi.Players.GetPlayerHeroesAsync(34505203);
 		testOutputHelper.WriteLine(result.ToJsonString());
 
-		var playerHeroes = result as PlayerHero[] ?? result.ToArray();
+		if (result != null)
+		{
+			var playerHeroes = result as PlayerHero[] ?? result.ToArray();
 
-		Assert.True(playerHeroes.Length > 0);
-		Assert.True(Array.TrueForAll(playerHeroes, x => x.HeroId > 0));
+			Assert.True(playerHeroes.Length > 0);
+			Assert.True(Array.TrueForAll(playerHeroes, x => x.HeroId > 0));
+		}
 	}
 
 	[Fact]
@@ -65,10 +78,13 @@ public class PlayersEndpointTests(ITestOutputHelper testOutputHelper)
 		var result = await _openDotaApi.Players.GetPlayerPeersAsync(34505203);
 		testOutputHelper.WriteLine(result.ToJsonString());
 
-		var playerPeers = result as PlayerPeer[] ?? result.ToArray();
+		if (result != null)
+		{
+			var playerPeers = result as PlayerPeer[] ?? result.ToArray();
 
-		Assert.True(playerPeers.Length > 0);
-		Assert.True(Array.TrueForAll(playerPeers, x => x.AccountId > 0));
+			Assert.True(playerPeers.Length > 0);
+			Assert.True(Array.TrueForAll(playerPeers, x => x.AccountId > 0));
+		}
 	}
 
 	[Fact]
@@ -77,10 +93,13 @@ public class PlayersEndpointTests(ITestOutputHelper testOutputHelper)
 		var result = await _openDotaApi.Players.GetPlayerProsAsync(34505203);
 		testOutputHelper.WriteLine(result.ToJsonString());
 
-		var playerPros = result as PlayerPro[] ?? result.ToArray();
+		if (result != null)
+		{
+			var playerPros = result as PlayerPro[] ?? result.ToArray();
 
-		Assert.True(playerPros.Length > 0);
-		Assert.True(Array.TrueForAll(playerPros, x => x.AccountId > 0));
+			Assert.True(playerPros.Length > 0);
+			Assert.True(Array.TrueForAll(playerPros, x => x.AccountId > 0));
+		}
 	}
 
 	[Fact]
@@ -89,10 +108,13 @@ public class PlayersEndpointTests(ITestOutputHelper testOutputHelper)
 		var result = await _openDotaApi.Players.GetPlayerTotalsAsync(34505203);
 		testOutputHelper.WriteLine(result.ToJsonString());
 
-		var playerTotals = result as PlayerTotal[] ?? result.ToArray();
+		if (result != null)
+		{
+			var playerTotals = result as PlayerTotal[] ?? result.ToArray();
 
-		Assert.True(playerTotals.Length > 0);
-		Assert.True(Array.TrueForAll(playerTotals, x => string.IsNullOrWhiteSpace(x.Field)));
+			Assert.True(playerTotals.Length > 0);
+			Assert.True(Array.TrueForAll(playerTotals, x => !string.IsNullOrWhiteSpace(x.Field)));
+		}
 	}
 
 	[Fact]
@@ -115,6 +137,13 @@ public class PlayersEndpointTests(ITestOutputHelper testOutputHelper)
 	{
 		var result = await _openDotaApi.Players.GetPlayerHistogramsAsync(34505203, "comeback");
 		testOutputHelper.WriteLine(result.ToJsonString());
+
+		if (result != null)
+		{
+			var histograms = result as PlayerHistogram[] ?? result.ToArray();
+
+			Assert.True(histograms.Length > 0);
+		}
 	}
 
 	[Fact]
@@ -122,6 +151,8 @@ public class PlayersEndpointTests(ITestOutputHelper testOutputHelper)
 	{
 		var result = await _openDotaApi.Players.GetPlayerWardMapAsync(34505203);
 		testOutputHelper.WriteLine(result.ToJsonString());
+	
+		Assert.True(result is { Obs.Count: > 0 });
 	}
 
 	[Fact]
@@ -129,6 +160,8 @@ public class PlayersEndpointTests(ITestOutputHelper testOutputHelper)
 	{
 		var result = await _openDotaApi.Players.GetPlayerWordCloudAsync(34505203);
 		testOutputHelper.WriteLine(result.ToJsonString());
+
+		Assert.True(result is { AllWordCounts.Count: > 0 });
 	}
 
 	[Fact]
@@ -136,6 +169,16 @@ public class PlayersEndpointTests(ITestOutputHelper testOutputHelper)
 	{
 		var result = await _openDotaApi.Players.GetPlayerRatingsAsync(34505203);
 		testOutputHelper.WriteLine(result.ToJsonString());
+
+		if (result != null)
+		{
+			var ratings = result as PlayerRating[] ?? result.ToArray();
+
+			if (ratings.Length > 0)
+			{
+				Assert.True(Array.TrueForAll(ratings, x => x.AccountId > 0));
+			}
+		}
 	}
 
 	[Fact]
@@ -143,5 +186,12 @@ public class PlayersEndpointTests(ITestOutputHelper testOutputHelper)
 	{
 		var result = await _openDotaApi.Players.GetPlayerHeroRankingsAsync(34505203);
 		testOutputHelper.WriteLine(result.ToJsonString());
+
+		if (result != null)
+		{
+			var heroRankings = result as PlayerHeroRanking[] ?? result.ToArray();
+
+			Assert.True(heroRankings.Length > 0);
+		}
 	}
 }

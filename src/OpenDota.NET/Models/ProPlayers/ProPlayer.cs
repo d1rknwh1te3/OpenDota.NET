@@ -6,37 +6,37 @@ public class ProPlayer
 	/// Gets or sets player's account identifier.
 	/// </summary>
 	[JsonProperty("account_id")]
-	public long AccountId { get; set; }
+	public required long AccountId { get; set; }
 
 	/// <summary>
 	/// Gets or sets player's steam identifier.
 	/// </summary>
 	[JsonProperty("steamid")]
-	public string SteamId { get; set; }
+	public required string SteamId { get; set; }
 
 	/// <summary>
 	/// Gets or sets steam picture URL (small picture).
 	/// </summary>
 	[JsonProperty("avatar")]
-	public Uri Avatar { get; set; }
+	public Uri? Avatar { get; set; }
 
 	/// <summary>
 	/// Gets or sets steam picture URL (medium picture).
 	/// </summary>
 	[JsonProperty("avatarmedium")]
-	public Uri AvatarMedium { get; set; }
+	public Uri? AvatarMedium { get; set; }
 
 	/// <summary>
 	/// Gets or sets steam picture URL (full picture).
 	/// </summary>
 	[JsonProperty("avatarfull")]
-	public Uri AvatarFull { get; set; }
+	public Uri? AvatarFull { get; set; }
 
 	/// <summary>
 	/// Gets or sets steam profile URL.
 	/// </summary>
 	[JsonProperty("profileurl")]
-	public Uri ProfileUrl { get; set; }
+	public Uri? ProfileUrl { get; set; }
 
 	/// <summary>
 	/// Gets or sets player's Steam name.
@@ -60,7 +60,7 @@ public class ProPlayer
 	/// Gets or sets amount of dollars the player has donated to OpenDota.
 	/// </summary>
 	[JsonProperty("cheese")]
-	public int Cheese { get; set; }
+	public int? Cheese { get; set; }
 
 	/// <summary>
 	/// Gets or sets whether the refresh of player' match history failed.
@@ -78,7 +78,7 @@ public class ProPlayer
 	/// Gets or sets last match time.
 	/// </summary>
 	[JsonProperty("last_match_time")]
-	public DateTimeOffset LastMatchTime { get; set; }
+	public DateTimeOffset? LastMatchTime { get; set; }
 
 	/// <summary>
 	/// Gets or sets plus.
@@ -134,10 +134,9 @@ public class ProPlayer
 	[JsonProperty("is_pro")]
 	public bool IsPro { get; set; }
 
-	// NOTE: This properly always returns null
-	///// <summary>
-	///// When the roster lock will end
-	///// </summary>
-	// [JsonProperty("locked_until")]
-	// public object LockedUntil { get; set; }
+	/// <summary>
+	/// When the roster lock will end
+	/// </summary>
+	[JsonProperty("locked_until")]
+	public object? LockedUntil { get; set; }
 }

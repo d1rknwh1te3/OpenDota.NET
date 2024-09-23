@@ -10,18 +10,21 @@ public class PublicMatchesEndpointTests(ITestOutputHelper testOutputHelper)
 		var result = await _openDotaApi.PublicMatches.GetPublicMatchesAsync();
 		testOutputHelper.WriteLine(result.ToJsonString());
 
-		Assert.True(result.All(x => x.MatchId > 0));
-		Assert.Contains(result, x => x.AvgMmr > 0);
-		Assert.True(result.All(x => x.AvgRankTier > 0));
-		Assert.True(result.All(x => x.Cluster > 0));
-		Assert.True(result.All(x => x.Duration > 0));
-		Assert.True(result.All(x => x.GameMode > 0));
-		Assert.True(result.All(x => x.LobbyType >= 0));
-		Assert.True(result.All(x => x.MatchSeqNum > 0));
-		Assert.True(result.All(x => !x.NumMmr.HasValue || x.NumMmr > 0));
-		Assert.True(result.All(x => x.NumRankTier > 0));
-		Assert.True(result.All(x => x.StartTime > 0));
-		Assert.True(result.All(x => x.RadiantTeam.Split(',').Length == 5));
-		Assert.True(result.All(x => x.DireTeam.Split(',').Length == 5));
+		if (result != null)
+		{
+			var publicMatches = result as PublicMatch[] ?? result.ToArray();
+
+			Assert.True(Array.TrueForAll(publicMatches, x => x.MatchId > 0));
+			Assert.True(Array.TrueForAll(publicMatches, x => x.AvgRankTier > 0));
+			Assert.True(Array.TrueForAll(publicMatches, x => x.Cluster > 0));
+			Assert.True(Array.TrueForAll(publicMatches, x => x.Duration > 0));
+			Assert.True(Array.TrueForAll(publicMatches, x => x.GameMode > 0));
+			Assert.True(Array.TrueForAll(publicMatches, x => x.LobbyType >= 0));
+			Assert.True(Array.TrueForAll(publicMatches, x => x.MatchSeqNum > 0));
+			Assert.True(Array.TrueForAll(publicMatches, x => x.NumRankTier > 0));
+			Assert.True(Array.TrueForAll(publicMatches, x => x.StartTime > 0));
+			Assert.True(Array.TrueForAll(publicMatches, x => x.RadiantTeam.Length == 5));
+			Assert.True(Array.TrueForAll(publicMatches, x => x.DireTeam.Length == 5));
+		}
 	}
 }

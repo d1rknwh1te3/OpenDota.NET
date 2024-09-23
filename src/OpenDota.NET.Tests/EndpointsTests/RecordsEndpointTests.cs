@@ -1,4 +1,6 @@
-﻿namespace OpenDota.NET.Tests.EndpointsTests;
+﻿using Record = OpenDotaDotNet.Models.Records.Record;
+
+namespace OpenDota.NET.Tests.EndpointsTests;
 
 public class RecordsEndpointTests(ITestOutputHelper testOutputHelper)
 {
@@ -10,9 +12,14 @@ public class RecordsEndpointTests(ITestOutputHelper testOutputHelper)
 		var result = await _openDotaApi.Records.GetRecordsByFieldAsync(RecordField.Duration);
 		testOutputHelper.WriteLine(result.ToJsonString());
 
-		Assert.Equal(100, result.Count());
-		Assert.True(result.All(x => x.MatchId > 0));
-		Assert.True(result.All(x => x.Score > 0));
-		Assert.True(result.All(x => x.StartTime > 0));
+		if (result != null)
+		{
+			var records = result as Record[] ?? result.ToArray();
+
+			Assert.Equal(100, records.Length);
+			Assert.True(Array.TrueForAll(records, x => x.MatchId > 0));
+			Assert.True(Array.TrueForAll(records, x => x.Score > 0));
+			Assert.True(Array.TrueForAll(records, x => x.StartTime > 0));
+		}
 	}
 }

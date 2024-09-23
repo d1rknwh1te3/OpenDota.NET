@@ -1,6 +1,4 @@
-﻿using System.IO;
-
-namespace OpenDota.NET.Tests.Extensions;
+﻿namespace OpenDota.NET.Tests.Extensions;
 
 public static class ObjectExtensions
 {

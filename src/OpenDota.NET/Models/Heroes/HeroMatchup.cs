@@ -1,5 +1,8 @@
 ﻿namespace OpenDotaDotNet.Models.Heroes;
 
+/// <summary>
+/// Represents a hero matchup.
+/// </summary>
 public class HeroMatchup
 {
 	/// <summary>
