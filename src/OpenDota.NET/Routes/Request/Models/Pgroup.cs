@@ -11,6 +11,9 @@ public class Pgroup
 	[JsonProperty("account_id")]
 	public long? AccountId { get; set; }
 
+	/// <summary>
+	/// Gets or sets the ID value of the hero played.
+	/// </summary>
 	[JsonProperty("hero_id")]
 	public int HeroId { get; set; }
 

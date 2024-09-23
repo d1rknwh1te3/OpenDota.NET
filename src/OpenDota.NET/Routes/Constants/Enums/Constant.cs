@@ -1,5 +1,8 @@
 ﻿namespace OpenDotaDotNet.Routes.Constants.Enums;
 
+/// <summary>
+/// Represents a constant.
+/// </summary>
 public enum Constant
 {
 	Abilities,

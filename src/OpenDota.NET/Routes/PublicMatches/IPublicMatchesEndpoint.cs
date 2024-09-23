@@ -1,6 +1,4 @@
-﻿using OpenDotaDotNet.Routes.PublicMatches.Models;
-
-namespace OpenDotaDotNet.Routes.PublicMatches;
+﻿namespace OpenDotaDotNet.Routes.PublicMatches;
 
 /// <summary>
 /// Public matches endpoint.

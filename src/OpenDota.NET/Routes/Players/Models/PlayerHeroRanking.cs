@@ -1,7 +1,13 @@
 ﻿namespace OpenDotaDotNet.Routes.Players.Models;
 
+/// <summary>
+/// Represents a player's hero ranking
+/// </summary>
 public class PlayerHeroRanking
 {
+	/// <summary>
+	/// Gets or sets the ID value of the hero played.
+	/// </summary>
 	[JsonProperty("hero_id")]
 	public long HeroId { get; set; }
 

@@ -1,6 +1,4 @@
-﻿using OpenDotaDotNet.Routes.Rankings.Models;
-
-namespace OpenDotaDotNet.Routes.Rankings;
+﻿namespace OpenDotaDotNet.Routes.Rankings;
 
 public interface IRankingsEndpoint
 {

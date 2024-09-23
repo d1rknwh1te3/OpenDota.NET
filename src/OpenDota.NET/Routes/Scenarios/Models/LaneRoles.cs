@@ -6,7 +6,7 @@
 public class LaneRoles
 {
 	/// <summary>
-	/// Hero ID
+	/// Gets or sets the ID value of the hero played.
 	/// </summary>
 	[JsonProperty("hero_id")]
 	public int HeroId { get; set; }
@@ -15,7 +15,7 @@ public class LaneRoles
 	/// The hero's lane role
 	/// </summary>
 	[JsonProperty("lane_role")]
-	public int LaneRole { get; set; }
+	public LaneRole LaneRole { get; set; }
 
 	/// <summary>
 	/// Maximum game length in seconds

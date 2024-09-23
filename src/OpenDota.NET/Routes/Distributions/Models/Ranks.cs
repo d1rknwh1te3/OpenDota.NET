@@ -1,5 +1,8 @@
 ﻿namespace OpenDotaDotNet.Routes.Distributions.Models;
 
+/// <summary>
+/// Represents ranks.
+/// </summary>
 public class Ranks
 {
 	[JsonProperty("rows")]

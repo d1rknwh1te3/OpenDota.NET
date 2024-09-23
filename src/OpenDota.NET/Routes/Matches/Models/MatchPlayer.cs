@@ -138,7 +138,9 @@ public class MatchPlayer
 	[JsonProperty("hero_hits")]
 	public IDictionary<string, int> HeroHits { get; set; }
 
-	// The ID value of the hero played
+	/// <summary>
+	/// Gets or sets the ID value of the hero played.
+	/// </summary>
 	[JsonProperty("hero_id")]
 	public long HeroId { get; set; }
 

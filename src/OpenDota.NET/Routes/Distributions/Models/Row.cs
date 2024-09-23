@@ -1,5 +1,8 @@
 ﻿namespace OpenDotaDotNet.Routes.Distributions.Models;
 
+/// <summary>
+/// Represents a row.
+/// </summary>
 public class Row
 {
 	[JsonProperty("bin")]

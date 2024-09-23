@@ -1,5 +1,8 @@
 ﻿namespace OpenDotaDotNet.Routes.Benchmarks.Models;
 
+/// <summary>
+/// Represents a benchmark.
+/// </summary>
 public class Benchmark
 {
 	/// <summary>
@@ -12,5 +15,5 @@ public class Benchmark
 	/// Gets or sets the result.
 	/// </summary>
 	[JsonProperty("result")]
-	public BenchmarkResult Result { get; set; }
+	public BenchmarkResult? Result { get; set; }
 }

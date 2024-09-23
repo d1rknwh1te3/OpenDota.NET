@@ -1,6 +1,4 @@
-﻿using OpenDotaDotNet.Routes.HeroStats.Enums;
-
-namespace OpenDotaDotNet.Routes.Heroes.Models;
+﻿namespace OpenDotaDotNet.Routes.Heroes.Models;
 
 /// <summary>
 /// Represents a hero.

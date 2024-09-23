@@ -1,4 +1,5 @@
-﻿using OpenDotaDotNet.Routes.Scenarios.Enums;
+﻿using OpenDotaDotNet.Enums;
+using OpenDotaDotNet.Routes.Scenarios.Enums;
 
 namespace OpenDota.NET.Tests.EndpointsTests;
 
@@ -32,11 +33,11 @@ public class ScenariosEndpointTests(ITestOutputHelper testOutputHelper)
 	[Fact]
 	public async Task TestGetWinRateForHeroesInCertainLaneRoles()
 	{
-		const int laneId = 3; // Offlane
+		const LaneRole laneId = LaneRole.Offlane; // Offlane
 		const int heroId = 40; // Venomancer
 
 		var result =
-			await _openDotaApi.Scenarios.GetLaneRolesAsync(laneId, heroId);
+			await _openDotaApi.Scenarios.GetLaneRolesAsync(3, heroId); // TODO: FIX THIS SHIT
 		testOutputHelper.WriteLine(result.ToJsonString());
 
 		if (result != null)

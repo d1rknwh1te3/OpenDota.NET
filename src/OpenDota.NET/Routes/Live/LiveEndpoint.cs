@@ -1,5 +1,6 @@
 ﻿namespace OpenDotaDotNet.Routes.Live;
 
+/// <inheritdoc />
 public class LiveEndpoint(Requester requester) : ILiveEndpoint
 {
 	/// <inheritdoc />

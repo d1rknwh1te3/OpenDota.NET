@@ -1,5 +1,6 @@
 ﻿namespace OpenDotaDotNet.Routes.Heroes;
 
+/// <inheritdoc />
 public class HeroesEndpoint(Requester requester) : IHeroesEndpoint
 {
 	/// <inheritdoc />

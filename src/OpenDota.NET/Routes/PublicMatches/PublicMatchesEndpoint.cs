@@ -1,7 +1,6 @@
-﻿using OpenDotaDotNet.Routes.PublicMatches.Models;
+﻿namespace OpenDotaDotNet.Routes.PublicMatches;
 
-namespace OpenDotaDotNet.Routes.PublicMatches;
-
+/// <inheritdoc />
 public class PublicMatchesEndpoint(Requester requester) : IPublicMatchesEndpoint
 {
 	/// <inheritdoc />

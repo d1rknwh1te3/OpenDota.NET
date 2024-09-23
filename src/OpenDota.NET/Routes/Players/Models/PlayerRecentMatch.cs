@@ -30,7 +30,9 @@ public class PlayerRecentMatch
 	[JsonProperty("lobby_type")]
 	public int LobbyType { get; set; }
 
-	// The ID value of the hero played
+	/// <summary>
+	/// Gets or sets the ID value of the hero played.
+	/// </summary>
 	[JsonProperty("hero_id")]
 	public int HeroId { get; set; }
 

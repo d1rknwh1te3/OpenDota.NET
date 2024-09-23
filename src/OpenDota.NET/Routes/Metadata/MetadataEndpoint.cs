@@ -1,5 +1,6 @@
 ﻿namespace OpenDotaDotNet.Routes.Metadata;
 
+/// <inheritdoc />
 public class MetadataEndpoint(Requester requester) : IMetadataEndpoint
 {
 	/// <inheritdoc />

@@ -1,5 +1,8 @@
 ﻿namespace OpenDotaDotNet.Routes.Records.Enums;
 
+/// <summary>
+/// Field
+/// </summary>
 public enum Field
 {
 	Duration,

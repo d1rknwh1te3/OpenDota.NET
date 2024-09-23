@@ -1,6 +1,4 @@
-﻿using OpenDotaDotNet.Routes.Players.Models;
-
-namespace OpenDotaDotNet.Routes.Players;
+﻿namespace OpenDotaDotNet.Routes.Players;
 
 /// <summary>
 /// Represents players endpoint.

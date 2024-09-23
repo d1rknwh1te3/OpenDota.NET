@@ -1,6 +1,4 @@
-﻿using OpenDotaDotNet.Routes.Matches.Models;
-
-namespace OpenDotaDotNet.Routes.Matches;
+﻿namespace OpenDotaDotNet.Routes.Matches;
 
 /// <summary>
 /// Matches endpoint.

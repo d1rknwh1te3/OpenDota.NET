@@ -11,6 +11,9 @@ public class LiveGamePlayer
 	[JsonProperty("account_id")]
 	public required long AccountId { get; set; }
 
+	/// <summary>
+	/// Gets or sets the ID value of the hero played.
+	/// </summary>
 	[JsonProperty("hero_id")]
 	public int HeroId { get; set; }
 

@@ -14,7 +14,9 @@ public class DraftTiming
 	[JsonProperty("active_team")]
 	public int ActiveTeam { get; set; }
 
-	// The ID of the picked hero
+	/// <summary>
+	/// Gets or sets the ID value of the hero played.
+	/// </summary>
 	[JsonProperty("hero_id")]
 	public int HeroId { get; set; }
 

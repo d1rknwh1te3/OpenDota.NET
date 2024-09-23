@@ -1,6 +1,4 @@
-﻿using OpenDotaDotNet.Routes.ParsedMatches.Models;
-
-namespace OpenDotaDotNet.Routes.ParsedMatches;
+﻿namespace OpenDotaDotNet.Routes.ParsedMatches;
 
 /// <inheritdoc />
 public class ParsedMatchesEndpoint(Requester requester) : IParsedMatchesEndpoint

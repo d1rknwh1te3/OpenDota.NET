@@ -6,7 +6,9 @@ public class PickBan
 	[JsonProperty("is_pick")]
 	public bool IsPick { get; set; }
 
-	// Id of the hero picked or banned
+	/// <summary>
+	/// Gets or sets the ID value of the hero picked or banned.
+	/// </summary>
 	[JsonProperty("hero_id")]
 	public int HeroId { get; set; }
 

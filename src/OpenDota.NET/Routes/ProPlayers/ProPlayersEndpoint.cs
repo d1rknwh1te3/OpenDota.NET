@@ -1,5 +1,6 @@
 ﻿namespace OpenDotaDotNet.Routes.ProPlayers;
 
+/// <inheritdoc />
 public class ProPlayersEndpoint(Requester requester) : IProPlayersEndpoint
 {
 	/// <inheritdoc />

@@ -48,7 +48,7 @@ public class PlayerEndpointParameters
 	public int? LaneRole { get; set; }
 
 	/// <summary>
-	/// Gets or sets the hero ID.
+	/// Gets or sets the ID value of the hero played.
 	/// </summary>
 	public int? HeroId { get; set; }
 

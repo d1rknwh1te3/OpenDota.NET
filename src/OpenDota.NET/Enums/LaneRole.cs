@@ -1,9 +1,12 @@
 ﻿namespace OpenDotaDotNet.Enums;
 
+/// <summary>
+/// Lane roles
+/// </summary>
 public enum LaneRole
 {
-	Safe = 0,
-	Mid = 1,
-	Offlane = 2,
-	Jungle = 3
+	Safe = 1,
+	Mid = 2,
+	Offlane = 3,
+	Jungle = 4
 }

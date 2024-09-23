@@ -2,23 +2,29 @@
 
 public class League
 {
-	// Id of league
+	/// <summary>
+	/// Gets or sets the league ID.
+	/// </summary>
 	[JsonProperty("leagueid")]
-	public long Leagueid { get; set; }
+	public long LeagueId { get; set; }
 
 	// always null?
-	// [JsonProperty("ticket")]
-	// public object Ticket { get; set; }
+	[JsonProperty("ticket")]
+	public object Ticket { get; set; }
 
 	// Banner of the league - always returns null?
-	// [JsonProperty("banner")]
-	// public object Banner { get; set; }
+	[JsonProperty("banner")]
+	public object Banner { get; set; }
 
-	// League tier (amateur, professional, etc)
+	/// <summary>
+	/// Gets or sets tier of the league.
+	/// </summary>
 	[JsonProperty("tier")]
-	public string Tier { get; set; }
+	public Tier Tier { get; set; }
 
-	// Name of the league
+	/// <summary>
+	/// Gets or sets name of the league.
+	/// </summary>
 	[JsonProperty("name")]
-	public string Name { get; set; }
+	public string? Name { get; set; }
 }
