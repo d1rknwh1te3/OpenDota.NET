@@ -59,10 +59,9 @@ public sealed class Requester : IDisposable
 	/// <param name="url">The URL.</param>
 	/// <param name="content">The content.</param>
 	/// <returns>Response message.</returns>
-	public async Task<HttpResponseMessage> PostRequestAsync(string url, HttpContent? content = null)
+	public Task<HttpResponseMessage> PostRequestAsync(string url, HttpContent? content = null)
 	{
-		var response = await _httpClient.PostAsync(url, content);
-		return response;
+		return _httpClient.PostAsync(url, content);
 	}
 
 	/// <summary>
@@ -74,7 +73,7 @@ public sealed class Requester : IDisposable
 		_httpClientHandler.Dispose();
 	}
 
-	private async Task<HttpResponseMessage> GetRequestResponseMessageAsync(string url, List<string>? queryParameters = null)
+	private Task<HttpResponseMessage> GetRequestResponseMessageAsync(string url, List<string>? queryParameters = null)
 	{
 		queryParameters ??= [];
 
@@ -84,7 +83,6 @@ public sealed class Requester : IDisposable
 		var argumentsString = string.Join("&", queryParameters.Where(arg => !string.IsNullOrEmpty(arg)));
 		var fullUrl = $"{url}?{argumentsString}";
 
-		var message = await _httpClient.GetAsync(fullUrl);
-		return message;
+		return _httpClient.GetAsync(fullUrl);
 	}
 }
