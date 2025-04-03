@@ -5,9 +5,9 @@
 /// </summary>
 public class Ranks
 {
-	[JsonProperty("rows")]
+	[JsonPropertyName("rows")]
 	public Row[] Rows { get; set; }
 
-	[JsonProperty("sum")]
+	[JsonPropertyName("sum")]
 	public Sum Sum { get; set; }
 }

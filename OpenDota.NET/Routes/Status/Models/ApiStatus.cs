@@ -9,12 +9,12 @@ public class ApiStatus
 	/// <summary>
 	/// Gets or sets the status.
 	/// </summary>
-	[JsonProperty("status")]
+	[JsonPropertyName("status")]
 	public int Status { get; set; }
 
 	/// <summary>
 	/// Gets or sets the count.
 	/// </summary>
-	[JsonProperty("count")]
+	[JsonPropertyName("count")]
 	public int Count { get; set; }
 }

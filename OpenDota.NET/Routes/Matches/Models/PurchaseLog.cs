@@ -3,10 +3,10 @@
 public class PurchaseLog
 {
 	// Key of the item purchased
-	[JsonProperty("key")]
+	[JsonPropertyName("key")]
 	public string Key { get; set; }
 
 	// Time in seconds when the item was purchased
-	[JsonProperty("time")]
+	[JsonPropertyName("time")]
 	public long Time { get; set; }
 }

@@ -5,21 +5,21 @@
 /// </summary>
 public class League
 {
-	[JsonProperty("leagueid")]
+	[JsonPropertyName("leagueid")]
 	public long LeagueId { get; set; }
 
-	[JsonProperty("ticket")]
+	[JsonPropertyName("ticket")]
 	public string Ticket { get; set; }
 
-	[JsonProperty("banner")]
+	[JsonPropertyName("banner")]
 	public string Banner { get; set; }
 
 	/// <summary>
 	/// Gets or sets the tier for the tournament.
 	/// </summary>
-	[JsonProperty("tier")]
+	[JsonPropertyName("tier")]
 	public Tier? Tier { get; set; }
 
-	[JsonProperty("name")]
+	[JsonPropertyName("name")]
 	public string Name { get; set; }
 }

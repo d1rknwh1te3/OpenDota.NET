@@ -44,12 +44,7 @@ public sealed class Requester : IDisposable
 		if (string.IsNullOrEmpty(textResponse))
 			return null;
 
-		var serializer = new JsonSerializer();
-		var stringReader = new StringReader(textResponse);
-		var reader = new JsonTextReader(stringReader);
-
-		var data = serializer.Deserialize<T>(reader);
-
+		var data = JsonSerializer.Deserialize<T>(textResponse);
 		return data;
 	}
 

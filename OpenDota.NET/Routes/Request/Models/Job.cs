@@ -5,6 +5,6 @@
 /// </summary>
 public class Job
 {
-	[JsonProperty("jobId")]
+	[JsonPropertyName("jobId")]
 	public long JobId { get; set; }
 }

@@ -2,39 +2,39 @@
 
 public class WardLog
 {
-	[JsonProperty("attackername")]
+	[JsonPropertyName("attackername")]
 	public string AttackerName { get; set; }
 
-	[JsonProperty("ehandle")]
+	[JsonPropertyName("ehandle")]
 	public long Ehandle { get; set; }
 
-	[JsonProperty("entityleft")]
+	[JsonPropertyName("entityleft")]
 	public bool EntityLeft { get; set; }
 
-	[JsonProperty("key")]
+	[JsonPropertyName("key")]
 	public string Key { get; set; }
 
 	/// <summary>
 	/// Gets or sets which slot the player is in. 0-127 are Radiant, 128-255 are Dire.
 	/// </summary>
-	[JsonProperty("player_slot")]
+	[JsonPropertyName("player_slot")]
 	public int PlayerSlot { get; set; }
 
-	[JsonProperty("slot")]
+	[JsonPropertyName("slot")]
 	public int Slot { get; set; }
 
-	[JsonProperty("time")]
+	[JsonPropertyName("time")]
 	public int Time { get; set; }
 
-	[JsonProperty("type")]
+	[JsonPropertyName("type")]
 	public string Type { get; set; }
 
-	[JsonProperty("x")]
+	[JsonPropertyName("x")]
 	public long X { get; set; }
 
-	[JsonProperty("y")]
+	[JsonPropertyName("y")]
 	public long Y { get; set; }
 
-	[JsonProperty("z")]
+	[JsonPropertyName("z")]
 	public long Z { get; set; }
 }

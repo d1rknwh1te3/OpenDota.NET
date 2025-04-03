@@ -8,9 +8,9 @@ public class HeroRanking
 	/// <summary>
 	/// Gets or sets the ID value of the hero played.
 	/// </summary>
-	[JsonProperty("hero_id")]
+	[JsonPropertyName("hero_id")]
 	public long HeroId { get; set; }
 
-	[JsonProperty("rankings")]
+	[JsonPropertyName("rankings")]
 	public IEnumerable<RankingPlayer> Rankings { get; set; }
 }

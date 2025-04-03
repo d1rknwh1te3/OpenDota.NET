@@ -8,21 +8,21 @@ public class PlayerResponse
 	/// <summary>
 	/// Gets or sets account ID of the player.
 	/// </summary>
-	[JsonProperty("account_id")]
+	[JsonPropertyName("account_id")]
 	public required long AccountId { get; set; }
 
-	[JsonProperty("personaname")]
+	[JsonPropertyName("personaname")]
 	public string PersonaName { get; set; }
 
-	[JsonProperty("avatarfull")]
+	[JsonPropertyName("avatarfull")]
 	public Uri AvatarFull { get; set; }
 
 	/// <summary>
 	/// Gets or sets last_match_time. May not be present or null.
 	/// </summary>
-	[JsonProperty("last_match_time")]
+	[JsonPropertyName("last_match_time")]
 	public DateTimeOffset? LastMatchTime { get; set; }
 
-	[JsonProperty("similarity")]
+	[JsonPropertyName("similarity")]
 	public double Similarity { get; set; }
 }

@@ -5,6 +5,6 @@
 /// </summary>
 public class Sum
 {
-	[JsonProperty("count")]
+	[JsonPropertyName("count")]
 	public long Count { get; set; }
 }

@@ -3,10 +3,10 @@
 public class RuneLog
 {
 	// Key of the picked up rune
-	[JsonProperty("key")]
+	[JsonPropertyName("key")]
 	public long Key { get; set; }
 
 	// Time in seconds when the rune was picked up
-	[JsonProperty("time")]
+	[JsonPropertyName("time")]
 	public long Time { get; set; }
 }

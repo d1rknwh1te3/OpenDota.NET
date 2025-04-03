@@ -8,6 +8,6 @@ public class Distribution
 	/// <summary>
 	/// Gets or sets the ranks.
 	/// </summary>
-	[JsonProperty("ranks")]
+	[JsonPropertyName("ranks")]
 	public Ranks? Ranks { get; set; }
 }

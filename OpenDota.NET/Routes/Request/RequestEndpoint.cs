@@ -13,13 +13,11 @@ public class RequestEndpoint(Requester requester) : IRequestEndpoint
 		var response = await requester.PostRequestAsync($"request/{matchId}");
 		response.EnsureSuccessStatusCode();
 
-		var serializer = new JsonSerializer();
-		var stringReader = new StringReader(await response.Content.ReadAsStringAsync());
-		var reader = new JsonTextReader(stringReader);
+		var content = await response.Content.ReadAsStringAsync();
 
 		// TODO: json to class
 
-		var parseRequest = serializer.Deserialize<ParseRequest>(reader);
+		var parseRequest = JsonSerializer.Deserialize<ParseRequest>(content);
 
 		return parseRequest;
 	}

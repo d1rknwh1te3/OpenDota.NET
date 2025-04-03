@@ -5,24 +5,24 @@ public class RankingPlayer
 	/// <summary>
 	/// Gets or sets account ID of the player.
 	/// </summary>
-	[JsonProperty("account_id")]
+	[JsonPropertyName("account_id")]
 	public required long AccountId { get; set; }
 
-	[JsonProperty("score")]
+	[JsonPropertyName("score")]
 	public double Score { get; set; }
 
-	[JsonProperty("personaname")]
+	[JsonPropertyName("personaname")]
 	public string PersonaName { get; set; }
 
-	[JsonProperty("name")]
+	[JsonPropertyName("name")]
 	public string Name { get; set; }
 
-	[JsonProperty("avatar")]
+	[JsonPropertyName("avatar")]
 	public Uri Avatar { get; set; }
 
-	[JsonProperty("last_login")]
+	[JsonPropertyName("last_login")]
 	public DateTimeOffset? LastLogin { get; set; }
 
-	[JsonProperty("rank_tier")]
+	[JsonPropertyName("rank_tier")]
 	public int? RankTier { get; set; }
 }

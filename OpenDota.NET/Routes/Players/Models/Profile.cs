@@ -8,45 +8,45 @@ public class Profile
 	/// <summary>
 	/// Gets or sets account ID of the player.
 	/// </summary>
-	[JsonProperty("account_id")]
+	[JsonPropertyName("account_id")]
 	public required long AccountId { get; set; }
 
-	[JsonProperty("personaname")]
+	[JsonPropertyName("personaname")]
 	public string PersonaName { get; set; }
 
-	[JsonProperty("name")]
+	[JsonPropertyName("name")]
 	public string Name { get; set; }
 
-	[JsonProperty("plus")]
+	[JsonPropertyName("plus")]
 	public bool? Plus { get; set; }
 
-	[JsonProperty("cheese")]
+	[JsonPropertyName("cheese")]
 	public long Cheese { get; set; }
 
-	[JsonProperty("steamid")]
+	[JsonPropertyName("steamid")]
 	public string SteamId { get; set; }
 
-	[JsonProperty("avatar")]
+	[JsonPropertyName("avatar")]
 	public Uri Avatar { get; set; }
 
-	[JsonProperty("avatarmedium")]
+	[JsonPropertyName("avatarmedium")]
 	public Uri AvatarMedium { get; set; }
 
-	[JsonProperty("avatarfull")]
+	[JsonPropertyName("avatarfull")]
 	public Uri AvatarFull { get; set; }
 
-	[JsonProperty("profileurl")]
+	[JsonPropertyName("profileurl")]
 	public Uri ProfileUrl { get; set; }
 
-	[JsonProperty("last_login")]
+	[JsonPropertyName("last_login")]
 	public DateTimeOffset? LastLogin { get; set; }
 
-	[JsonProperty("loccountrycode")]
+	[JsonPropertyName("loccountrycode")]
 	public string LocCountryCode { get; set; }
 
-	[JsonProperty("is_contributor")]
+	[JsonPropertyName("is_contributor")]
 	public bool IsContributor { get; set; }
 
-	[JsonProperty("is_subscriber")]
+	[JsonPropertyName("is_subscriber")]
 	public bool IsSubscriber { get; set; }
 }

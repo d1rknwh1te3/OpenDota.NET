@@ -5,27 +5,27 @@
 /// </summary>
 public class Team
 {
-	[JsonProperty("team_id")]
+	[JsonPropertyName("team_id")]
 	public int TeamId { get; set; }
 
-	[JsonProperty("rating")]
+	[JsonPropertyName("rating")]
 	public double Rating { get; set; }
 
-	[JsonProperty("wins")]
+	[JsonPropertyName("wins")]
 	public int Wins { get; set; }
 
-	[JsonProperty("losses")]
+	[JsonPropertyName("losses")]
 	public int Losses { get; set; }
 
-	[JsonProperty("last_match_time")]
+	[JsonPropertyName("last_match_time")]
 	public long LastMatchTime { get; set; }
 
-	[JsonProperty("name")]
+	[JsonPropertyName("name")]
 	public string? Name { get; set; }
 
-	[JsonProperty("tag")]
+	[JsonPropertyName("tag")]
 	public string? Tag { get; set; }
 
-	[JsonProperty("logo_url")]
+	[JsonPropertyName("logo_url")]
 	public Uri LogoUrl { get; set; }
 }

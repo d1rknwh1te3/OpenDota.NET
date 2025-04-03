@@ -8,36 +8,36 @@ public class TeamMatch
 	/// <summary>
 	/// Gets or sets ID used to identify individual matches, e.g. 3703866531.
 	/// </summary>
-	[JsonProperty("match_id")]
+	[JsonPropertyName("match_id")]
 	public long MatchId { get; set; }
 
-	[JsonProperty("radiant_win")]
+	[JsonPropertyName("radiant_win")]
 	public bool RadiantWin { get; set; }
 
-	[JsonProperty("radiant")]
+	[JsonPropertyName("radiant")]
 	public bool Radiant { get; set; }
 
-	[JsonProperty("duration")]
+	[JsonPropertyName("duration")]
 	public long Duration { get; set; }
 
-	[JsonProperty("start_time")]
+	[JsonPropertyName("start_time")]
 	public long StartTime { get; set; }
 
-	[JsonProperty("leagueid")]
+	[JsonPropertyName("leagueid")]
 	public long Leagueid { get; set; }
 
-	[JsonProperty("league_name")]
+	[JsonPropertyName("league_name")]
 	public string LeagueName { get; set; }
 
-	[JsonProperty("cluster")]
+	[JsonPropertyName("cluster")]
 	public long Cluster { get; set; }
 
-	[JsonProperty("opposing_team_id")]
+	[JsonPropertyName("opposing_team_id")]
 	public long OpposingTeamId { get; set; }
 
-	[JsonProperty("opposing_team_name")]
+	[JsonPropertyName("opposing_team_name")]
 	public string OpposingTeamName { get; set; }
 
-	[JsonProperty("opposing_team_logo")]
+	[JsonPropertyName("opposing_team_logo")]
 	public Uri OpposingTeamLogo { get; set; }
 }

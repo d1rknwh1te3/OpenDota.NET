@@ -8,6 +8,6 @@ public class ParsedMatch
 	/// <summary>
 	/// Gets or sets ID used to identify individual matches, e.g. 3703866531.
 	/// </summary>
-	[JsonProperty("match_id")]
+	[JsonPropertyName("match_id")]
 	public long MatchId { get; set; }
 }

@@ -1,7 +1,5 @@
 // Global using directives
 
-global using Newtonsoft.Json;
-global using Newtonsoft.Json.Linq;
 global using OpenDotaDotNet.Enums;
 global using OpenDotaDotNet.Extensions;
 global using OpenDotaDotNet.Routes.Benchmarks;
@@ -44,6 +42,9 @@ global using System.IO;
 global using System.Linq;
 global using System.Net;
 global using System.Net.Http;
+global using System.Text.Json;
+global using System.Text.Json.Nodes;
+global using System.Text.Json.Serialization;
 global using System.Threading.Tasks;
 global using OpenDotaDotNet.Routes.FindMatches.Models;
 global using OpenDotaDotNet.Routes.HeroStats.Enums;

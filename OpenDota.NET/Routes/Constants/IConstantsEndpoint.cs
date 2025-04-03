@@ -10,7 +10,7 @@ public interface IConstantsEndpoint
 	/// </summary>
 	/// <param name="resource">The resource.</param>
 	/// <returns></returns>
-	public Task<JObject?> GetConstantsAsync(Constant resource);
+	public Task<JsonObject?> GetConstantsAsync(Constant resource);
 
 	/// <summary>
 	/// Gets an array of available resources. GET /constants

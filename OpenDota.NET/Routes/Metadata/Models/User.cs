@@ -8,6 +8,6 @@ public class User
 	/// <summary>
 	/// Gets or sets the account identifier.
 	/// </summary>
-	[JsonProperty("account_id")]
+	[JsonPropertyName("account_id")]
 	public int AccountId { get; set; }
 }

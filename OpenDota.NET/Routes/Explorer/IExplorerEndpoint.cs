@@ -10,5 +10,5 @@ public interface IExplorerEndpoint
 	/// </summary>
 	/// <param name="query">The PostgreSQL query as percent-encoded string.</param>
 	/// <returns>Explorer response in JObject format.</returns>
-	public Task<JObject?> GetFromExplorerAsync(string query);
+	public Task<JsonObject?> GetFromExplorerAsync(string query);
 }

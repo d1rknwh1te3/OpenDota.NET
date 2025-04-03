@@ -4,8 +4,8 @@
 public class ConstantsEndpoint(Requester requester) : IConstantsEndpoint
 {
 	/// <inheritdoc />
-	public Task<JObject?> GetConstantsAsync(Constant resource) =>
-		requester.GetResponseAsync<JObject>($"constants/{resource.ToSnakeCase()}");
+	public Task<JsonObject?> GetConstantsAsync(Constant resource) =>
+		requester.GetResponseAsync<JsonObject>($"constants/{resource.ToSnakeCase()}");
 
 	/// <inheritdoc />
 	public Task<IEnumerable<string>?> GetConstantsAsync() =>

@@ -8,20 +8,20 @@ public enum HeroPrimaryAttribute
 	/// <summary>
 	/// Agility attribute.
 	/// </summary>
-	[JsonProperty("agi")] Agility = 0,
+	[JsonPropertyName("agi")] Agility = 0,
 
 	/// <summary>
 	/// Intelligence attribute.
 	/// </summary>
-	[JsonProperty("int")] Intelligence = 1,
+	[JsonPropertyName("int")] Intelligence = 1,
 
 	/// <summary>
 	/// Strength attribute.
 	/// </summary>
-	[JsonProperty("str")] Strength = 2,
+	[JsonPropertyName("str")] Strength = 2,
 
 	/// <summary>
 	/// Universal attribute.
 	/// </summary>
-	[JsonProperty("all")] All = 3,
+	[JsonPropertyName("all")] All = 3,
 }

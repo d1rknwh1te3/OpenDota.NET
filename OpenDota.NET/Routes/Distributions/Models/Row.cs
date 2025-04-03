@@ -5,15 +5,15 @@
 /// </summary>
 public class Row
 {
-	[JsonProperty("bin")]
+	[JsonPropertyName("bin")]
 	public int Bin { get; set; }
 
-	[JsonProperty("bin_name")]
+	[JsonPropertyName("bin_name")]
 	public string BinName { get; set; }
 
-	[JsonProperty("count")]
+	[JsonPropertyName("count")]
 	public int Count { get; set; }
 
-	[JsonProperty("cumulative_sum")]
+	[JsonPropertyName("cumulative_sum")]
 	public int CumulativeSum { get; set; }
 }

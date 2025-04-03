@@ -8,39 +8,39 @@ public class LiveGamePlayer
 	/// <summary>
 	/// Gets or sets account ID of the player.
 	/// </summary>
-	[JsonProperty("account_id")]
+	[JsonPropertyName("account_id")]
 	public required long AccountId { get; set; }
 
 	/// <summary>
 	/// Gets or sets the ID value of the hero played.
 	/// </summary>
-	[JsonProperty("hero_id")]
+	[JsonPropertyName("hero_id")]
 	public int HeroId { get; set; }
 
-	[JsonProperty("name")]
+	[JsonPropertyName("name")]
 	public string Name { get; set; }
 
-	[JsonProperty("country_code")]
+	[JsonPropertyName("country_code")]
 	public string CountryCode { get; set; }
 
-	[JsonProperty("fantasy_role")]
+	[JsonPropertyName("fantasy_role")]
 	public long? FantasyRole { get; set; }
 
-	[JsonProperty("team_id")]
+	[JsonPropertyName("team_id")]
 	public long? TeamId { get; set; }
 
-	[JsonProperty("team_name")]
+	[JsonPropertyName("team_name")]
 	public string TeamName { get; set; }
 
-	[JsonProperty("team_tag")]
+	[JsonPropertyName("team_tag")]
 	public string TeamTag { get; set; }
 
-	[JsonProperty("is_locked")]
+	[JsonPropertyName("is_locked")]
 	public bool? IsLocked { get; set; }
 
-	[JsonProperty("is_pro")]
+	[JsonPropertyName("is_pro")]
 	public bool? IsPro { get; set; }
 
-	[JsonProperty("locked_until")]
+	[JsonPropertyName("locked_until")]
 	public object LockedUntil { get; set; }
 }

@@ -5,6 +5,6 @@
 /// </summary>
 public class ParseRequest
 {
-	[JsonProperty("job")]
+	[JsonPropertyName("job")]
 	public Job Job { get; set; }
 }

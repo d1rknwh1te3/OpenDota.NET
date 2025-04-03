@@ -4,8 +4,8 @@
 public class ExplorerEndpoint(Requester requester) : IExplorerEndpoint
 {
 	/// <inheritdoc />
-	public Task<JObject?> GetFromExplorerAsync(string query) =>
-		requester.GetResponseAsync<JObject>(
+	public Task<JsonObject?> GetFromExplorerAsync(string query) =>
+		requester.GetResponseAsync<JsonObject>(
 			"explorer",
 			[$"sql={query}"]);
 }

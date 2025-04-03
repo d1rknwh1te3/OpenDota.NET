@@ -5,12 +5,12 @@
 /// </summary>
 public class PlayerTotal
 {
-	[JsonProperty("field")]
+	[JsonPropertyName("field")]
 	public string Field { get; set; }
 
-	[JsonProperty("n")]
+	[JsonPropertyName("n")]
 	public long Number { get; set; }
 
-	[JsonProperty("sum")]
+	[JsonPropertyName("sum")]
 	public double Sum { get; set; }
 }
