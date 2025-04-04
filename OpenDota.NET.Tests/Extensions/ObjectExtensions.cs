@@ -2,5 +2,8 @@
 
 public static class ObjectExtensions
 {
-	public static string ToJsonString(this object obj) => JsonConvert.SerializeObject(obj);
+	public static string ToJsonString(this object obj)
+	{
+		return JsonConvert.SerializeObject(obj, Formatting.Indented);
+	}
 }
