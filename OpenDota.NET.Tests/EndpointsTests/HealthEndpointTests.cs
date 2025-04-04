@@ -12,17 +12,17 @@ public class HealthEndpointTests(ITestOutputHelper testOutputHelper)
 
 		if (health != null)
 		{
-			Assert.True(health.CassandraUsage.Timestamp > 0);
-			Assert.True(health.GcDelay.Timestamp > 0);
-			Assert.True(health.ParseDelay.Timestamp > 0);
-			Assert.True(health.PostgresUsage.Timestamp > 0);
-			Assert.True(health.RedisUsage.Timestamp > 0);
-			Assert.True(health.SeqNumDelay.Timestamp > 0);
-			Assert.True(health.FhDelay.Timestamp > 0);
-			Assert.True(health.CacheDelay.Timestamp > 0);
-			Assert.True(health.MmrDelay.Timestamp > 0);
-			Assert.True(health.CountsDelay.Timestamp > 0);
-			Assert.True(health.ScenariosDelay.Timestamp > 0);
+			Assert.True(health.CassandraUsage is { Timestamp: > 0 });
+			Assert.True(health.GcDelay is { Timestamp: > 0 });
+			Assert.True(health.ParseDelay is { Timestamp: > 0 });
+			Assert.True(health.PostgresUsage is { Timestamp: > 0 });
+			Assert.True(health.RedisUsage is { Timestamp: > 0 });
+			Assert.True(health.SeqNumDelay is { Timestamp: > 0 });
+			Assert.True(health.FhDelay is { Timestamp: > 0 });
+			Assert.True(health.CacheDelay is { Timestamp: > 0 });
+			Assert.True(health.MmrDelay is { Timestamp: > 0 });
+			Assert.True(health.CountsDelay is { Timestamp: > 0 });
+			Assert.True(health.ScenariosDelay is { Timestamp: > 0 });
 
 			Assert.True(health.CassandraUsage.Threshold > 0);
 			Assert.True(health.GcDelay.Threshold > 0);

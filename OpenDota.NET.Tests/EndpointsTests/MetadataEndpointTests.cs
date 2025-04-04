@@ -13,9 +13,13 @@ public class MetadataEndpointTests(ITestOutputHelper testOutputHelper)
 		if (result != null)
 		{
 			Assert.True(result.Scenarios.ItemCost > 0);
-			Assert.True(result.Scenarios.GameDurationBucket.Length > 0);
-			Assert.True(result.Scenarios.TeamScenariosQueryParams.Length > 0);
-			Assert.True(result.Scenarios.Timings.Length > 0);
+			Assert.True(result.Scenarios.GameDurationBucket.Count > 0);
+			Assert.True(result.Scenarios.TeamScenariosQueryParams.Count > 0);
+			Assert.True(result.Scenarios.Timings.Count > 0);
+		}
+		else
+		{
+			Assert.Fail();
 		}
 	}
 }

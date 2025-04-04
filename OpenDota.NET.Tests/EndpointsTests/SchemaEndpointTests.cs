@@ -10,11 +10,7 @@ public class SchemaEndpointTests(ITestOutputHelper testOutputHelper)
 		var result = await _openDotaApi.Schema.GetDatabaseSchemaAsync();
 		testOutputHelper.WriteLine(result.ToJsonString());
 
-		if (result != null)
-		{
-			var schema = result as DatabaseSchema[] ?? result.ToArray();
-
-			Assert.Contains(schema, x => x.TableName == "api_key_usage");
-		}
+		if (result != null) 
+			Assert.Contains(result, x => x.TableName == "api_key_usage");
 	}
 }

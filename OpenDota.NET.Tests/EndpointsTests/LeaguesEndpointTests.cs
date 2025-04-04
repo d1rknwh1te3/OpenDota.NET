@@ -12,16 +12,15 @@ public class LeaguesEndpointTests(ITestOutputHelper testOutputHelper)
 
 		if (result != null)
 		{
-			var leagues = result as League[] ?? result.ToArray();
-			Assert.True(leagues.Length >= 3322);
-			Assert.Contains(leagues, x => x.Tier == Tier.Amateur);
-			Assert.Contains(leagues, x => x.Tier == Tier.Excluded);
-			Assert.Contains(leagues, x => x.Tier == Tier.Premium);
-			Assert.Contains(leagues, x => x.Tier == Tier.Professional);
-			Assert.Contains(leagues, x => x.LeagueId > 0);
-			Assert.True(Array.TrueForAll(leagues, x => !string.IsNullOrEmpty(x.Name)));
-			Assert.Contains(leagues, x => !string.IsNullOrEmpty(x.Banner));
-			Assert.Contains(leagues, x => !string.IsNullOrEmpty(x.Ticket));
+			Assert.True(result.Count >= 3322);
+			Assert.Contains(result, x => x.Tier == Tier.Amateur);
+			Assert.Contains(result, x => x.Tier == Tier.Excluded);
+			Assert.Contains(result, x => x.Tier == Tier.Premium);
+			Assert.Contains(result, x => x.Tier == Tier.Professional);
+			Assert.Contains(result, x => x.LeagueId > 0);
+			Assert.True(result.TrueForAll(x => !string.IsNullOrWhiteSpace(x.Name)));
+			Assert.Contains(result, x => !string.IsNullOrWhiteSpace(x.Banner));
+			Assert.Contains(result, x => !string.IsNullOrWhiteSpace(x.Ticket));
 		}
 	}
 }

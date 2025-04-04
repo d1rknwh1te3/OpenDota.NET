@@ -12,17 +12,15 @@ public class SearchEndpointTests(ITestOutputHelper testOutputHelper)
 
 		if (result != null)
 		{
-			var playerResponses = result as PlayerResponse[] ?? result.ToArray();
+			Assert.Equal(50, result.Count);
 
-			Assert.Equal(50, playerResponses.Length);
+			Assert.Contains(result, x => x.LastMatchTime > new DateTime(2000, 1, 1));
 
-			Assert.Contains(playerResponses, x => x.LastMatchTime > new DateTime(2000, 1, 1));
-
-			Assert.True(Array.TrueForAll(playerResponses, x => x.AccountId > 0));
-			Assert.True(Array.TrueForAll(playerResponses, x => x.Similarity > 0));
-			Assert.True(Array.TrueForAll(playerResponses, x => !x.LastMatchTime.HasValue || x.LastMatchTime > new DateTime(2000, 1, 1)));
-			Assert.True(Array.TrueForAll(playerResponses, x => !string.IsNullOrWhiteSpace(x.PersonaName)));
-			Assert.True(Array.TrueForAll(playerResponses, x => !string.IsNullOrWhiteSpace(x.AvatarFull.ToString())));
+			Assert.True(result.TrueForAll(x => x.AccountId > 0));
+			Assert.True(result.TrueForAll(x => x.Similarity > 0));
+			Assert.True(result.TrueForAll(x => !x.LastMatchTime.HasValue || x.LastMatchTime > new DateTime(2000, 1, 1)));
+			Assert.True(result.TrueForAll(x => !string.IsNullOrWhiteSpace(x.PersonaName)));
+			Assert.True(result.TrueForAll(x => !string.IsNullOrWhiteSpace(x.AvatarFull?.ToString())));
 		}
 	}
 }

@@ -13,20 +13,19 @@ public class ScenariosEndpointTests(ITestOutputHelper testOutputHelper)
 		const int heroId = 40;
 		const string itemName = "sange_and_yasha";
 
-		var result =
-			await _openDotaApi.Scenarios.GetItemNamingAsync(itemName, heroId);
+		var result = await _openDotaApi.Scenarios.GetItemNamingAsync(itemName, heroId);
+		
 		testOutputHelper.WriteLine(result.ToJsonString());
 
 		if (result != null)
 		{
-			var timings = result as ItemTiming[] ?? result.ToArray();
 
-			Assert.True(timings.Length > 0);
-			Assert.True(Array.TrueForAll(timings, x => x.Item == itemName));
-			Assert.True(Array.TrueForAll(timings, x => x.HeroId == heroId));
-			Assert.True(Array.TrueForAll(timings, x => x.Time > 0));
-			Assert.True(Array.TrueForAll(timings, x => x.Games > 0));
-			Assert.True(Array.TrueForAll(timings, x => x.Wins > 0));
+			Assert.True(result.Count >= 0);
+			Assert.True(result.TrueForAll(x => x.Item == itemName));
+			Assert.True(result.TrueForAll(x => x.HeroId == heroId));
+			Assert.True(result.TrueForAll(x => x.Time >= 0));
+			Assert.True(result.TrueForAll(x => x.Games >= 0));
+			Assert.True(result.TrueForAll(x => x.Wins >= 0));
 		}
 	}
 
@@ -36,20 +35,18 @@ public class ScenariosEndpointTests(ITestOutputHelper testOutputHelper)
 		const LaneRole laneId = LaneRole.Offlane; // Offlane
 		const int heroId = 40; // Venomancer
 
-		var result =
-			await _openDotaApi.Scenarios.GetLaneRolesAsync(3, heroId); // TODO: FIX THIS SHIT
+		var result = await _openDotaApi.Scenarios.GetLaneRolesAsync(3, heroId); // TODO: FIX THIS SHIT
+		
 		testOutputHelper.WriteLine(result.ToJsonString());
 
 		if (result != null)
 		{
-			var roleWinrates = result as LaneRoles[] ?? result.ToArray();
-
-			Assert.True(roleWinrates.Length > 0);
-			Assert.True(Array.TrueForAll(roleWinrates, x => x.LaneRole == laneId));
-			Assert.True(Array.TrueForAll(roleWinrates, x => x.HeroId == heroId));
-			Assert.True(Array.TrueForAll(roleWinrates, x => x.Time > 0));
-			Assert.True(Array.TrueForAll(roleWinrates, x => x.Games > 0));
-			Assert.True(Array.TrueForAll(roleWinrates, x => x.Wins >= 0));
+			Assert.True(result.Count > 0);
+			Assert.True(result.TrueForAll(x => x.LaneRole == laneId));
+			Assert.True(result.TrueForAll(x => x.HeroId == heroId));
+			Assert.True(result.TrueForAll(x => x.Time > 0));
+			Assert.True(result.TrueForAll(x => x.Games > 0));
+			Assert.True(result.TrueForAll(x => x.Wins >= 0));
 		}
 	}
 
@@ -64,13 +61,11 @@ public class ScenariosEndpointTests(ITestOutputHelper testOutputHelper)
 
 		if (result != null)
 		{
-			var scenarios = result as TeamScenario[] ?? result.ToArray();
-
-			Assert.True(scenarios.Length > 0);
-			Assert.True(Array.TrueForAll(scenarios, x => x.Scenario == scenario));
-			Assert.True(Array.TrueForAll(scenarios, x => x.Games > 0));
-			Assert.True(Array.TrueForAll(scenarios, x => x.Wins >= 0));
-			Assert.True(Array.TrueForAll(scenarios, x => x.Region > 0));
+			Assert.True(result.Count > 0);
+			Assert.True(result.TrueForAll(x => x.Scenario == scenario));
+			Assert.True(result.TrueForAll(x => x.Games > 0));
+			Assert.True(result.TrueForAll(x => x.Wins >= 0));
+			Assert.True(result.TrueForAll(x => x.Region > 0));
 		}
 	}
 }

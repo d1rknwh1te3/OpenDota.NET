@@ -12,19 +12,15 @@ public class TeamsEndpointTests(ITestOutputHelper testOutputHelper)
 
 		if (result != null)
 		{
-			var teams = result as Team[] ?? result.ToArray();
-
-			Assert.Equal(1000, teams.Length);
-			Assert.Contains(teams, x => !string.IsNullOrEmpty(x.Name));
-			Assert.True(Array.TrueForAll(teams, x => x.Name != null));
-			Assert.Contains(teams, x => !string.IsNullOrEmpty(x.Tag));
-			Assert.True(Array.TrueForAll(teams, x => x.Tag != null));
-			Assert.True(Array.TrueForAll(teams, x => x.TeamId > 0));
-			Assert.True(Array.TrueForAll(teams, x => x.Wins > 0));
-			Assert.True(Array.TrueForAll(teams, x => x.Losses >= 0));
-			Assert.True(Array.TrueForAll(teams, x => x.LastMatchTime > 0));
-			Assert.True(Array.TrueForAll(teams, x => x.Rating > 0));
-			Assert.Contains(teams, x => !string.IsNullOrEmpty(x.LogoUrl?.ToString()));
+			Assert.Equal(1000, result.Count);
+			Assert.Contains(result, x => !string.IsNullOrWhiteSpace(x.Name));
+			Assert.Contains(result, x => !string.IsNullOrWhiteSpace(x.Tag));
+			Assert.True(result.TrueForAll(x => x.TeamId > 0));
+			Assert.True(result.TrueForAll(x => x.Wins > 0));
+			Assert.True(result.TrueForAll(x => x.Losses >= 0));
+			Assert.True(result.TrueForAll(x => x.LastMatchTime > 0));
+			Assert.True(result.TrueForAll(x => x.Rating > 0));
+			Assert.Contains(result, x => !string.IsNullOrWhiteSpace(x.LogoUrl?.ToString()));
 		}
 		else
 		{
@@ -47,7 +43,7 @@ public class TeamsEndpointTests(ITestOutputHelper testOutputHelper)
 			Assert.True(result.Losses > 0);
 			Assert.True(result.LastMatchTime > 0);
 			Assert.True(result.Rating > 0);
-			Assert.False(string.IsNullOrWhiteSpace(result.LogoUrl.ToString()));
+			Assert.False(string.IsNullOrWhiteSpace(result.LogoUrl?.ToString()));
 		}
 		else
 		{
@@ -70,17 +66,15 @@ public class TeamsEndpointTests(ITestOutputHelper testOutputHelper)
 
 		if (result != null)
 		{
-			var teamMatches = result as TeamMatch[] ?? result.ToArray();
-
-			Assert.True(teamMatches.Length > 800);
-			Assert.True(Array.TrueForAll(teamMatches, x => x.MatchId > 0));
-			Assert.True(Array.TrueForAll(teamMatches, x => x.Duration > 0));
-			Assert.True(Array.TrueForAll(teamMatches, x => x.StartTime > 0));
-			Assert.True(Array.TrueForAll(teamMatches, x => x.Leagueid > 0));
-			Assert.True(Array.TrueForAll(teamMatches, x => !string.IsNullOrEmpty(x.LeagueName)));
-			Assert.True(Array.TrueForAll(teamMatches, x => x.Cluster > 0));
-			Assert.True(Array.TrueForAll(teamMatches, x => x.OpposingTeamId > 0));
-			Assert.Contains(teamMatches, x => !string.IsNullOrEmpty(x.OpposingTeamLogo?.ToString()));
+			Assert.True(result.Count > 800);
+			Assert.True(result.TrueForAll(x => x.MatchId > 0));
+			Assert.True(result.TrueForAll(x => x.Duration > 0));
+			Assert.True(result.TrueForAll(x => x.StartTime > 0));
+			Assert.True(result.TrueForAll(x => x.LeagueId > 0));
+			Assert.True(result.TrueForAll(x => !string.IsNullOrWhiteSpace(x.LeagueName)));
+			Assert.True(result.TrueForAll(x => x.Cluster > 0));
+			Assert.True(result.TrueForAll(x => x.OpposingTeamId > 0));
+			Assert.Contains(result, x => !string.IsNullOrWhiteSpace(x.OpposingTeamLogo?.ToString()));
 		}
 		else
 		{
@@ -96,12 +90,10 @@ public class TeamsEndpointTests(ITestOutputHelper testOutputHelper)
 
 		if (result != null)
 		{
-			var teamPlayers = result as TeamPlayer[] ?? result.ToArray();
-
-			Assert.Equal(7, teamPlayers.Count(x => x.IsCurrentTeamMember == true));
-			Assert.True(Array.TrueForAll(teamPlayers, x => x.GamesPlayed >= 0));
-			Assert.True(Array.TrueForAll(teamPlayers, x => x.Wins >= 0));
-			Assert.True(Array.TrueForAll(teamPlayers, x => x.AccountId > 0));
+			Assert.Equal(7, result.Count(x => x.IsCurrentTeamMember == true));
+			Assert.True(result.TrueForAll(x => x.GamesPlayed >= 0));
+			Assert.True(result.TrueForAll(x => x.Wins >= 0));
+			Assert.True(result.TrueForAll(x => x.AccountId > 0));
 		}
 		else
 		{
@@ -117,13 +109,11 @@ public class TeamsEndpointTests(ITestOutputHelper testOutputHelper)
 
 		if (result != null)
 		{
-			var teamHeroes = result as TeamHero[] ?? result.ToArray();
-
-			Assert.True(teamHeroes.Length >= 119);
-			Assert.True(Array.TrueForAll(teamHeroes, x => x.HeroId > 0));
-			Assert.True(Array.TrueForAll(teamHeroes, x => x.GamesPlayed > 0));
-			Assert.True(Array.TrueForAll(teamHeroes, x => x.Wins > 0));
-			Assert.True(Array.TrueForAll(teamHeroes, x => !string.IsNullOrEmpty(x.LocalizedName)));
+			Assert.True(result.Count >= 119);
+			Assert.True(result.TrueForAll(x => x.HeroId > 0));
+			Assert.True(result.TrueForAll(x => x.GamesPlayed > 0));
+			Assert.True(result.TrueForAll(x => x.Wins > 0));
+			Assert.True(result.TrueForAll(x => !string.IsNullOrWhiteSpace(x.LocalizedName)));
 		}
 		else
 		{

@@ -7,20 +7,16 @@ public class FindMatchesEndpointTests(ITestOutputHelper testOutputHelper)
 	[Fact]
 	public async Task TestFindMatchesByHeroesPlayed()
 	{
-		var result = await _openDotaApi.FindMatches.FindMatchesByHeroesPlayedAsync(
-			[27],
-			[2]);
+		var result = await _openDotaApi.FindMatches.FindMatchesByHeroesPlayedAsync([27], [2]);
 		testOutputHelper.WriteLine(result.ToJsonString());
 
 		if (result != null)
 		{
-			var findMatches = result as FindMatch[] ?? result.ToArray();
-
-			Assert.Equal(10, findMatches.Length);
-			Assert.True(Array.TrueForAll(findMatches, x => x.TeamA.Contains(27) || x.TeamB.Contains(27)));
-			Assert.True(Array.TrueForAll(findMatches, x => x.TeamA.Contains(2) || x.TeamB.Contains(2)));
-			Assert.True(Array.TrueForAll(findMatches, x => x.StartTime > 0));
-			Assert.True(Array.TrueForAll(findMatches, x => x.MatchId > 0));
+			Assert.Equal(10, result.Count);
+			Assert.True(result.TrueForAll(x => x.TeamA.Contains(27) || x.TeamB.Contains(27)));
+			Assert.True(result.TrueForAll(x => x.TeamA.Contains(2) || x.TeamB.Contains(2)));
+			Assert.True(result.TrueForAll(x => x.StartTime > 0));
+			Assert.True(result.TrueForAll(x => x.MatchId > 0));
 		}
 	}
 }

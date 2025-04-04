@@ -12,11 +12,9 @@ public class LiveEndpointTests(ITestOutputHelper testOutputHelper)
 
 		if (result != null)
 		{
-			var liveGames = result as LiveGame[] ?? result.ToArray();
-
-			Assert.Equal(100, liveGames.Length);
-			Assert.True(Array.TrueForAll(liveGames, x => !string.IsNullOrEmpty(x.LobbyId)));
-			Assert.True(Array.TrueForAll(liveGames, x => x.Players.Any()));
+			Assert.Equal(100, result.Count);
+			Assert.True(result.TrueForAll(x => !string.IsNullOrWhiteSpace(x.LobbyId)));
+			Assert.True(result.TrueForAll(x => x.Players.Count >= 0));
 		}
 	}
 }

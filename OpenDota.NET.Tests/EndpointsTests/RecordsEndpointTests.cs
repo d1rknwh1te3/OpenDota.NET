@@ -14,12 +14,10 @@ public class RecordsEndpointTests(ITestOutputHelper testOutputHelper)
 
 		if (result != null)
 		{
-			var records = result as Record[] ?? result.ToArray();
-
-			Assert.Equal(100, records.Length);
-			Assert.True(Array.TrueForAll(records, x => x.MatchId > 0));
-			Assert.True(Array.TrueForAll(records, x => x.Score > 0));
-			Assert.True(Array.TrueForAll(records, x => x.StartTime > 0));
+			Assert.Equal(100, result.Count);
+			Assert.True(result.TrueForAll(x => x.MatchId > 0));
+			Assert.True(result.TrueForAll(x => x.Score > 0));
+			Assert.True(result.TrueForAll(x => x.StartTime > 0));
 		}
 	}
 }

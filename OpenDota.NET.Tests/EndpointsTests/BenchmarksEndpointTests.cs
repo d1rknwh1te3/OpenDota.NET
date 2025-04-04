@@ -17,13 +17,13 @@ public class BenchmarksEndpointTests(ITestOutputHelper testOutputHelper)
 		{
 			Assert.Equal(heroId, result.HeroId);
 			Assert.NotNull(result.Result);
-			Assert.Equal(11, result.Result.GoldPerMinutes.Count());
-			Assert.Equal(11, result.Result.XpPerMinutes.Count());
-			Assert.Equal(11, result.Result.KillsPerMinutes.Count());
-			Assert.Equal(11, result.Result.LastHitPerMinutes.Count());
-			Assert.Equal(11, result.Result.HeroDamagePerMinutes.Count());
-			Assert.Equal(11, result.Result.HeroHealingPerMinutes.Count());
-			Assert.Equal(11, result.Result.TowerDamage.Count());
+			Assert.Equal(11, result.Result.GoldPerMinutes.Count);
+			Assert.Equal(11, result.Result.XpPerMinutes.Count);
+			Assert.Equal(11, result.Result.KillsPerMinutes.Count);
+			Assert.Equal(11, result.Result.LastHitPerMinutes.Count);
+			Assert.Equal(11, result.Result.HeroDamagePerMinutes.Count);
+			Assert.Equal(11, result.Result.HeroHealingPerMinutes.Count);
+			Assert.Equal(11, result.Result.TowerDamage.Count);
 		}
 	}
 }

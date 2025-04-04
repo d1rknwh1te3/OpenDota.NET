@@ -12,12 +12,10 @@ public class ProMatchesEndpointTests(ITestOutputHelper testOutputHelper)
 
 		if (result != null)
 		{
-			var proMatches = result as ProMatch[] ?? result.ToArray();
-
-			Assert.Equal(100, proMatches.Length);
-			Assert.True(Array.TrueForAll(proMatches, x => !string.IsNullOrEmpty(x.LeagueName)));
-			Assert.True(Array.TrueForAll(proMatches, x => x.MatchId > 0));
-			Assert.True(Array.TrueForAll(proMatches, x => x.StartTime > 0));
+			Assert.Equal(100, result.Count);
+			Assert.True(result.TrueForAll(x => !string.IsNullOrWhiteSpace(x.LeagueName)));
+			Assert.True(result.TrueForAll(x => x.MatchId > 0));
+			Assert.True(result.TrueForAll(x => x.StartTime > 0));
 		}
 	}
 }
