@@ -11,53 +11,23 @@
 /// </remarks>
 public interface IOpenDotaApi
 {
-	/// <inheritdoc cref="IMatchesEndpoint" />
-	IMatchesEndpoint Matches { get; }
+	/// <inheritdoc cref="IBenchmarkEndpoint" />
+	IBenchmarkEndpoint Benchmarks { get; }
 
-	/// <inheritdoc cref="IPlayersEndpoint" />
-	IPlayersEndpoint Players { get; }
-
-	/// <inheritdoc cref="IProPlayersEndpoint" />
-	IProPlayersEndpoint ProPlayers { get; }
-
-	/// <inheritdoc cref="IProMatchEndpoint" />
-	IProMatchEndpoint ProMatches { get; }
-
-	/// <inheritdoc cref="IPublicMatchesEndpoint" />
-	IPublicMatchesEndpoint PublicMatches { get; }
-
-	/// <inheritdoc cref="IParsedMatchesEndpoint" />
-	IParsedMatchesEndpoint ParsedMatches { get; }
-
-	/// <inheritdoc cref="IExplorerEndpoint" />
-	IExplorerEndpoint Explorer { get; }
-
-	/// <inheritdoc cref="IMetadataEndpoint" />
-	IMetadataEndpoint Metadata { get; }
+	/// <inheritdoc cref="IConstantsEndpoint" />
+	IConstantsEndpoint Constants { get; }
 
 	/// <inheritdoc cref="IDistributionsEndpoint" />
 	IDistributionsEndpoint Distributions { get; }
 
-	/// <inheritdoc cref="ISearchEndpoint" />
-	ISearchEndpoint Search { get; }
-
-	/// <inheritdoc cref="IRankingsEndpoint" />
-	IRankingsEndpoint Rankings { get; }
-
-	/// <inheritdoc cref="IBenchmarkEndpoint" />
-	IBenchmarkEndpoint Benchmarks { get; }
-
-	/// <inheritdoc cref="IStatusEndpoint" />
-	IStatusEndpoint Status { get; }
-
-	/// <inheritdoc cref="IHealthEndpoint" />
-	IHealthEndpoint Health { get; }
-
-	/// <inheritdoc cref="IRequestEndpoint" />
-	IRequestEndpoint Request { get; }
+	/// <inheritdoc cref="IExplorerEndpoint" />
+	IExplorerEndpoint Explorer { get; }
 
 	/// <inheritdoc cref="IFindMatchesEndpoint" />
 	IFindMatchesEndpoint FindMatches { get; }
+
+	/// <inheritdoc cref="IHealthEndpoint" />
+	IHealthEndpoint Health { get; }
 
 	/// <inheritdoc cref="IHeroesEndpoint" />
 	IHeroesEndpoint Heroes { get; }
@@ -68,14 +38,36 @@ public interface IOpenDotaApi
 	/// <inheritdoc cref="ILeagueEndpoint" />
 	ILeagueEndpoint League { get; }
 
-	/// <inheritdoc cref="ITeamsEndpoint" />
-	ITeamsEndpoint Teams { get; }
+	/// <inheritdoc cref="ILiveEndpoint" />
+	ILiveEndpoint Live { get; }
+
+	/// <inheritdoc cref="IMatchesEndpoint" />
+	IMatchesEndpoint Matches { get; }
+
+	/// <inheritdoc cref="IMetadataEndpoint" />
+	IMetadataEndpoint Metadata { get; }
+
+	/// <inheritdoc cref="IParsedMatchesEndpoint" />
+	IParsedMatchesEndpoint ParsedMatches { get; }
+
+	/// <inheritdoc cref="IPlayersEndpoint" />
+	IPlayersEndpoint Players { get; }
+
+	/// <inheritdoc cref="IProMatchEndpoint" />
+	IProMatchEndpoint ProMatches { get; }
+
+	/// <inheritdoc cref="IProPlayersEndpoint" />
+	IProPlayersEndpoint ProPlayers { get; }
+	/// <inheritdoc cref="IPublicMatchesEndpoint" />
+	IPublicMatchesEndpoint PublicMatches { get; }
+	/// <inheritdoc cref="IRankingsEndpoint" />
+	IRankingsEndpoint Rankings { get; }
 
 	/// <inheritdoc cref="IRecordsEndpoint" />
 	IRecordsEndpoint Records { get; }
 
-	/// <inheritdoc cref="ILiveEndpoint" />
-	ILiveEndpoint Live { get; }
+	/// <inheritdoc cref="IRequestEndpoint" />
+	IRequestEndpoint Request { get; }
 
 	/// <inheritdoc cref="IScenariosEndpoint" />
 	IScenariosEndpoint Scenarios { get; }
@@ -83,6 +75,8 @@ public interface IOpenDotaApi
 	/// <inheritdoc cref="ISchemaEndpoint" />
 	ISchemaEndpoint Schema { get; }
 
-	/// <inheritdoc cref="IConstantsEndpoint" />
-	IConstantsEndpoint Constants { get; }
+	/// <inheritdoc cref="ISearchEndpoint" />
+	ISearchEndpoint Search { get; }
+	/// <inheritdoc cref="ITeamsEndpoint" />
+	ITeamsEndpoint Teams { get; }
 }
