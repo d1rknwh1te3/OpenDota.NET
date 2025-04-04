@@ -5,15 +5,27 @@
 /// </summary>
 public class Row
 {
+	/// <summary>
+	/// Gets the bin.
+	/// </summary>
 	[JsonPropertyName("bin")]
-	public int Bin { get; set; }
+	public int Bin { get; init; }
 
+	/// <summary>
+	/// Gets the bin name.
+	/// </summary>
 	[JsonPropertyName("bin_name")]
-	public string BinName { get; set; }
+	public int BinName { get; init; }
 
+	/// <summary>
+	/// Gets the count.
+	/// </summary>
 	[JsonPropertyName("count")]
-	public int Count { get; set; }
+	public int Count { get; init; }
 
+	/// <summary>
+	/// Gets the cumulative sum.
+	/// </summary>
 	[JsonPropertyName("cumulative_sum")]
-	public int CumulativeSum { get; set; }
+	public int CumulativeSum { get; init; }
 }

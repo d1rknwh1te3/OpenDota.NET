@@ -9,5 +9,5 @@ public interface ISchemaEndpoint
 	/// Get database schema.
 	/// </summary>
 	/// <returns>Database schema.</returns>
-	Task<IEnumerable<DatabaseSchema>?> GetDatabaseSchemaAsync();
+	Task<List<DatabaseSchema>?> GetDatabaseSchemaAsync();
 }

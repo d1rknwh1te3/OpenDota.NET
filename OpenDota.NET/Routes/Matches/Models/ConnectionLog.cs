@@ -1,25 +1,37 @@
 ﻿namespace OpenDotaDotNet.Routes.Matches.Models;
 
+/// <summary>
+/// Represents a connection log
+/// </summary>
 public class ConnectionLog
 {
-	// Event that occurred (connect, reconnect, disconnect)
+	/// <summary>
+	/// Gets event that occurred (connect, reconnect, disconnect) TODO: check if can create enum
+	/// </summary>
 	[JsonPropertyName("event")]
-	public string Event { get; set; }
+	public string Event { get; init; } = string.Empty;
 
 	/// <summary>
-	/// Gets or sets which slot the player is in. 0-127 are Radiant, 128-255 are Dire.
+	/// Gets which slot the player is in. 0-127 are Radiant, 128-255 are Dire.
 	/// </summary>
 	[JsonPropertyName("player_slot")]
-	public long PlayerSlot { get; set; }
+	public long PlayerSlot { get; init; }
 
+	/// <summary>
+	/// Gets which slot. 
+	/// </summary>
 	[JsonPropertyName("slot")]
-	public long Slot { get; set; }
+	public long Slot { get; init; }
 
-	// Game time in seconds the event ocurred
+	/// <summary>
+	/// Gets game time in seconds the event ocurred
+	/// </summary>
 	[JsonPropertyName("time")]
-	public long Time { get; set; }
+	public long Time { get; init; }
 
-	// Type of log (should always be "connection_log")
+	/// <summary>
+	/// Gets type of log (should always be "connection_log")
+	/// </summary>
 	[JsonPropertyName("type")]
-	public string Type { get; set; }
+	public string Type { get; init; }
 }

@@ -6,20 +6,20 @@
 public class PlayerMatchHero
 {
 	/// <summary>
-	/// Gets or sets account ID of the player.
+	/// Gets account ID of the player.
 	/// </summary>
 	[JsonPropertyName("account_id")]
-	public long? AccountId { get; set; }
+	public long? AccountId { get; init; }
 
 	/// <summary>
-	/// Gets or sets the ID value of the hero played.
+	/// Gets the ID value of the hero played.
 	/// </summary>
 	[JsonPropertyName("hero_id")]
-	public long HeroId { get; set; }
+	public long HeroId { get; init; }
 
 	/// <summary>
-	/// Gets or sets which slot the player is in. 0-127 are Radiant, 128-255 are Dire.
+	/// Gets which slot the player is in. 0-127 are Radiant, 128-255 are Dire.
 	/// </summary>
 	[JsonPropertyName("player_slot")]
-	public long PlayerSlot { get; set; }
+	public long PlayerSlot { get; init; }
 }

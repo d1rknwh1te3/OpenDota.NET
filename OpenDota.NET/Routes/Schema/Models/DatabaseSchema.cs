@@ -6,20 +6,20 @@
 public class DatabaseSchema
 {
 	/// <summary>
-	/// Gets or sets the table name.
+	/// Gets the table name.
 	/// </summary>
 	[JsonPropertyName("table_name")]
-	public string TableName { get; set; }
+	public string TableName { get; init; } = string.Empty;
 
 	/// <summary>
-	/// Gets or sets the column name.
+	/// Gets the column name.
 	/// </summary>
 	[JsonPropertyName("column_name")]
-	public string ColumnName { get; set; }
+	public string ColumnName { get; init; } = string.Empty;
 
 	/// <summary>
-	/// Gets or sets the data type.
+	/// Gets the data type.
 	/// </summary>
 	[JsonPropertyName("data_type")]
-	public string DataType { get; set; }
+	public string DataType { get; init; } = string.Empty;
 }

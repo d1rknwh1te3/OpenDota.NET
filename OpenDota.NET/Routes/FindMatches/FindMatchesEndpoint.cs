@@ -4,10 +4,10 @@
 public class FindMatchesEndpoint(Requester requester) : IFindMatchesEndpoint
 {
 	/// <inheritdoc />
-	public Task<IEnumerable<FindMatch>?> FindMatchesByHeroesPlayedAsync(
+	public Task<List<FindMatch>?> FindMatchesByHeroesPlayedAsync(
 		List<int>? teamA = null,
 		List<int>? teamB = null) =>
-		requester.GetResponseAsync<IEnumerable<FindMatch>>(
+		requester.GetResponseAsync<List<FindMatch>>(
 			"findMatches",
 			GetArguments(teamA, teamB));
 

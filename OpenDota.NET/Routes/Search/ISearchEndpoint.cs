@@ -10,5 +10,5 @@ public interface ISearchEndpoint
 	/// </summary>
 	/// <param name="personaName">Search string.</param>
 	/// <returns>Players by PersonaName.</returns>
-	Task<IEnumerable<PlayerResponse>?> GetPlayersByNameAsync(string personaName);
+	Task<List<PlayerResponse>?> GetPlayersByNameAsync(string personaName);
 }

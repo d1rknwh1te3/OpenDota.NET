@@ -3,32 +3,32 @@
 public class Player
 {
 	/// <summary>
-	/// Gets or sets the solo competitive rank.
+	/// Gets the solo competitive rank.
 	/// </summary>
 	[JsonPropertyName("solo_competitive_rank")]
-	public int? SoloCompetitiveRank { get; set; }
+	public int SoloCompetitiveRank { get; init; }
 
 	/// <summary>
-	/// Gets or sets the competitive rank.
+	/// Gets the competitive rank.
 	/// </summary>
 	[JsonPropertyName("competitive_rank")]
-	public int? CompetitiveRank { get; set; }
+	public int CompetitiveRank { get; init; }
 
 	/// <summary>
-	/// Gets or sets the rank tier.
+	/// Gets the rank tier.
 	/// </summary>
 	[JsonPropertyName("rank_tier")]
-	public int? RankTier { get; set; }
+	public int RankTier { get; init; }
 
 	/// <summary>
-	/// Gets or sets the leaderboard rank.
+	/// Gets the leaderboard rank.
 	/// </summary>
 	[JsonPropertyName("leaderboard_rank")]
-	public int? LeaderboardRank { get; set; }
+	public int LeaderboardRank { get; init; }
 
 	/// <summary>
-	/// Gets or sets the profile.
+	/// Gets the profile.
 	/// </summary>
 	[JsonPropertyName("profile")]
-	public Profile Profile { get; set; }
+	public Profile Profile { get; init; } = new();
 }

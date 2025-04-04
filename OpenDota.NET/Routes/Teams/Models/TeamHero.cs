@@ -6,26 +6,26 @@
 public class TeamHero
 {
 	/// <summary>
-	/// Gets or sets the ID value of the hero played.
+	/// Gets the ID value of the hero played.
 	/// </summary>
 	[JsonPropertyName("hero_id")]
-	public int HeroId { get; set; }
+	public int HeroId { get; init; }
 
 	/// <summary>
-	/// Gets or sets hero name, e.g. 'Anti-Mage'.
+	/// Gets hero name, e.g. 'Anti-Mage'.
 	/// </summary>
 	[JsonPropertyName("localized_name")]
-	public required string LocalizedName { get; set; }
+	public string LocalizedName { get; init; } 
 
 	/// <summary>
-	/// Gets or sets number of games played.
+	/// Gets number of games played.
 	/// </summary>
 	[JsonPropertyName("games_played")]
-	public int GamesPlayed { get; set; }
+	public int GamesPlayed { get; init; }
 
 	/// <summary>
-	/// Gets or sets number of wins.
+	/// Gets number of wins.
 	/// </summary>
 	[JsonPropertyName("wins")]
-	public int Wins { get; set; }
+	public int Wins { get; init; }
 }

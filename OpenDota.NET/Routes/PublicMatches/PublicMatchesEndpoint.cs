@@ -4,11 +4,11 @@
 public class PublicMatchesEndpoint(Requester requester) : IPublicMatchesEndpoint
 {
 	/// <inheritdoc />
-	public Task<IEnumerable<PublicMatch>?> GetPublicMatchesAsync(
+	public Task<List<PublicMatch>?> GetPublicMatchesAsync(
 		int? mmrAscending = null,
 		int? mmrDescending = null,
 		long? lessThanMatchId = null) =>
-		requester.GetResponseAsync<IEnumerable<PublicMatch>>(
+		requester.GetResponseAsync<List<PublicMatch>>(
 			"publicMatches",
 			GetArguments(mmrAscending, mmrDescending, lessThanMatchId));
 

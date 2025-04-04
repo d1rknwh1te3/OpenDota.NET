@@ -6,17 +6,26 @@
 public class PlayerHeroRanking
 {
 	/// <summary>
-	/// Gets or sets the ID value of the hero played.
+	/// Gets the ID value of the hero played.
 	/// </summary>
 	[JsonPropertyName("hero_id")]
-	public long HeroId { get; set; }
+	public long HeroId { get; init; }
 
+	/// <summary>
+	/// Gets the score of the hero played.
+	/// </summary>
 	[JsonPropertyName("score")]
-	public double Score { get; set; }
+	public double Score { get; init; }
 
+	/// <summary>
+	/// Gets the percent rank of the hero played.
+	/// </summary>
 	[JsonPropertyName("percent_rank")]
-	public double PercentRank { get; set; }
+	public double PercentRank { get; init; }
 
+	/// <summary>
+	/// Gets the card value of the hero played.
+	/// </summary>
 	[JsonPropertyName("card")]
-	public long Card { get; set; }
+	public long Card { get; init; }
 }

@@ -1,24 +1,37 @@
 ﻿namespace OpenDotaDotNet.Routes.Matches.Models;
 
+/// <summary>
+/// Represents a teamfight
+/// </summary>
 public class Teamfight
 {
-	// The time (in seconds) when the teamfight started
+	/// <summary>
+	/// Gets the time (in seconds) when the teamfight started
+	/// </summary>
 	[JsonPropertyName("start")]
-	public int Start { get; set; }
+	public int Start { get; init; }
 
-	// The time (in seconds) when the teamfight ended
+	/// <summary>
+	/// Gets the time (in seconds) when the teamfight ended
+	/// </summary>
 	[JsonPropertyName("end")]
-	public int End { get; set; }
+	public int End { get; init; }
 
-	// The time (in seconds) when the last death occured in the teamfight
+	/// <summary>
+	/// Gets the time (in seconds) when the last death occured in the teamfight
+	/// </summary>
 	[JsonPropertyName("last_death")]
-	public long LastDeath { get; set; }
+	public long LastDeath { get; init; }
 
-	// The amount of total deaths during the teamfight
+	/// <summary>
+	/// Gets the amount of total deaths during the teamfight
+	/// </summary>
 	[JsonPropertyName("deaths")]
-	public long Deaths { get; set; }
+	public long Deaths { get; init; }
 
-	// Players involved in the teamfight
+	/// <summary>
+	/// Gets the players involved in the teamfight
+	/// </summary>
 	[JsonPropertyName("players")]
-	public IEnumerable<TeamfightPlayer> Players { get; set; }
+	public List<TeamfightPlayer> Players { get; init; } = [];
 }

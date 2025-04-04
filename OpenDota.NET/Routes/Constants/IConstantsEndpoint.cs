@@ -13,9 +13,9 @@ public interface IConstantsEndpoint
 	public Task<JsonObject?> GetConstantsAsync(Constant resource);
 
 	/// <summary>
-	/// Gets an array of available resources. GET /constants
+	/// Gets a list of available resources. GET /constants
 	/// </summary>
 	/// <returns></returns>
-	public Task<IEnumerable<string>?> GetConstantsAsync();
+	public Task<List<string>?> GetConstantsAsync();
 
 }

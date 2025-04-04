@@ -9,5 +9,5 @@ public interface IHeroStatsEndpoint
 	/// Get stats about hero performance in recent matches.
 	/// </summary>
 	/// <returns>Stats about hero performance in recent matches.</returns>
-	Task<IEnumerable<Models.HeroStats>?> GetHeroStatsAsync();
+	Task<List<Models.HeroStats>?> GetHeroStatsAsync();
 }

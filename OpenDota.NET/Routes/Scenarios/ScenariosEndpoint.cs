@@ -4,20 +4,20 @@
 public class ScenariosEndpoint(Requester requester) : IScenariosEndpoint
 {
 	/// <inheritdoc />
-	public Task<IEnumerable<ItemTiming>?> GetItemNamingAsync(string? item = null, int? heroId = null) =>
-		requester.GetResponseAsync<IEnumerable<ItemTiming>>(
+	public Task<List<ItemTiming>?> GetItemNamingAsync(string? item = null, int? heroId = null) =>
+		requester.GetResponseAsync<List<ItemTiming>>(
 			"scenarios/itemTimings",
 			GetArguments(item, heroId));
 
 	/// <inheritdoc />
-	public Task<IEnumerable<LaneRoles>?> GetLaneRolesAsync(int? laneRole = null, int? heroId = null) =>
-		requester.GetResponseAsync<IEnumerable<LaneRoles>>(
+	public Task<List<LaneRoles>?> GetLaneRolesAsync(int? laneRole = null, int? heroId = null) =>
+		requester.GetResponseAsync<List<LaneRoles>>(
 			"scenarios/laneRoles",
 			GetArguments(null, heroId, laneRole));
 
 	/// <inheritdoc />
-	public Task<IEnumerable<TeamScenario>?> GetMiscTeamScenariosAsync(Scenario? scenario = null) =>
-		requester.GetResponseAsync<IEnumerable<TeamScenario>>(
+	public Task<List<TeamScenario>?> GetMiscTeamScenariosAsync(Scenario? scenario = null) =>
+		requester.GetResponseAsync<List<TeamScenario>>(
 			"scenarios/misc",
 			GetArguments(null, null, null, scenario));
 

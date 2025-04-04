@@ -6,20 +6,20 @@
 public class HeroMatchup
 {
 	/// <summary>
-	/// Gets or sets the ID value of the hero played.
+	/// Gets the ID value of the hero played.
 	/// </summary>
 	[JsonPropertyName("hero_id")]
-	public long HeroId { get; set; }
+	public long HeroId { get; init; }
 
 	/// <summary>
-	/// Gets or sets number of games played.
+	/// Gets number of games played.
 	/// </summary>
 	[JsonPropertyName("games_played")]
-	public long GamesPlayed { get; set; }
+	public long GamesPlayed { get; init; }
 
 	/// <summary>
-	/// Gets or sets number of wins.
+	/// Gets number of wins.
 	/// </summary>
 	[JsonPropertyName("wins")]
-	public long Wins { get; set; }
+	public long Wins { get; init; }
 }

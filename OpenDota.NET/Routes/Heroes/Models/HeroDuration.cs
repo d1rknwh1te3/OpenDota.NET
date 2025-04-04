@@ -6,20 +6,21 @@
 public class HeroDuration
 {
 	/// <summary>
-	/// Gets or sets lower bound of number of seconds the match lasted.
+	/// Gets lower bound of 
+	/// of seconds the match lasted.
 	/// </summary>
 	[JsonPropertyName("duration_bin")]
-	public int DurationBin { get; set; }
+	public int DurationBin { get; init; }
 
 	/// <summary>
-	/// Gets or sets number of games played.
+	/// Gets number of games played.
 	/// </summary>
 	[JsonPropertyName("games_played")]
-	public int GamesPlayed { get; set; }
+	public int GamesPlayed { get; init; }
 
 	/// <summary>
-	/// Gets or sets number of wins.
+	/// Gets number of wins.
 	/// </summary>
 	[JsonPropertyName("wins")]
-	public int Wins { get; set; }
+	public int Wins { get; init; }
 }

@@ -5,39 +5,57 @@
 /// </summary>
 public class MaxHeroHit
 {
-	// max_hero_hit
+	/// <summary>
+	/// Gets a always -> max_hero_hit
+	/// </summary>
 	[JsonPropertyName("type")]
-	public string Type { get; set; }
+	public string Type { get; init; } = string.Empty;
 
-	// Time (in seconds) when the hit occurred
+	/// <summary>
+	/// Gets a time (in seconds) when the hit occurred
+	/// </summary>
 	[JsonPropertyName("time")]
-	public int Time { get; set; }
+	public int Time { get; init; }
 
-	// Whether it was a max hero hit (should be true)
+	/// <summary>
+	/// Gets whether it was a max hero hit (should be true)
+	/// </summary>
 	[JsonPropertyName("max")]
-	public bool Max { get; set; }
+	public bool Max { get; init; }
 
-	// The inflictor of the hit
+	/// <summary>
+	/// Gets the inflictor of the hit
+	/// </summary>
 	[JsonPropertyName("inflictor")]
-	public string Inflictor { get; set; }
+	public string Inflictor { get; init; } = string.Empty;
 
-	// The unit which inflicted the hit
+	/// <summary>
+	/// Gets the unit which inflicted the hit
+	/// </summary>
 	[JsonPropertyName("unit")]
-	public string Unit { get; set; }
+	public string Unit { get; init; } = string.Empty;
 
-	// The unit to which it was inflicted
+	/// <summary>
+	/// Gets the unit to which it was inflicted
+	/// </summary>
 	[JsonPropertyName("key")]
-	public string Key { get; set; }
+	public string Key { get; init; } = string.Empty;
 
-	// Damage inflicted
+	/// <summary>
+	/// Gets a damage inflicted
+	/// </summary>
 	[JsonPropertyName("value")]
-	public long Value { get; set; }
+	public long Value { get; init; }
 
-	// Slot
+	/// <summary>
+	/// Gets a slot
+	/// </summary>
 	[JsonPropertyName("slot")]
-	public long Slot { get; set; }
+	public long Slot { get; init; }
 
-	// Slot of player
+	/// <summary>
+	/// Gets a slot of player
+	/// </summary>
 	[JsonPropertyName("player_slot")]
-	public long PlayerSlot { get; set; }
+	public long PlayerSlot { get; init; }
 }

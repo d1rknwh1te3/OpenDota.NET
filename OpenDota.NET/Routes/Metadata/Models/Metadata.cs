@@ -6,26 +6,26 @@
 public class Metadata
 {
 	/// <summary>
-	/// Gets or sets the scenarios.
+	/// Gets the scenarios.
 	/// </summary>
 	[JsonPropertyName("scenarios")]
-	public Scenarios Scenarios { get; set; }
+	public Scenarios Scenarios { get; init; } = new();
 
 	/// <summary>
-	/// Gets or sets the user.
+	/// Gets the user.
 	/// </summary>
 	[JsonPropertyName("user")]
-	public User User { get; set; }
+	public User User { get; init; } = new();
 
 	/// <summary>
-	/// Gets or sets the banner.
+	/// Gets the banner.
 	/// </summary>
 	[JsonPropertyName("banner")]
-	public object? Banner { get; set; }
+	public object? Banner { get; init; }
 
 	/// <summary>
-	/// Gets or sets a value indicating whether this instance is subscriber.
+	/// Gets a value indicating whether this instance is subscriber.
 	/// </summary>
 	[JsonPropertyName("isSubscriber")]
-	public bool IsSubscriber { get; set; }
+	public bool IsSubscriber { get; init; }
 }

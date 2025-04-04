@@ -6,14 +6,14 @@
 public class PlayerWinLoss
 {
 	/// <summary>
-	/// Gets or sets the wins.
+	/// Gets the wins.
 	/// </summary>
 	[JsonPropertyName("win")]
-	public int Wins { get; set; }
+	public int Wins { get; init; }
 
 	/// <summary>
-	/// Gets or sets the losses.
+	/// Gets the losses.
 	/// </summary>
 	[JsonPropertyName("lose")]
-	public int Losses { get; set; }
+	public int Losses { get; init; }
 }

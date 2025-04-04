@@ -4,12 +4,12 @@
 public class ProMatchesEndpoint(Requester requester) : IProMatchEndpoint
 {
 	/// <inheritdoc />
-	public Task<IEnumerable<ProMatch>?> GetProMatchesAsync(long? lessThanMatchId = null) =>
-		requester.GetResponseAsync<IEnumerable<ProMatch>>(
+	public Task<List<ProMatch>?> GetProMatchesAsync(long? lessThanMatchId = null) =>
+		requester.GetResponseAsync<List<ProMatch>>(
 			"proMatches",
 			GetArguments(lessThanMatchId));
 
-	private static IEnumerable<string> GetArguments(long? lessThanMatchId = null)
+	private static List<string> GetArguments(long? lessThanMatchId = null)
 	{
 		var addedArguments = new List<string>();
 

@@ -6,23 +6,32 @@
 public class PlayerRating
 {
 	/// <summary>
-	/// Gets or sets account ID of the player.
+	/// Gets account ID of the player.
 	/// </summary>
 	[JsonPropertyName("account_id")]
-	public required long AccountId { get; set; }
+	public long AccountId { get; init; }
 
 	/// <summary>
-	/// Gets or sets ID used to identify individual matches, e.g. 3703866531.
+	/// Gets ID used to identify individual matches, e.g. 3703866531.
 	/// </summary>
 	[JsonPropertyName("match_id")]
-	public long? MatchId { get; set; }
+	public long MatchId { get; init; }
 
+	/// <summary>
+	/// Gets solo competitive rank.
+	/// </summary>
 	[JsonPropertyName("solo_competitive_rank")]
-	public int? SoloCompetitiveRank { get; set; }
+	public int SoloCompetitiveRank { get; init; }
 
+	/// <summary>
+	/// Gets competitive rank.
+	/// </summary>
 	[JsonPropertyName("competitive_rank")]
-	public int? CompetitiveRank { get; set; }
+	public int CompetitiveRank { get; init; }
 
+	/// <summary>
+	/// Gets time of the rating.
+	/// </summary>
 	[JsonPropertyName("time")]
-	public DateTimeOffset Time { get; set; }
+	public DateTimeOffset Time { get; init; }
 }

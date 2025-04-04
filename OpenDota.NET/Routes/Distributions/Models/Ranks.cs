@@ -5,9 +5,15 @@
 /// </summary>
 public class Ranks
 {
+	/// <summary>
+	/// Gets the rows.
+	/// </summary>
 	[JsonPropertyName("rows")]
-	public Row[] Rows { get; set; }
+	public List<Row> Rows { get; init; } = [];
 
+	/// <summary>
+	/// Gets the sum.
+	/// </summary>
 	[JsonPropertyName("sum")]
-	public Sum Sum { get; set; }
+	public Sum Sum { get; init; } = new();
 }

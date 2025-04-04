@@ -6,44 +6,44 @@
 public class Hero
 {
 	/// <summary>
-	/// Gets or sets numeric identifier for the hero object.
+	/// Gets numeric identifier for the hero object.
 	/// </summary>
 	[JsonPropertyName("id")]
-	public required long Id { get; set; }
+	public long Id { get; init; }
 
 	/// <summary>
-	/// Gets or sets dota hero command name, e.g. 'npc_dota_hero_antimage'.
+	/// Gets dota hero command name, e.g. 'npc_dota_hero_antimage'.
 	/// </summary>
 	[JsonPropertyName("name")]
-	public required string Name { get; set; }
+	public string Name { get; init; } = string.Empty;
 
 	/// <summary>
-	/// Gets or sets hero name, e.g. 'Anti-Mage'.
+	/// Gets hero name, e.g. 'Anti-Mage'.
 	/// </summary>
 	[JsonPropertyName("localized_name")]
-	public required string LocalizedName { get; set; }
+	public string LocalizedName { get; init; } = string.Empty;
 
 	/// <summary>
-	/// Gets or sets hero primary shorthand attribute name, e.g. 'agi'.
+	/// Gets hero primary shorthand attribute name, e.g. 'agi'.
 	/// </summary>
 	[JsonPropertyName("primary_attr")]
-	public required HeroPrimaryAttribute PrimaryAttribute { get; set; }
+	public HeroPrimaryAttribute PrimaryAttribute { get; init; }
 
 	/// <summary>
-	/// Gets or sets hero attack type, either 'Melee' or 'Ranged'.
+	/// Gets hero attack type, either 'Melee' or 'Ranged'.
 	/// </summary>
 	[JsonPropertyName("attack_type")]
-	public required HeroAttackType HeroAttackType { get; set; }
+	public HeroAttackType HeroAttackType { get; init; }
 
 	/// <summary>
-	/// Gets or sets hero's role in the game.
+	/// Gets hero's role in the game.
 	/// </summary>
 	[JsonPropertyName("roles")]
-	public required IEnumerable<HeroRole> Roles { get; set; }
+	public List<HeroRole> Roles { get; init; } = [];
 
 	/// <summary>
-	/// Gets or sets hero's amount of legs.
+	/// Gets hero's amount of legs.
 	/// </summary>
 	[JsonPropertyName("legs")]
-	public required int Legs { get; set; }
+	public int Legs { get; init; }
 }

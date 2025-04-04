@@ -4,6 +4,6 @@
 public class HeroStatsEndpoint(Requester requester) : IHeroStatsEndpoint
 {
 	/// <inheritdoc />
-	public Task<IEnumerable<Models.HeroStats>?> GetHeroStatsAsync() =>
-		requester.GetResponseAsync<IEnumerable<Models.HeroStats>>("heroStats");
+	public Task<List<Models.HeroStats>?> GetHeroStatsAsync() =>
+		requester.GetResponseAsync<List<Models.HeroStats>>("heroStats");
 }

@@ -6,26 +6,26 @@
 public class Scenarios
 {
 	/// <summary>
-	/// Gets or sets the item cost.
+	/// Gets the item cost.
 	/// </summary>
 	[JsonPropertyName("itemCost")]
-	public int ItemCost { get; set; }
+	public int ItemCost { get; init; }
 
 	/// <summary>
-	/// Gets or sets the timings.
+	/// Gets the timings.
 	/// </summary>
 	[JsonPropertyName("timings")]
-	public int[] Timings { get; set; }
+	public List<int> Timings { get; init; } = [];
 
 	/// <summary>
-	/// Gets or sets the game duration bucket.
+	/// Gets the game duration bucket.
 	/// </summary>
 	[JsonPropertyName("gameDurationBucket")]
-	public int[] GameDurationBucket { get; set; }
+	public List<int> GameDurationBucket { get; init; } = [];
 
 	/// <summary>
-	/// Gets or sets the team scenarios query parameters.
+	/// Gets the team scenarios query parameters.
 	/// </summary>
 	[JsonPropertyName("teamScenariosQueryParams")]
-	public string[] TeamScenariosQueryParams { get; set; }
+	public List<int> TeamScenariosQueryParams { get; init; } = [];
 }

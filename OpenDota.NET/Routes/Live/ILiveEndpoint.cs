@@ -9,5 +9,5 @@ public interface ILiveEndpoint
 	/// Get top currently ongoing live games.
 	/// </summary>
 	/// <returns>Top currently ongoing live games.</returns>
-	Task<IEnumerable<LiveGame>?> GetTopLiveGamesAsync();
+	Task<List<LiveGame>?> GetTopLiveGamesAsync();
 }

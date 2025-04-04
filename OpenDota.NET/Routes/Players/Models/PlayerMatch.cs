@@ -6,108 +6,110 @@
 public class PlayerMatch
 {
 	/// <summary>
-	/// Gets or sets ID used to identify individual matches, e.g. 3703866531.
+	/// Gets ID used to identify individual matches, e.g. 3703866531.
 	/// </summary>
 	[JsonPropertyName("match_id")]
-	public long MatchId { get; set; }
+	public long MatchId { get; init; }
 
 	/// <summary>
-	/// Gets or sets which slot the player is in. 0-127 are Radiant, 128-255 are Dire.
+	/// Gets which slot the player is in. 0-127 are Radiant, 128-255 are Dire.
 	/// </summary>
 	[JsonPropertyName("player_slot")]
-	public int PlayerSlot { get; set; }
+	public int PlayerSlot { get; init; }
 
 	/// <summary>
-	/// Gets or sets whether Radiant won the match.
+	/// Gets whether Radiant won the match.
 	/// </summary>
 	[JsonPropertyName("radiant_win")]
-	public bool? RadiantWin { get; set; }
+	public bool? RadiantWin { get; init; }
 
 	/// <summary>
-	/// Gets or sets the duration of the game in seconds.
+	/// Gets the duration of the game in seconds.
 	/// </summary>
 	[JsonPropertyName("duration")]
-	public int Duration { get; set; }
+	public int Duration { get; init; }
 
 	/// <summary>
-	/// Gets or sets an integer corresponding to game mode played.
+	/// Gets an integer corresponding to game mode played.
 	/// List of constants can be found here: https://github.com/odota/dotaconstants/blob/master/json/game_mode.json.
 	/// </summary>
 	[JsonPropertyName("game_mode")]
-	public int GameMode { get; set; }
+	public int GameMode { get; init; }
 
 	/// <summary>
-	/// Gets or sets an integer corresponding to lobby type of match.
+	/// Gets an integer corresponding to lobby type of match.
 	/// List of constants can be found here: https://github.com/odota/dotaconstants/blob/master/json/lobby_type.json.
 	/// </summary>
 	[JsonPropertyName("lobby_type")]
-	public int LobbyType { get; set; }
+	public int LobbyType { get; init; }
 
 	/// <summary>
-	/// Gets or sets the ID value of the hero played.
+	/// Gets the ID value of the hero played.
 	/// </summary>
 	[JsonPropertyName("hero_id")]
-	public int HeroId { get; set; }
+	public int HeroId { get; init; }
 
 	/// <summary>
-	/// Gets or sets time the game started in seconds since 1970.
+	/// Gets time the game started in seconds since 1970.
 	/// </summary>
 	[JsonPropertyName("start_time")]
-	public long StartTime { get; set; }
+	public long StartTime { get; init; }
 
 	/// <summary>
-	/// Gets or sets the version.
+	/// Gets the version.
 	/// </summary>
 	[JsonPropertyName("version")]
-	public int? Version { get; set; }
+	public int Version { get; init; }
 
 	/// <summary>
-	/// Gets or sets total kills the player had at the end of the game.
+	/// Gets total kills the player had at the end of the game.
 	/// </summary>
 	[JsonPropertyName("kills")]
-	public int Kills { get; set; }
+	public int Kills { get; init; }
 
 	/// <summary>
-	/// Gets or sets total deaths the player had at the end of the game.
+	/// Gets total deaths the player had at the end of the game.
 	/// </summary>
 	[JsonPropertyName("deaths")]
-	public int Deaths { get; set; }
+	public int Deaths { get; init; }
 
 	/// <summary>
-	/// Gets or sets total assists the player had at the end of the game.
+	/// Gets total assists the player had at the end of the game.
 	/// </summary>
 	[JsonPropertyName("assists")]
-	public int Assists { get; set; }
+	public int Assists { get; init; }
 
 	/// <summary>
-	/// Gets or sets skill bracket assigned by Valve (Normal, High, Very High).
+	/// Gets skill bracket assigned by Valve (Normal, High, Very High).
 	/// </summary>
 	[JsonPropertyName("skill")]
-	public int? Skill { get; set; }
+	public int Skill { get; init; }
 
 	/// <summary>
-	/// Gets or sets integer describing whether or not the player left the game. 0: didn't leave. 1: left safely. 2+: Abandoned.
+	/// Gets integer describing whether or not the player left the game. 0: didn't leave. 1: left safely. 2+: Abandoned.
 	/// </summary>
 	[JsonPropertyName("leaver_status")]
-	public int LeaverStatus { get; set; }
+	public int LeaverStatus { get; init; }
 
 	/// <summary>
-	/// Gets or sets size of the player's party.
+	/// Gets size of the player's party.
 	/// </summary>
 	[JsonPropertyName("party_size")]
-	public int? PartySize { get; set; }
+	public int PartySize { get; init; }
 
 	[JsonPropertyName("average_rank")]
-	public int? AverageRank { get; set; }
-
-	// 1-indexed facet, see https://github.com/odota/dotaconstants/blob/master/build/hero_abilities.json
-	[JsonPropertyName("hero_variant")]
-	public int? HeroVariant { get; set; }
+	public int AverageRank { get; init; }
 
 	/// <summary>
-	/// Gets or sets the heroes.
+	/// Gets the variant of the hero played. 1-indexed facet, see https://github.com/odota/dotaconstants/blob/master/build/hero_abilities.json
+	/// </summary>
+	[JsonPropertyName("hero_variant")]
+	public int HeroVariant { get; init; }
+
+	/// <summary>
+	/// Gets the heroes.
 	/// (requires ?project=heroes).
 	/// </summary>
 	[JsonPropertyName("heroes")]
-	public Dictionary<string, PlayerMatchHero> Heroes { get; set; }
+	public Dictionary<string, PlayerMatchHero>? Heroes { get; init; }
 }

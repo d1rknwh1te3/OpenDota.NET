@@ -1,44 +1,67 @@
 ﻿namespace OpenDotaDotNet.Routes.Matches.Models;
 
+/// <summary>
+/// Represents an additional unit
+/// </summary>
 public class AdditionalUnit
 {
-	// Name of unit
+	/// <summary>
+	/// Gets name of unit
+	/// </summary>
 	[JsonPropertyName("unitname")]
-	public string UnitName { get; set; }
+	public string UnitName { get; init; } = string.Empty;
 
-	// Id of item 0
+	/// <summary>
+	/// Gets ID of item 0
+	/// </summary>
 	[JsonPropertyName("item_0")]
-	public int Item0 { get; set; }
+	public int Item0 { get; init; }
 
-	// Id of item 1
+	/// <summary>
+	/// Gets ID of item 1
+	/// </summary>
 	[JsonPropertyName("item_1")]
-	public int Item1 { get; set; }
+	public int Item1 { get; init; }
 
-	// Id of item 2
+	/// <summary>
+	/// Gets ID of item 2
+	/// </summary>
 	[JsonPropertyName("item_2")]
-	public int Item2 { get; set; }
+	public int Item2 { get; init; }
 
-	// Id of item 3
+	/// <summary>
+	/// Gets ID of item 3
+	/// </summary>
 	[JsonPropertyName("item_3")]
-	public int Item3 { get; set; }
+	public int Item3 { get; init; }
 
-	// Id of item 4
+	/// <summary>
+	/// Gets ID of item 4
+	/// </summary>
 	[JsonPropertyName("item_4")]
-	public int Item4 { get; set; }
+	public int Item4 { get; init; }
 
-	// Id of item 5
+	/// <summary>
+	/// Gets ID of item 5
+	/// </summary>
 	[JsonPropertyName("item_5")]
-	public int Item5 { get; set; }
+	public int Item5 { get; init; }
 
-	// Id of backpack item 0
+	/// <summary>
+	/// Gets ID of backpack item 0
+	/// </summary>
 	[JsonPropertyName("backpack_0")]
-	public int Backpack0 { get; set; }
+	public int Backpack0 { get; init; }
 
-	// Id of backpack item 1
+	/// <summary>
+	/// Gets ID of backpack item 1
+	/// </summary>
 	[JsonPropertyName("backpack_1")]
-	public int Backpack1 { get; set; }
+	public int Backpack1 { get; init; }
 
-	// Id of backpack item 2
+	/// <summary>
+	/// Gets ID of backpack item 2
+	/// </summary>
 	[JsonPropertyName("backpack_2")]
-	public int Backpack2 { get; set; }
+	public int Backpack2 { get; init; }
 }

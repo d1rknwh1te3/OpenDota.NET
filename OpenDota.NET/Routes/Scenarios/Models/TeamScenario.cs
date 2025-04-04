@@ -6,32 +6,32 @@
 public class TeamScenario
 {
 	/// <summary>
-	/// Gets or sets the scenario's name or description.
+	/// Gets the scenario's name or description.
 	/// </summary>
 	[JsonPropertyName("scenario")]
-	public Scenario Scenario { get; set; }
+	public Scenario Scenario { get; init; }
 
 	/// <summary>
-	/// Gets or sets a value indicating whether Radiant executed this scenario.
+	/// Gets a value indicating whether Radiant executed this scenario.
 	/// </summary>
 	[JsonPropertyName("is_radiant")]
-	public bool IsRadiant { get; set; }
+	public bool IsRadiant { get; init; }
 
 	/// <summary>
-	/// Gets or sets region the game was played in.
+	/// Gets region the game was played in.
 	/// </summary>
 	[JsonPropertyName("region")]
-	public int Region { get; set; }
+	public int Region { get; init; }
 
 	/// <summary>
-	/// Gets or sets the number of games where this scenario occurred.
+	/// Gets the number of games where this scenario occurred.
 	/// </summary>
 	[JsonPropertyName("games")]
-	public int Games { get; set; }
+	public int Games { get; init; }
 
 	/// <summary>
-	/// Gets or sets the number of games won where this scenario occured.
+	/// Gets the number of games won where this scenario occured.
 	/// </summary>
 	[JsonPropertyName("wins")]
-	public int Wins { get; set; }
+	public int Wins { get; init; }
 }

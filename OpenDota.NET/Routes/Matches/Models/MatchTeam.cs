@@ -5,19 +5,27 @@
 /// </summary>
 public class MatchTeam
 {
-	// Id of team
+	/// <summary>
+	/// Gets ID of team
+	/// </summary>
 	[JsonPropertyName("team_id")]
-	public int TeamId { get; set; }
+	public int TeamId { get; init; }
 
-	// Name of the team
+	/// <summary>
+	/// Gets name of the team
+	/// </summary>
 	[JsonPropertyName("name")]
-	public string Name { get; set; }
+	public string Name { get; init; } = string.Empty;
 
-	// Tag of the team
+	/// <summary>
+	/// Gets tag of the team
+	/// </summary>
 	[JsonPropertyName("tag")]
-	public string Tag { get; set; }
+	public string Tag { get; init; } = string.Empty;
 
-	// Url of the team logo
+	/// <summary>
+	/// Gets url of the team logo
+	/// </summary>
 	[JsonPropertyName("logo_url")]
-	public Uri LogoUrl { get; set; }
+	public Uri? LogoUrl { get; init; }
 }

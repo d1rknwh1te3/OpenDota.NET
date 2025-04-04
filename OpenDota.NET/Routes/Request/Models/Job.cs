@@ -5,6 +5,9 @@
 /// </summary>
 public class Job
 {
+	/// <summary>
+	/// Gets the job ID.
+	/// </summary>
 	[JsonPropertyName("jobId")]
-	public long JobId { get; set; }
+	public long JobId { get; init; }
 }

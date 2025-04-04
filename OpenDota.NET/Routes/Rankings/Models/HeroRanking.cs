@@ -6,11 +6,14 @@
 public class HeroRanking
 {
 	/// <summary>
-	/// Gets or sets the ID value of the hero played.
+	/// Gets the ID value of the hero played.
 	/// </summary>
 	[JsonPropertyName("hero_id")]
-	public long HeroId { get; set; }
+	public long HeroId { get; init; }
 
+	/// <summary>
+	/// Gets the rankings of the hero.
+	/// </summary>
 	[JsonPropertyName("rankings")]
-	public IEnumerable<RankingPlayer> Rankings { get; set; }
+	public List<RankingPlayer> Rankings { get; init; } = [];
 }

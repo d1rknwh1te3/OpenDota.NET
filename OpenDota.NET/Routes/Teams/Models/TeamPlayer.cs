@@ -6,20 +6,32 @@
 public class TeamPlayer
 {
 	/// <summary>
-	/// Gets or sets account ID of the player.
+	/// Gets account ID of the player.
 	/// </summary>
 	[JsonPropertyName("account_id")]
-	public required long AccountId { get; set; }
+	public long AccountId { get; init; }
 
+	/// <summary>
+	/// Gets name of the player.
+	/// </summary>
 	[JsonPropertyName("name")]
-	public string Name { get; set; }
+	public string Name { get; init; } = string.Empty;
 
+	/// <summary>
+	/// Gets number of games played by the player.
+	/// </summary>
 	[JsonPropertyName("games_played")]
-	public long GamesPlayed { get; set; }
+	public long GamesPlayed { get; init; }
 
+	/// <summary>
+	/// Gets number of wins by the player.
+	/// </summary>
 	[JsonPropertyName("wins")]
-	public long Wins { get; set; }
+	public long Wins { get; init; }
 
+	/// <summary>
+	/// Gets whether the player is the current team member.
+	/// </summary>
 	[JsonPropertyName("is_current_team_member")]
-	public bool? IsCurrentTeamMember { get; set; }
+	public bool? IsCurrentTeamMember { get; init; }
 }

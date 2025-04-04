@@ -6,12 +6,17 @@
 public enum HeroAttackType
 {
 	/// <summary>
+	/// None attack type only for internal usage.
+	/// </summary>
+	[JsonIgnore] None = 0,
+
+	/// <summary>
 	/// The melee attack type.
 	/// </summary>
-	Melee = 0,
+	[JsonPropertyName("Melee")] Melee = 1,
 
 	/// <summary>
 	/// The ranged attack type.
 	/// </summary>
-	Ranged = 1,
+	[JsonPropertyName("Ranged")] Ranged = 2,
 }

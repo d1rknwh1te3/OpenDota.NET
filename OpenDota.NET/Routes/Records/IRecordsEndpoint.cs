@@ -10,5 +10,5 @@ public interface IRecordsEndpoint
 	/// </summary>
 	/// <param name="field">Field name to query.</param>
 	/// <returns>Records in ranked matches.</returns>
-	Task<IEnumerable<Record>?> GetRecordsByFieldAsync(Field field);
+	Task<List<Record>?> GetRecordsByFieldAsync(Field field);
 }

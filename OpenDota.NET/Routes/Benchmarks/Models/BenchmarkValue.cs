@@ -6,14 +6,14 @@
 public class BenchmarkValue
 {
 	/// <summary>
-	/// Gets or sets the percentile.
+	/// Gets the percentile.
 	/// </summary>
 	[JsonPropertyName("percentile")]
-	public double Percentile { get; set; }
+	public double Percentile { get; init; }
 
 	/// <summary>
-	/// Gets or sets the value.
+	/// Gets the value.
 	/// </summary>
 	[JsonPropertyName("value")]
-	public double? Value { get; set; }
+	public double Value { get; init; }
 }

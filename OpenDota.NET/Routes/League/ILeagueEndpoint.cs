@@ -9,5 +9,5 @@ public interface ILeagueEndpoint
 	/// Get league data.
 	/// </summary>
 	/// <returns>League data.</returns>
-	Task<IEnumerable<Models.League>?> GetLeaguesAsync();
+	Task<List<Models.League>?> GetLeaguesAsync();
 }

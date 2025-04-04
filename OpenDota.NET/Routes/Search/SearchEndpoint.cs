@@ -4,8 +4,8 @@
 public class SearchEndpoint(Requester requester) : ISearchEndpoint
 {
 	/// <inheritdoc />
-	public Task<IEnumerable<PlayerResponse>?> GetPlayersByNameAsync(string personaName) =>
-		requester.GetResponseAsync<IEnumerable<PlayerResponse>>(
+	public Task<List<PlayerResponse>?> GetPlayersByNameAsync(string personaName) =>
+		requester.GetResponseAsync<List<PlayerResponse>>(
 			"search",
 			[$"q={personaName}"]);
 }

@@ -6,14 +6,14 @@
 public class Benchmark
 {
 	/// <summary>
-	/// Gets or sets the ID value of the hero played.
+	/// Gets the ID value of the hero played.
 	/// </summary>
 	[JsonPropertyName("hero_id")]
-	public long HeroId { get; set; }
+	public long HeroId { get; init; }
 
 	/// <summary>
-	/// Gets or sets the result.
+	/// Gets the result.
 	/// </summary>
 	[JsonPropertyName("result")]
-	public BenchmarkResult? Result { get; set; }
+	public BenchmarkResult Result { get; init; } = new();
 }

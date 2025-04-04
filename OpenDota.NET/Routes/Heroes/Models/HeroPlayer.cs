@@ -6,20 +6,23 @@
 public class HeroPlayer
 {
 	/// <summary>
-	/// Gets or sets account ID of the player.
+	/// Gets account ID of the player.
 	/// </summary>
 	[JsonPropertyName("account_id")]
-	public long? AccountId { get; set; }
+
+	public long? AccountId { get; init; }
 
 	/// <summary>
-	/// Gets or sets number of games played on the hero.
+	/// Gets number of games played on the hero.
 	/// </summary>
 	[JsonPropertyName("games_played")]
-	public long GamesPlayed { get; set; }
+
+	public long? GamesPlayed { get; init; }
 
 	/// <summary>
-	/// Gets or sets number of games won.
+	/// Gets number of games won.
 	/// </summary>
 	[JsonPropertyName("wins")]
-	public long Wins { get; set; }
+
+	public long? Wins { get; init; }
 }

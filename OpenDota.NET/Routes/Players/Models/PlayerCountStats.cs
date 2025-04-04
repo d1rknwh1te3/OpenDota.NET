@@ -2,9 +2,15 @@
 
 public class PlayerCountStats
 {
+	/// <summary>
+	/// Gets the total number of games
+	/// </summary>
 	[JsonPropertyName("games")]
-	public long Games { get; set; }
+	public long Games { get; init; }
 
+	/// <summary>
+	/// Gets the total number of wins
+	/// </summary>
 	[JsonPropertyName("win")]
-	public long Win { get; set; }
+	public long Win { get; init; }
 }

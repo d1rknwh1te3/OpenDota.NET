@@ -6,6 +6,6 @@ public class SchemaEndpoint(Requester requester) : ISchemaEndpoint
 	/// Get database schema.
 	/// </summary>
 	/// <returns>Database schema.</returns>
-	public Task<IEnumerable<DatabaseSchema>?> GetDatabaseSchemaAsync() =>
-		requester.GetResponseAsync<IEnumerable<DatabaseSchema>>("schema");
+	public Task<List<DatabaseSchema>?> GetDatabaseSchemaAsync() =>
+		requester.GetResponseAsync<List<DatabaseSchema>>("schema");
 }

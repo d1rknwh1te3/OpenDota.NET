@@ -25,7 +25,7 @@ public interface IPlayersEndpoint
 	/// </summary>
 	/// <param name="accountId">Steam32 account ID.</param>
 	/// <returns>Recent matches played.</returns>
-	Task<IEnumerable<PlayerRecentMatch>?> GetPlayerRecentMatchesAsync(long accountId);
+	Task<List<PlayerRecentMatch>?> GetPlayerRecentMatchesAsync(long accountId);
 
 	/// <summary>
 	/// Gets matches played.
@@ -33,7 +33,7 @@ public interface IPlayersEndpoint
 	/// <param name="accountId">Steam32 account ID.</param>
 	/// <param name="parameters">Query parameters.</param>
 	/// <returns>Matches played.</returns>
-	Task<IEnumerable<PlayerMatch>?> GetPlayerMatchesAsync(long accountId, PlayerEndpointParameters? parameters = null);
+	Task<List<PlayerMatch>?> GetPlayerMatchesAsync(long accountId, PlayerEndpointParameters? parameters = null);
 
 	/// <summary>
 	/// Gets heroes played.
@@ -41,7 +41,7 @@ public interface IPlayersEndpoint
 	/// <param name="accountId">Steam32 account ID.</param>
 	/// <param name="parameters">Query Parameters.</param>
 	/// <returns>Heroes played.</returns>
-	Task<IEnumerable<PlayerHero>?> GetPlayerHeroesAsync(long accountId, PlayerEndpointParameters? parameters = null);
+	Task<List<PlayerHero>?> GetPlayerHeroesAsync(long accountId, PlayerEndpointParameters? parameters = null);
 
 	/// <summary>
 	/// Gets players played with.
@@ -49,7 +49,7 @@ public interface IPlayersEndpoint
 	/// <param name="accountId">Steam32 account ID.</param>
 	/// <param name="parameters">Query Parameters.</param>
 	/// <returns>Players played with.</returns>
-	Task<IEnumerable<PlayerPeer>?> GetPlayerPeersAsync(long accountId, PlayerEndpointParameters? parameters = null);
+	Task<List<PlayerPeer>?> GetPlayerPeersAsync(long accountId, PlayerEndpointParameters? parameters = null);
 
 	/// <summary>
 	/// Gets pro players played with.
@@ -57,7 +57,7 @@ public interface IPlayersEndpoint
 	/// <param name="accountId">Steam32 account ID.</param>
 	/// <param name="parameters">Query Parameters.</param>
 	/// <returns>Pro players played with.</returns>
-	Task<IEnumerable<PlayerPro>?> GetPlayerProsAsync(long accountId, PlayerEndpointParameters? parameters = null);
+	Task<List<PlayerPro>?> GetPlayerProsAsync(long accountId, PlayerEndpointParameters? parameters = null);
 
 	/// <summary>
 	/// Gets totals in stats.
@@ -65,7 +65,7 @@ public interface IPlayersEndpoint
 	/// <param name="accountId">Steam32 account ID.</param>
 	/// <param name="parameters">Query Parameters.</param>
 	/// <returns>Totals in stats.</returns>
-	Task<IEnumerable<PlayerTotal>?> GetPlayerTotalsAsync(long accountId, PlayerEndpointParameters? parameters = null);
+	Task<List<PlayerTotal>?> GetPlayerTotalsAsync(long accountId, PlayerEndpointParameters? parameters = null);
 
 	/// <summary>
 	/// Gets counts in categories.
@@ -83,7 +83,7 @@ public interface IPlayersEndpoint
 	/// <param name="field">Field to aggregate on.</param>
 	/// <param name="parameters">Query Parameters.</param>
 	/// <returns>Distribution of matches in a single stat.</returns>
-	Task<IEnumerable<PlayerHistogram>?> GetPlayerHistogramsAsync(long accountId, string field, PlayerEndpointParameters? parameters = null);
+	Task<List<PlayerHistogram>?> GetPlayerHistogramsAsync(long accountId, string field, PlayerEndpointParameters? parameters = null);
 
 	/// <summary>
 	/// Gets wards placed in matches played.
@@ -106,14 +106,14 @@ public interface IPlayersEndpoint
 	/// </summary>
 	/// <param name="accountId">Steam32 account ID.</param>
 	/// <returns>Player rating history.</returns>
-	Task<IEnumerable<PlayerRating>?> GetPlayerRatingsAsync(long accountId);
+	Task<List<PlayerRating>?> GetPlayerRatingsAsync(long accountId);
 
 	/// <summary>
 	/// Gets player hero rankings.
 	/// </summary>
 	/// <param name="accountId">Steam32 account ID.</param>
 	/// <returns>Player hero rankings.</returns>
-	Task<IEnumerable<PlayerHeroRanking>?> GetPlayerHeroRankingsAsync(long accountId);
+	Task<List<PlayerHeroRanking>?> GetPlayerHeroRankingsAsync(long accountId);
 
 	/// <summary>
 	/// Gets refresh player match history.

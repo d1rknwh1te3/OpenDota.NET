@@ -4,6 +4,6 @@
 public class LiveEndpoint(Requester requester) : ILiveEndpoint
 {
 	/// <inheritdoc />
-	public Task<IEnumerable<LiveGame>?> GetTopLiveGamesAsync() =>
-		requester.GetResponseAsync<IEnumerable<LiveGame>>("live");
+	public Task<List<LiveGame>?> GetTopLiveGamesAsync() =>
+		requester.GetResponseAsync<List<LiveGame>>("live");
 }

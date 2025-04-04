@@ -6,14 +6,20 @@
 public class PlayerHistogram
 {
 	/// <summary>
-	/// Gets or sets the X factor of the histogram.
+	/// Gets the X factor of the histogram.
 	/// </summary>
 	[JsonPropertyName("x")]
-	public long? X { get; set; }
+	public long? X { get; init; }
 
+	/// <summary>
+	/// Gets the factor of the histogram.
+	/// </summary>
 	[JsonPropertyName("games")]
-	public int Games { get; set; }
-
+	public int Games { get; init; }
+	
+	/// <summary>
+	/// Gets the factor of the histogram.
+	/// </summary>
 	[JsonPropertyName("win")]
-	public int Win { get; set; }
+	public int Win { get; init; }
 }

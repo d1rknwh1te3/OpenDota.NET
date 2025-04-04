@@ -1,30 +1,37 @@
 ﻿namespace OpenDotaDotNet.Routes.Matches.Models;
 
+/// <summary>
+/// Represents a league
+/// </summary>
 public class League
 {
 	/// <summary>
-	/// Gets or sets the league ID.
+	/// Gets the league ID.
 	/// </summary>
 	[JsonPropertyName("leagueid")]
-	public long LeagueId { get; set; }
-
-	// always null?
-	[JsonPropertyName("ticket")]
-	public object Ticket { get; set; }
-
-	// Banner of the league - always returns null?
-	[JsonPropertyName("banner")]
-	public object Banner { get; set; }
+	public long LeagueId { get; init; }
 
 	/// <summary>
-	/// Gets or sets tier of the league.
+	/// Gets ticket?? always null?
+	/// </summary>
+	[JsonPropertyName("ticket")]
+	public object? Ticket { get; init; }
+
+	/// <summary>
+	/// Gets banner of the league - always returns null?
+	/// </summary>
+	[JsonPropertyName("banner")]
+	public object? Banner { get; init; }
+
+	/// <summary>
+	/// Gets tier of the league.
 	/// </summary>
 	[JsonPropertyName("tier")]
-	public Tier Tier { get; set; }
+	public Tier Tier { get; init; }
 
 	/// <summary>
-	/// Gets or sets name of the league.
+	/// Gets name of the league.
 	/// </summary>
 	[JsonPropertyName("name")]
-	public string? Name { get; set; }
+	public string Name { get; init; } = string.Empty;
 }

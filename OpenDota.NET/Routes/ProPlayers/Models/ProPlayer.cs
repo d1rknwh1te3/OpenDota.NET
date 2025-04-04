@@ -3,140 +3,140 @@
 public class ProPlayer
 {
 	/// <summary>
-	/// Gets or sets player's account identifier.
+	/// Gets player's account identifier.
 	/// </summary>
 	[JsonPropertyName("account_id")]
-	public required long AccountId { get; set; }
+	public long AccountId { get; init; }
 
 	/// <summary>
-	/// Gets or sets player's steam identifier.
+	/// Gets player's steam identifier.
 	/// </summary>
 	[JsonPropertyName("steamid")]
-	public required string SteamId { get; set; }
+	public string SteamId { get; init; } = string.Empty;
 
 	/// <summary>
-	/// Gets or sets steam picture URL (small picture).
+	/// Gets steam picture URL (small picture).
 	/// </summary>
 	[JsonPropertyName("avatar")]
-	public Uri? Avatar { get; set; }
+	public Uri? Avatar { get; init; }
 
 	/// <summary>
-	/// Gets or sets steam picture URL (medium picture).
+	/// Gets steam picture URL (medium picture).
 	/// </summary>
 	[JsonPropertyName("avatarmedium")]
-	public Uri? AvatarMedium { get; set; }
+	public Uri? AvatarMedium { get; init; }
 
 	/// <summary>
-	/// Gets or sets steam picture URL (full picture).
+	/// Gets steam picture URL (full picture).
 	/// </summary>
 	[JsonPropertyName("avatarfull")]
-	public Uri? AvatarFull { get; set; }
+	public Uri? AvatarFull { get; init; }
 
 	/// <summary>
-	/// Gets or sets steam profile URL.
+	/// Gets steam profile URL.
 	/// </summary>
 	[JsonPropertyName("profileurl")]
-	public Uri? ProfileUrl { get; set; }
+	public Uri? ProfileUrl { get; init; }
 
 	/// <summary>
-	/// Gets or sets player's Steam name.
+	/// Gets player's Steam name.
 	/// </summary>
 	[JsonPropertyName("personaname")]
-	public string PersonaName { get; set; }
+	public string PersonaName { get; init; } = string.Empty;
 
 	/// <summary>
-	/// Gets or sets date and time of last login to OpenDota.
+	/// Gets date and time of last login to OpenDota.
 	/// </summary>
 	[JsonPropertyName("last_login")]
-	public DateTimeOffset? LastLogin { get; set; }
+	public DateTimeOffset? LastLogin { get; init; }
 
 	/// <summary>
-	/// Gets or sets date and time of last request to refresh player's match history.
+	/// Gets date and time of last request to refresh player's match history.
 	/// </summary>
 	[JsonPropertyName("full_history_time")]
-	public DateTimeOffset? FullHistoryTime { get; set; }
+	public DateTimeOffset? FullHistoryTime { get; init; }
 
 	/// <summary>
-	/// Gets or sets amount of dollars the player has donated to OpenDota.
+	/// Gets amount of dollars the player has donated to OpenDota.
 	/// </summary>
 	[JsonPropertyName("cheese")]
-	public int? Cheese { get; set; }
+	public int Cheese { get; init; }
 
 	/// <summary>
-	/// Gets or sets whether the refresh of player' match history failed.
+	/// Gets whether the refresh of player' match history failed.
 	/// </summary>
 	[JsonPropertyName("fh_unavailable")]
-	public bool? FhUnavailable { get; set; }
+	public bool? FhUnavailable { get; init; }
 
 	/// <summary>
-	/// Gets or sets player's country identifier, e.g. US.
+	/// Gets player's country identifier, e.g. US.
 	/// </summary>
 	[JsonPropertyName("loccountrycode")]
-	public string LocCountryCode { get; set; }
+	public string LocCountryCode { get; init; } = string.Empty;
 
 	/// <summary>
-	/// Gets or sets last match time.
+	/// Gets last match time.
 	/// </summary>
 	[JsonPropertyName("last_match_time")]
-	public DateTimeOffset? LastMatchTime { get; set; }
+	public DateTimeOffset? LastMatchTime { get; init; }
 
 	/// <summary>
-	/// Gets or sets plus.
+	/// Gets plus.
 	/// </summary>
 	[JsonPropertyName("plus")]
-	public bool? Plus { get; set; }
+	public bool? Plus { get; init; }
 
 	/// <summary>
-	/// Gets or sets verified player name, e.g. 'Miracle-'.
+	/// Gets verified player name, e.g. 'Miracle-'.
 	/// </summary>
 	[JsonPropertyName("name")]
-	public string Name { get; set; }
+	public string Name { get; init; } = string.Empty;
 
 	/// <summary>
-	/// Gets or sets player's country code.
+	/// Gets player's country code.
 	/// </summary>
 	[JsonPropertyName("country_code")]
-	public string CountryCode { get; set; }
+	public string CountryCode { get; init; } = string.Empty;
 
 	/// <summary>
-	/// Gets or sets player's ingame role (core: 1 or support: 2).
+	/// Gets player's ingame role (core: 1 or support: 2).
 	/// </summary>
 	[JsonPropertyName("fantasy_role")]
-	public int FantasyRole { get; set; }
+	public int FantasyRole { get; init; }
 
 	/// <summary>
-	/// Gets or sets player's team identifier.
+	/// Gets player's team identifier.
 	/// </summary>
 	[JsonPropertyName("team_id")]
-	public long TeamId { get; set; }
+	public long TeamId { get; init; }
 
 	/// <summary>
-	/// Gets or sets player's team name, e.g. 'Evil Geniuses'.
+	/// Gets player's team name, e.g. 'Evil Geniuses'.
 	/// </summary>
 	[JsonPropertyName("team_name")]
-	public string TeamName { get; set; }
+	public string TeamName { get; init; } = string.Empty;
 
 	/// <summary>
-	/// Gets or sets player's team shorthand tag, e.g. 'EG'.
+	/// Gets player's team shorthand tag, e.g. 'EG'.
 	/// </summary>
 	[JsonPropertyName("team_tag")]
-	public string TeamTag { get; set; }
+	public string TeamTag { get; init; } = string.Empty;
 
 	/// <summary>
-	/// Gets or sets a value indicating whether the roster lock is active.
+	/// Gets a value indicating whether the roster lock is active.
 	/// </summary>
 	[JsonPropertyName("is_locked")]
-	public bool IsLocked { get; set; }
+	public bool IsLocked { get; init; }
 
 	/// <summary>
-	/// Gets or sets a value indicating whether the player is professional or not.
+	/// Gets a value indicating whether the player is professional or not.
 	/// </summary>
 	[JsonPropertyName("is_pro")]
-	public bool IsPro { get; set; }
+	public bool IsPro { get; init; }
 
 	/// <summary>
 	/// When the roster lock will end
 	/// </summary>
 	[JsonPropertyName("locked_until")]
-	public object? LockedUntil { get; set; }
+	public object? LockedUntil { get; init; }
 }

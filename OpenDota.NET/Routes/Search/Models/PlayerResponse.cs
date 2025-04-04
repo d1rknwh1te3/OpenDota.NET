@@ -6,23 +6,32 @@
 public class PlayerResponse
 {
 	/// <summary>
-	/// Gets or sets account ID of the player.
+	/// Gets account ID of the player.
 	/// </summary>
 	[JsonPropertyName("account_id")]
-	public required long AccountId { get; set; }
-
-	[JsonPropertyName("personaname")]
-	public string PersonaName { get; set; }
-
-	[JsonPropertyName("avatarfull")]
-	public Uri AvatarFull { get; set; }
+	public long AccountId { get; init; }
 
 	/// <summary>
-	/// Gets or sets last_match_time. May not be present or null.
+	/// Gets persona name of the player.
+	/// </summary>
+	[JsonPropertyName("personaname")]
+	public string PersonaName { get; init; } = string.Empty;
+
+	/// <summary>
+	/// Gets avatar full URL of the player.
+	/// </summary>
+	[JsonPropertyName("avatarfull")]
+	public Uri? AvatarFull { get; init; }
+
+	/// <summary>
+	/// Gets last_match_time. May not be present or null.
 	/// </summary>
 	[JsonPropertyName("last_match_time")]
-	public DateTimeOffset? LastMatchTime { get; set; }
+	public DateTimeOffset? LastMatchTime { get; init; }
 
+	/// <summary>
+	/// Gets similarity of the player.
+	/// </summary>
 	[JsonPropertyName("similarity")]
-	public double Similarity { get; set; }
+	public double Similarity { get; init; }
 }

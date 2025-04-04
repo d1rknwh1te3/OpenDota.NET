@@ -4,6 +4,6 @@
 public class LeagueEndpoint(Requester requester) : ILeagueEndpoint
 {
 	/// <inheritdoc />
-	public Task<IEnumerable<Models.League>?> GetLeaguesAsync() =>
-		requester.GetResponseAsync<IEnumerable<Models.League>>("leagues");
+	public Task<List<Models.League>?> GetLeaguesAsync() =>
+		requester.GetResponseAsync<List<Models.League>>("leagues");
 }

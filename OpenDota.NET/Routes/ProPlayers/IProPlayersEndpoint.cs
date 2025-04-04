@@ -9,5 +9,5 @@ public interface IProPlayersEndpoint
 	/// Get list of pro players.
 	/// </summary>
 	/// <returns>List of pro players.</returns>
-	Task<IEnumerable<ProPlayer>?> GetProPlayersAsync();
+	Task<List<ProPlayer>?> GetProPlayersAsync();
 }

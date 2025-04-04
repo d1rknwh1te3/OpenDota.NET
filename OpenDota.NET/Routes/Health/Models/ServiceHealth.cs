@@ -6,48 +6,67 @@
 public class ServiceHealth
 {
 	/// <summary>
-	/// Gets or sets the posgres usage.
+	/// Gets the cache delay.
 	/// </summary>
-	[JsonPropertyName("postgresUsage")]
-	public ServiceUsage PostgresUsage { get; set; }
+	[JsonPropertyName("cacheDelay")]
+	public ServiceUsage? CacheDelay { get; init; }
 
 	/// <summary>
-	/// Gets or sets the cassandra usage.
+	/// Gets the cassandra usage.
 	/// </summary>
 	[JsonPropertyName("cassandraUsage")]
-	public ServiceUsage CassandraUsage { get; set; }
+	public ServiceUsage? CassandraUsage { get; init; }
 
 	/// <summary>
-	/// Gets or sets the parse delay.
+	/// Gets the counts delay.
+	/// </summary>
+	[JsonPropertyName("countsDelay")]
+	public ServiceUsage? CountsDelay { get; init; }
+
+	/// <summary>
+	/// Gets the FH delay.
+	/// </summary>
+	[JsonPropertyName("fhDelay")]
+	public ServiceUsage? FhDelay { get; init; }
+
+	/// <summary>
+	/// Gets the GC delay.
+	/// </summary>
+	[JsonPropertyName("gcDelay")]
+	public ServiceUsage? GcDelay { get; init; }
+
+	/// <summary>
+	/// Gets the MMR delay.
+	/// </summary>
+	[JsonPropertyName("mmrDelay")]
+	public ServiceUsage? MmrDelay { get; init; }
+
+	/// <summary>
+	/// Gets the parse delay.
 	/// </summary>
 	[JsonPropertyName("parseDelay")]
-	public ServiceUsage ParseDelay { get; set; }
+	public ServiceUsage? ParseDelay { get; init; }
 
 	/// <summary>
-	/// Gets or sets the Redis usage.
+	/// Gets the posgres usage.
+	/// </summary>
+	[JsonPropertyName("postgresUsage")]
+	public ServiceUsage? PostgresUsage { get; init; }
+	/// <summary>
+	/// Gets the Redis usage.
 	/// </summary>
 	[JsonPropertyName("redisUsage")]
-	public ServiceUsage RedisUsage { get; set; }
+	public ServiceUsage? RedisUsage { get; init; }
 
-	[JsonPropertyName("seqNumDelay")]
-	public ServiceUsage SeqNumDelay { get; set; }
-
-	[JsonPropertyName("gcDelay")]
-	public ServiceUsage GcDelay { get; set; }
-
-	[JsonPropertyName("fhDelay")]
-	public ServiceUsage FhDelay { get; set; }
-
-	[JsonPropertyName("mmrDelay")]
-	public ServiceUsage MmrDelay { get; set; }
-
-	[JsonPropertyName("cacheDelay")]
-	public ServiceUsage CacheDelay { get; set; }
-
-	[JsonPropertyName("countsDelay")]
-	public ServiceUsage CountsDelay { get; set; }
-
+	/// <summary>
+	/// Gets the scenarios delay.
+	/// </summary>
 	[JsonPropertyName("scenariosDelay")]
-	public ServiceUsage ScenariosDelay { get; set; }
-
+	public ServiceUsage? ScenariosDelay { get; init; }
+	
+	/// <summary>
+	/// Gets the SEQ num delay.
+	/// </summary>
+	[JsonPropertyName("seqNumDelay")]
+	public ServiceUsage? SeqNumDelay { get; init; }
 }

@@ -11,7 +11,7 @@ public interface IFindMatchesEndpoint
 	/// <param name="teamA"></param>
 	/// <param name="teamB"></param>
 	/// <returns>Matches by heroes played.</returns>
-	Task<IEnumerable<FindMatch>?> FindMatchesByHeroesPlayedAsync(
+	Task<List<FindMatch>?> FindMatchesByHeroesPlayedAsync(
 		List<int>? teamA = null,
 		List<int>? teamB = null);
 }

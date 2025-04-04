@@ -6,91 +6,100 @@
 public class LiveGame
 {
 	[JsonPropertyName("activate_time")]
-	public long ActivateTime { get; set; }
+	public long ActivateTime { get; init; }
 
+	[JsonPropertyName("average_mmr")]
+	public int AverageMmr { get; init; }
+	[JsonPropertyName("building_state")]
+
+	public long BuildingState { get; init; }
 	[JsonPropertyName("deactivate_time")]
-	public long DeactivateTime { get; set; }
 
-	[JsonPropertyName("server_steam_id")]
-	public string ServerSteamId { get; set; }
-
-	[JsonPropertyName("lobby_id")]
-	public string LobbyId { get; set; }
-
-	[JsonPropertyName("league_id")]
-	public long LeagueId { get; set; }
-
-	/// <summary>
-	/// Gets or sets integer corresponding to lobby type of match.
-	/// List of constants can be found here: https://github.com/odota/dotaconstants/blob/master/json/lobby_type.json.
-	/// </summary>
-	[JsonPropertyName("lobby_type")]
-	public long LobbyType { get; set; }
-
-	[JsonPropertyName("game_time")]
-	public int GameTime { get; set; }
-
+	public long DeactivateTime { get; init; }
 	[JsonPropertyName("delay")]
-	public int Delay { get; set; }
 
-	[JsonPropertyName("spectators")]
-	public int Spectators { get; set; }
+	public int Delay { get; init; }
+	[JsonPropertyName("dire_score")]
+
+	public int DireScore { get; init; }
 
 	/// <summary>
-	/// Gets or sets an integer corresponding to game mode played.
+	/// Gets an integer corresponding to game mode played.
 	/// List of constants can be found here: https://github.com/odota/dotaconstants/blob/master/json/game_mode.json.
 	/// </summary>
 	[JsonPropertyName("game_mode")]
-	public int GameMode { get; set; }
+	public int GameMode { get; init; }
 
-	[JsonPropertyName("average_mmr")]
-	public int AverageMmr { get; set; }
-
-	/// <summary>
-	/// Gets or sets ID used to identify individual matches, e.g. 3703866531.
-	/// </summary>
-	[JsonPropertyName("match_id")]
-	public long MatchId { get; set; }
-
-	[JsonPropertyName("series_id")]
-	public long SeriesId { get; set; }
-
-	[JsonPropertyName("sort_score")]
-	public long SortScore { get; set; }
+	[JsonPropertyName("game_time")]
+	public int GameTime { get; init; }
 
 	[JsonPropertyName("last_update_time")]
-	public long LastUpdateTime { get; set; }
+	public long LastUpdateTime { get; init; }
 
-	[JsonPropertyName("radiant_lead")]
-	public int RadiantLead { get; set; }
+	[JsonPropertyName("league_id")]
+	public long LeagueId { get; init; }
 
-	[JsonPropertyName("radiant_score")]
-	public int RadiantScore { get; set; }
+	[JsonPropertyName("lobby_id")]
+	public string LobbyId { get; init; } = string.Empty;
 
-	[JsonPropertyName("dire_score")]
-	public int DireScore { get; set; }
+	/// <summary>
+	/// Gets integer corresponding to lobby type of match.
+	/// List of constants can be found here: https://github.com/odota/dotaconstants/blob/master/json/lobby_type.json.
+	/// </summary>
+	[JsonPropertyName("lobby_type")]
+
+	public long? LobbyType { get; init; }
+
+	/// <summary>
+	/// Gets ID used to identify individual matches, e.g. 3703866531.
+	/// </summary>
+	[JsonPropertyName("match_id")]
+
+	public long? MatchId { get; init; }
 
 	[JsonPropertyName("players")]
-	public IEnumerable<LiveGamePlayer> Players { get; set; }
+	public List<LiveGamePlayer> Players { get; init; } = [];
 
-	[JsonPropertyName("building_state")]
-	public long BuildingState { get; set; }
+	[JsonPropertyName("radiant_lead")]
 
-	[JsonPropertyName("team_name_radiant")]
-	public string TeamNameRadiant { get; set; }
+	public int RadiantLead { get; init; }
 
-	[JsonPropertyName("team_name_dire")]
-	public string TeamNameDire { get; set; }
+	[JsonPropertyName("radiant_score")]
 
-	[JsonPropertyName("team_logo_radiant")]
-	public string TeamLogoRadiant { get; set; }
+	public int RadiantScore { get; init; }
 
-	[JsonPropertyName("team_logo_dire")]
-	public string TeamLogoDire { get; set; }
+	[JsonPropertyName("series_id")]
 
-	[JsonPropertyName("team_id_radiant")]
-	public long? TeamIdRadiant { get; set; }
+	public long? SeriesId { get; init; }
+
+	[JsonPropertyName("server_steam_id")]
+	public string ServerSteamId { get; init; } = string.Empty;
+	
+	[JsonPropertyName("sort_score")]
+
+	public long? SortScore { get; init; }
+
+	[JsonPropertyName("spectators")]
+
+	public int Spectators { get; init; }
 
 	[JsonPropertyName("team_id_dire")]
-	public long? TeamIdDire { get; set; }
+
+	public long? TeamIdDire { get; init; }
+
+	[JsonPropertyName("team_id_radiant")]
+
+	public long? TeamIdRadiant { get; init; }
+
+	[JsonPropertyName("team_logo_dire")]
+	public string TeamLogoDire { get; init; } = string.Empty;
+
+	[JsonPropertyName("team_logo_radiant")]
+	public string TeamLogoRadiant { get; init; } = string.Empty;
+
+	[JsonPropertyName("team_name_dire")]
+	public string TeamNameDire { get; init; } = string.Empty;
+
+	[JsonPropertyName("team_name_radiant")]
+	public string TeamNameRadiant { get; init; } = string.Empty;
 }

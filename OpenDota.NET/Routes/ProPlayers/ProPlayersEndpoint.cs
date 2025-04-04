@@ -4,6 +4,6 @@
 public class ProPlayersEndpoint(Requester requester) : IProPlayersEndpoint
 {
 	/// <inheritdoc />
-	public Task<IEnumerable<ProPlayer>?> GetProPlayersAsync() =>
-		requester.GetResponseAsync<IEnumerable<ProPlayer>>("proPlayers");
+	public Task<List<ProPlayer>?> GetProPlayersAsync() =>
+		requester.GetResponseAsync<List<ProPlayer>>("proPlayers");
 }

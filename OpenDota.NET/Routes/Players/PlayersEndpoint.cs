@@ -16,38 +16,38 @@ public class PlayersEndpoint(Requester requester) : IPlayersEndpoint
 			GetArguments(parameters));
 
 	/// <inheritdoc />
-	public Task<IEnumerable<PlayerRecentMatch>?> GetPlayerRecentMatchesAsync(long accountId) =>
-		requester.GetResponseAsync<IEnumerable<PlayerRecentMatch>>($"players/{accountId}/recentMatches");
+	public Task<List<PlayerRecentMatch>?> GetPlayerRecentMatchesAsync(long accountId) =>
+		requester.GetResponseAsync<List<PlayerRecentMatch>>($"players/{accountId}/recentMatches");
 
 	/// <inheritdoc />
-	public Task<IEnumerable<PlayerMatch>?> GetPlayerMatchesAsync(
+	public Task<List<PlayerMatch>?> GetPlayerMatchesAsync(
 		long accountId,
 		PlayerEndpointParameters? parameters = null) =>
-		requester.GetResponseAsync<IEnumerable<PlayerMatch>>(
+		requester.GetResponseAsync<List<PlayerMatch>>(
 			$"players/{accountId}/matches",
 			GetArguments(parameters));
 
 	/// <inheritdoc />
-	public Task<IEnumerable<PlayerHero>?> GetPlayerHeroesAsync(long accountId, PlayerEndpointParameters? parameters = null) =>
-		requester.GetResponseAsync<IEnumerable<PlayerHero>>(
+	public Task<List<PlayerHero>?> GetPlayerHeroesAsync(long accountId, PlayerEndpointParameters? parameters = null) =>
+		requester.GetResponseAsync<List<PlayerHero>>(
 			$"players/{accountId}/heroes",
 			GetArguments(parameters));
 
 	/// <inheritdoc />
-	public Task<IEnumerable<PlayerPeer>?> GetPlayerPeersAsync(long accountId, PlayerEndpointParameters? parameters = null) =>
-		requester.GetResponseAsync<IEnumerable<PlayerPeer>>(
+	public Task<List<PlayerPeer>?> GetPlayerPeersAsync(long accountId, PlayerEndpointParameters? parameters = null) =>
+		requester.GetResponseAsync<List<PlayerPeer>>(
 			$"players/{accountId}/peers",
 			GetArguments(parameters));
 
 	/// <inheritdoc />
-	public Task<IEnumerable<PlayerPro>?> GetPlayerProsAsync(long accountId, PlayerEndpointParameters? parameters = null) =>
-		requester.GetResponseAsync<IEnumerable<PlayerPro>>(
+	public Task<List<PlayerPro>?> GetPlayerProsAsync(long accountId, PlayerEndpointParameters? parameters = null) =>
+		requester.GetResponseAsync<List<PlayerPro>>(
 			$"players/{accountId}/pros",
 			GetArguments(parameters));
 
 	/// <inheritdoc />
-	public Task<IEnumerable<PlayerTotal>?> GetPlayerTotalsAsync(long accountId, PlayerEndpointParameters? parameters = null) =>
-		requester.GetResponseAsync<IEnumerable<PlayerTotal>>(
+	public Task<List<PlayerTotal>?> GetPlayerTotalsAsync(long accountId, PlayerEndpointParameters? parameters = null) =>
+		requester.GetResponseAsync<List<PlayerTotal>>(
 			$"players/{accountId}/totals",
 			GetArguments(parameters));
 
@@ -58,8 +58,8 @@ public class PlayersEndpoint(Requester requester) : IPlayersEndpoint
 			GetArguments(parameters));
 
 	/// <inheritdoc />
-	public Task<IEnumerable<PlayerHistogram>?> GetPlayerHistogramsAsync(long accountId, string field, PlayerEndpointParameters? parameters = null) =>
-		requester.GetResponseAsync<IEnumerable<PlayerHistogram>>(
+	public Task<List<PlayerHistogram>?> GetPlayerHistogramsAsync(long accountId, string field, PlayerEndpointParameters? parameters = null) =>
+		requester.GetResponseAsync<List<PlayerHistogram>>(
 			$"players/{accountId}/histograms/{field}",
 			GetArguments(parameters));
 
@@ -76,12 +76,12 @@ public class PlayersEndpoint(Requester requester) : IPlayersEndpoint
 			GetArguments(parameters));
 
 	/// <inheritdoc />
-	public Task<IEnumerable<PlayerRating>?> GetPlayerRatingsAsync(long accountId) =>
-		requester.GetResponseAsync<IEnumerable<PlayerRating>>($"players/{accountId}/ratings");
+	public Task<List<PlayerRating>?> GetPlayerRatingsAsync(long accountId) =>
+		requester.GetResponseAsync<List<PlayerRating>>($"players/{accountId}/ratings");
 
 	/// <inheritdoc />
-	public Task<IEnumerable<PlayerHeroRanking>?> GetPlayerHeroRankingsAsync(long accountId) =>
-		requester.GetResponseAsync<IEnumerable<PlayerHeroRanking>>($"players/{accountId}/rankings");
+	public Task<List<PlayerHeroRanking>?> GetPlayerHeroRankingsAsync(long accountId) =>
+		requester.GetResponseAsync<List<PlayerHeroRanking>>($"players/{accountId}/rankings");
 
 	/// <inheritdoc />
 	public async Task<bool> RefreshPlayerMatchHistoryAsync(long accountId)

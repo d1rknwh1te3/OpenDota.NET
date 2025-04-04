@@ -1,547 +1,812 @@
 ﻿namespace OpenDotaDotNet.Routes.Matches.Models;
 
+/// <summary>
+/// Represeants a match player
+/// </summary>
 public class MatchPlayer
 {
 	/// <summary>
-	/// Gets or sets ID used to identify individual matches, e.g. 3703866531.
+	/// Gets ID used to identify individual matches, e.g. 3703866531.
 	/// </summary>
 	[JsonPropertyName("match_id")]
-	public long MatchId { get; set; }
+	public long MatchId { get; init; }
 
 	/// <summary>
-	/// Gets or sets which slot the player is in. 0-127 are Radiant, 128-255 are Dire.
+	/// Gets which slot the player is in. 0-127 are Radiant, 128-255 are Dire.
 	/// </summary>
 	[JsonPropertyName("player_slot")]
-	public int PlayerSlot { get; set; }
+	public int PlayerSlot { get; init; }
 
 	// TODO: Check if this actually works???
-	// Object containing information on who the player used their abilities on
+	/// <summary>
+	/// Gets object containing information on who the player used their abilities on
+	/// </summary>
 	[JsonPropertyName("ability_targets")]
-	public Dictionary<string, Dictionary<string, int>> AbilityTargets { get; set; }
-
-	// An array describing how abilities were upgraded
-	[JsonPropertyName("ability_upgrades_arr")]
-	public IEnumerable<int> AbilityUpgradesArr { get; set; }
-
-	// Object containing information on how many times the played used their abilities
-	[JsonPropertyName("ability_uses")]
-	public IDictionary<string, int> AbilityUses { get; set; }
+	public Dictionary<string, Dictionary<string, int>> AbilityTargets { get; init; } = new();
 
 	/// <summary>
-	/// Gets or sets account ID of the player.
+	/// Gets a list describing how abilities were upgraded
+	/// </summary>
+	[JsonPropertyName("ability_upgrades_arr")]
+	public List<int> AbilityUpgradesArr { get; init; } = [];
+
+	/// <summary>
+	/// Gets object containing information on how many times the played used their abilities
+	/// </summary>
+	[JsonPropertyName("ability_uses")]
+	public Dictionary<string, int> AbilityUses { get; init; } = new();
+
+	/// <summary>
+	/// Gets account ID of the player.
 	/// </summary>
 	[JsonPropertyName("account_id")]
-	public long? AccountId { get; set; }
-
-	// Object containing information on how many and what type of actions the player issued to their hero
-	[JsonPropertyName("actions")]
-	public IDictionary<string, long> Actions { get; set; }
-
-	// Object containing information on additional units the player had under their control
-	[JsonPropertyName("additional_units")]
-	public IEnumerable<AdditionalUnit> AdditionalUnits { get; set; }
-
-	// Number of assists the player had
-	[JsonPropertyName("assists")]
-	public long Assists { get; set; }
-
-	// Item in backpack slot 0
-	[JsonPropertyName("backpack_0")]
-	public long Backpack0 { get; set; }
-
-	// Item in backpack slot 1
-	[JsonPropertyName("backpack_1")]
-	public long Backpack1 { get; set; }
-
-	// Item in backpack slot 2
-	[JsonPropertyName("backpack_2")]
-	public long Backpack2 { get; set; }
-
-	// Array containing information about buybacks
-	[JsonPropertyName("buyback_log")]
-	public IEnumerable<BuybackLog> BuybackLogs { get; set; }
-
-	// Number of camps stacked
-	[JsonPropertyName("camps_stacked")]
-	public int? CampsStacked { get; set; }
-
-	[JsonPropertyName("connection_log")]
-	public IEnumerable<ConnectionLog> ConnectionLog { get; set; }
-
-	// Number of creeps stacked
-	[JsonPropertyName("creeps_stacked")]
-	public int? CreepsStacked { get; set; }
-
-	// Object containing information about damage dealt by the player to different units <unit,damage>
-	[JsonPropertyName("damage")]
-	public IDictionary<string, long> Damage { get; set; }
-
-	// Object containing information about about the sources of this player's damage to heroes
-	[JsonPropertyName("damage_inflictor")]
-	public IDictionary<string, int> DamageInflictor { get; set; }
-
-	// Object containing information about the sources of damage received by this player from heroes
-	[JsonPropertyName("damage_inflictor_received")]
-	public IDictionary<string, int> DamageInflictorReceived { get; set; }
-
-	// Object containing information about from whom the player took damage
-	[JsonPropertyName("damage_taken")]
-	public IDictionary<string, int> DamageTaken { get; set; }
-
-	// Object containing information on how and how much damage the player dealt to other heroes
-	[JsonPropertyName("damage_targets")]
-	public IDictionary<string, IDictionary<string, int>> DamageTargets { get; set; }
-
-	// Number of deaths
-	[JsonPropertyName("deaths")]
-	public int Deaths { get; set; }
-
-	// Number of denies
-	[JsonPropertyName("denies")]
-	public int Denies { get; set; }
-
-	// Array containing number of denies at different times of the match
-	[JsonPropertyName("dn_t")]
-	public IEnumerable<int> DeniesAtDifferentTimes { get; set; }
-
-	// Indicates whether the player claimed first blood or not [might not be a bool?]
-	[JsonPropertyName("firstblood_claimed")]
-	public bool? FirstbloodClaimed { get; set; }
-
-	// Gold at the end of the game
-	[JsonPropertyName("gold")]
-	public int Gold { get; set; }
-
-	// Gold Per Minute obtained by this player
-	[JsonPropertyName("gold_per_min")]
-	public int GoldPerMin { get; set; }
-
-	// Object containing information on how the player gainined gold over the course of the match
-	[JsonPropertyName("gold_reasons")]
-	public IDictionary<string, int> GoldReasons { get; set; }
-
-	// How much gold the player spent
-	[JsonPropertyName("gold_spent")]
-	public int GoldSpent { get; set; }
-
-	// Array containing total gold at different times of the match
-	[JsonPropertyName("gold_t")]
-	public IEnumerable<long> GoldEachMinute { get; set; }
-
-	// Hero Damage Dealt
-	[JsonPropertyName("hero_damage")]
-	public long HeroDamage { get; set; }
-
-	// Hero Healing Done
-	[JsonPropertyName("hero_healing")]
-	public long HeroHealing { get; set; }
-
-	// Object containing information on how many ticks of damages the hero inflicted with different spells and damage inflictors
-	[JsonPropertyName("hero_hits")]
-	public IDictionary<string, int> HeroHits { get; set; }
+	public long AccountId { get; init; }
 
 	/// <summary>
-	/// Gets or sets the ID value of the hero played.
+	/// Gets object containing information on how many and what type of actions the player issued to their hero
+	/// </summary>
+	[JsonPropertyName("actions")]
+	public Dictionary<string, long> Actions { get; init; } = new();
+
+	/// <summary>
+	/// Gets object containing information on additional units the player had under their control
+	/// </summary>
+	[JsonPropertyName("additional_units")]
+	public List<AdditionalUnit> AdditionalUnits { get; init; } = [];
+
+	/// <summary>
+	/// Gets number of assists the player had
+	/// </summary>
+	[JsonPropertyName("assists")]
+	public long Assists { get; init; }
+
+	/// <summary>
+	/// Gets item in backpack slot 0
+	/// </summary>
+	[JsonPropertyName("backpack_0")]
+	public long Backpack0 { get; init; }
+
+	/// <summary>
+	/// Gets item in backpack slot 1
+	/// </summary>
+	[JsonPropertyName("backpack_1")]
+	public long Backpack1 { get; init; }
+
+	/// <summary>
+	/// Gets item in backpack slot 2
+	/// </summary>
+	[JsonPropertyName("backpack_2")]
+	public long Backpack2 { get; init; }
+
+	/// <summary>
+	/// Gets array containing information about buybacks
+	/// </summary>
+	[JsonPropertyName("buyback_log")]
+	public List<BuybackLog> BuybackLogs { get; init; } = [];
+
+	/// <summary>
+	/// Gets number of camps stacked
+	/// </summary>
+	[JsonPropertyName("camps_stacked")]
+	public int CampsStacked { get; init; }
+
+	/// <summary>
+	/// Gets a list of connection logs
+	/// </summary>
+	[JsonPropertyName("connection_log")]
+	public List<ConnectionLog> ConnectionLog { get; init; } = [];
+
+	/// <summary>
+	/// Gets number of creeps stacked
+	/// </summary>
+	[JsonPropertyName("creeps_stacked")]
+	public int CreepsStacked { get; init; }
+
+	/// <summary>
+	/// Gets object containing information about damage dealt by the player to different units [unit,damage] 
+	/// </summary>
+	[JsonPropertyName("damage")]
+	public Dictionary<string, long> Damage { get; init; } = new();
+
+	/// <summary>
+	/// Gets object containing information about about the sources of this player's damage to heroes
+	/// </summary>
+	[JsonPropertyName("damage_inflictor")]
+	public Dictionary<string, int> DamageInflictor { get; init; } = new();
+
+	/// <summary>
+	/// Gets object containing information about the sources of damage received by this player from heroes
+	/// </summary>
+	[JsonPropertyName("damage_inflictor_received")]
+	public Dictionary<string, int> DamageInflictorReceived { get; init; } = new();
+
+	/// <summary>
+	/// Gets object containing information about from whom the player took damage
+	/// </summary>
+	[JsonPropertyName("damage_taken")]
+	public Dictionary<string, int> DamageTaken { get; init; } = new();
+
+	/// <summary>
+	/// Gets object containing information on how and how much damage the player dealt to other heroes
+	/// </summary>
+	[JsonPropertyName("damage_targets")]
+	public Dictionary<string, Dictionary<string, int>> DamageTargets { get; init; } = new();
+
+	/// <summary>
+	/// Gets number of deaths
+	/// </summary>
+	[JsonPropertyName("deaths")]
+	public int Deaths { get; init; }
+
+	/// <summary>
+	/// Gets number of denies
+	/// </summary>
+	[JsonPropertyName("denies")]
+	public int Denies { get; init; }
+
+	/// <summary>
+	/// Gets a list containing number of denies at different times of the match
+	/// </summary>
+	[JsonPropertyName("dn_t")]
+	public List<int> DeniesAtDifferentTimes { get; init; } = [];
+
+	/// <summary>
+	/// Gets indicates whether the player claimed first blood or not [might not be a bool?]
+	/// </summary>
+	[JsonPropertyName("firstblood_claimed")]
+	public int? FirstbloodClaimed { get; init; }
+
+	/// <summary>
+	/// Gets amount of gold at the end of the game
+	/// </summary>
+	[JsonPropertyName("gold")]
+	public int Gold { get; init; }
+
+	/// <summary>
+	/// Gets gold per minute obtained by this player
+	/// </summary>
+	[JsonPropertyName("gold_per_min")]
+	public int GoldPerMin { get; init; }
+
+	/// <summary>
+	/// Gets object containing information on how the player gainined gold over the course of the match
+	/// </summary>
+	[JsonPropertyName("gold_reasons")]
+	public Dictionary<string, int> GoldReasons { get; init; } = new();
+
+	/// <summary>
+	/// Gets how much gold the player spent
+	/// </summary>
+	[JsonPropertyName("gold_spent")]
+	public int GoldSpent { get; init; }
+
+	/// <summary>
+	/// Gets a list containing total gold at different times of the match
+	/// </summary>
+	[JsonPropertyName("gold_t")]
+	public List<long> GoldEachMinute { get; init; } = [];
+
+	/// <summary>
+	/// Gets a hero damage dealt
+	/// </summary>
+	[JsonPropertyName("hero_damage")]
+	public long HeroDamage { get; init; }
+
+	/// <summary>
+	/// Gets a hero healing done
+	/// </summary>
+	[JsonPropertyName("hero_healing")]
+	public long HeroHealing { get; init; }
+
+	/// <summary>
+	/// Gets an object containing information on how many ticks of damages the hero inflicted with different spells and damage inflictors
+	/// </summary>
+	[JsonPropertyName("hero_hits")]
+	public Dictionary<string, int> HeroHits { get; init; } = new();
+
+	/// <summary>
+	/// Gets the ID value of the hero played.
 	/// </summary>
 	[JsonPropertyName("hero_id")]
-	public long HeroId { get; set; }
-
-	// Item in the player's first slot
-	[JsonPropertyName("item_0")]
-	public long Item0 { get; set; }
-
-	// Item in the player's second slot
-	[JsonPropertyName("item_1")]
-	public long Item1 { get; set; }
-
-	// Item in the player's third slot
-	[JsonPropertyName("item_2")]
-	public long Item2 { get; set; }
-
-	// Item in the player's fourth slot
-	[JsonPropertyName("item_3")]
-	public long Item3 { get; set; }
-
-	// Item in the player's fifth slot
-	[JsonPropertyName("item_4")]
-	public long Item4 { get; set; }
-
-	// Item in the player's sixth slot
-	[JsonPropertyName("item_5")]
-	public long Item5 { get; set; }
-
-	// Object containing information about how many times a player used items
-	[JsonPropertyName("item_uses")]
-	public IDictionary<string, int> ItemUses { get; set; }
-
-	// Object containing information about the player's killstreaks
-	[JsonPropertyName("kill_streaks")]
-	public IDictionary<string, int> KillStreaks { get; set; }
-
-	// Object containing information about what units the player killed
-	[JsonPropertyName("killed")]
-	public IDictionary<string, int> UnitsKilled { get; set; }
-
-	// Object containing information about who killed the player
-	[JsonPropertyName("killed_by")]
-	public IDictionary<string, int> KilledBy { get; set; }
-
-	// Number of kills
-	[JsonPropertyName("kills")]
-	public long Kills { get; set; }
-
-	// Array containing information on which hero the player killed at what time
-	[JsonPropertyName("kills_log")]
-	public IEnumerable<KillLog> KillsLog { get; set; }
-
-	// Object containing information on lane position
-	[JsonPropertyName("lane_pos")]
-	public IDictionary<string, Dictionary<string, int>> LanePos { get; set; }
-
-	// Number of last hits
-	[JsonPropertyName("last_hits")]
-	public int LastHits { get; set; }
-
-	// Integer describing whether or not the player left the game. 0: didn't leave. 1: left safely. 2+: Abandoned
-	[JsonPropertyName("leaver_status")]
-	public int LeaverStatus { get; set; }
-
-	// Level at the end of the game
-	[JsonPropertyName("level")]
-	public int Level { get; set; }
-
-	// Array describing last hits at each minute in the game
-	[JsonPropertyName("lh_t")]
-	public IEnumerable<int> LastHitsEachMinute { get; set; }
-
-	[JsonPropertyName("life_state")]
-	public IDictionary<string, long> LifeState { get; set; }
-
-	// Object with information on the highest damage instance the player inflicted
-	[JsonPropertyName("max_hero_hit")]
-	public MaxHeroHit MaxHeroHit { get; set; }
-
-	// Object with information on the number of the number of multikills the player had
-	[JsonPropertyName("multi_kills")]
-	public IDictionary<string, int> MultiKills { get; set; }
-
-	// Object with information on where the player placed observer wards. The location takes the form (outer number, inner number) and are from ~64-192.
-	[JsonPropertyName("obs")]
-	public IDictionary<string, Dictionary<string, int>> Obs { get; set; }
-
-	[JsonPropertyName("obs_left_log")]
-	public IEnumerable<WardLog> ObsLeftLog { get; set; }
-
-	// Object containing information on when and where the player placed observer wards
-	[JsonPropertyName("obs_log")]
-	public IEnumerable<WardLog> ObsLog { get; set; }
-
-	// Total number of observer wards placed
-	[JsonPropertyName("obs_placed")]
-	public int? ObsPlaced { get; set; }
-
-	[JsonPropertyName("party_id")]
-	public int PartyId { get; set; }
-
-	// Size of the players party. If not in a party, will return 1.
-	[JsonPropertyName("party_size")]
-	public int PartySize { get; set; }
-
-	// ???
-	// [JsonPropertyName("performance_others")]
-	// public object PerformanceOthers { get; set; }
-
-	// Array describing permanent buffs the player had at the end of the game. List of constants can be found here: https://github.com/odota/dotaconstants/blob/master/json/permanent_buffs.json
-	[JsonPropertyName("permanent_buffs")]
-	public IEnumerable<PermanentBuff> PermanentBuffs { get; set; }
-
-	// Total number of pings
-	[JsonPropertyName("pings")]
-	public int? Pings { get; set; }
-
-	// Whether the player predicted victory
-	[JsonPropertyName("pred_vict")]
-	public bool? PredVict { get; set; }
-
-	// Object containing information on the items the player purchased (item, times purchased)
-	[JsonPropertyName("purchase")]
-	public IDictionary<string, long?> Purchase { get; set; }
-
-	// Object containing information on when items were purchased
-	[JsonPropertyName("purchase_log")]
-	public IEnumerable<PurchaseLog> PurchaseLog { get; set; }
-
-	// Whether the player randomed or not
-	[JsonPropertyName("randomed")]
-	public bool? Randomed { get; set; }
-
-	// Whether the player repicked or not (no longer a thing?)
-	[JsonPropertyName("repicked")]
-	public bool? Repicked { get; set; }
-
-	// Total number of roshan kills (last hit on roshan) the player had
-	[JsonPropertyName("roshans_killed")]
-	public int? RoshansKilled { get; set; }
-
-	// Number of runes picked up
-	[JsonPropertyName("rune_pickups")]
-	public int? RunePickups { get; set; }
-
-	// Object with information about which runes the player picked up
-	[JsonPropertyName("runes")]
-	public IDictionary<string, int> Runes { get; set; }
-
-	// List with information on when runes were picked up
-	[JsonPropertyName("runes_log")]
-	public IEnumerable<RuneLog> RuneLogs { get; set; }
-
-	// Object with information on where sentries were placed. The location takes the form (outer number, inner number) and are from ~64-192.
-	[JsonPropertyName("sen")]
-	public IDictionary<string, Dictionary<string, int>> Sen { get; set; }
-
-	// Array containing information on when and where the player placed sentries
-	[JsonPropertyName("sen_left_log")]
-	public IEnumerable<WardLog> SenLeftLog { get; set; }
-
-	// Array with information on when and where sentries were placed by the player
-	[JsonPropertyName("sen_log")]
-	public IEnumerable<WardLog> SenLog { get; set; }
-
-	// How many sentries were placed by the player
-	[JsonPropertyName("sen_placed")]
-	public int? SenPlaced { get; set; }
-
-	// Total stun duration of all stuns by the player
-	[JsonPropertyName("stuns")]
-	public double? Stuns { get; set; }
-
-	// Percentage of total teamfight participation by the player (value between 0-1)
-	[JsonPropertyName("teamfight_participation")]
-	public double? TeamfightParticipation { get; set; }
-
-	// Time in seconds corresponding to the time of entries of other arrays in the match.
-	[JsonPropertyName("times")]
-	public IEnumerable<int> Times { get; set; }
-
-	// Total tower damage done by the player
-	[JsonPropertyName("tower_damage")]
-	public int TowerDamage { get; set; }
-
-	// Total number of tower kills (last hit on tower) the player had
-	[JsonPropertyName("towers_killed")]
-	public int? TowersKilled { get; set; }
-
-	// Experience Per Minute obtained by the player
-	[JsonPropertyName("xp_per_min")]
-	public int XpPerMin { get; set; }
-
-	// Object containing information on the sources of this player's experience
-	[JsonPropertyName("xp_reasons")]
-	public IDictionary<string, int> XpReasons { get; set; }
-
-	// Experience at each minute of the game
-	[JsonPropertyName("xp_t")]
-	public IEnumerable<long> XpEachMinute { get; set; }
-
-	[JsonPropertyName("personaname")]
-	public string Personaname { get; set; }
-
-	[JsonPropertyName("name")]
-	public string Name { get; set; }
-
-	// Time in seconds of last login of the player
-	[JsonPropertyName("last_login")]
-	public DateTimeOffset? LastLogin { get; set; }
-
-	// Boolean indicating whether Radiant won the match
-	[JsonPropertyName("radiant_win")]
-	public bool RadiantWin { get; set; }
-
-	// Start time of the match in seconds since 1970
-	[JsonPropertyName("start_time")]
-	public long StartTime { get; set; }
-
-	// Duration of the game in seconds
-	[JsonPropertyName("duration")]
-	public int Duration { get; set; }
-
-	[JsonPropertyName("cluster")]
-	public long Cluster { get; set; }
+	public long HeroId { get; init; }
 
 	/// <summary>
-	/// Gets or sets integer corresponding to lobby type of match.
+	/// Gets an item in the player's first slot
+	/// </summary>
+	[JsonPropertyName("item_0")]
+	public long Item0 { get; init; }
+
+	/// <summary>
+	/// Gets an item in the player's second slot
+	/// </summary>
+	[JsonPropertyName("item_1")]
+	public long Item1 { get; init; }
+
+	/// <summary>
+	/// Gets an item in the player's third slot
+	/// </summary>
+	[JsonPropertyName("item_2")]
+	public long Item2 { get; init; }
+
+	/// <summary>
+	/// Gets an item in the player's fourth slot
+	/// </summary>
+	[JsonPropertyName("item_3")]
+	public long Item3 { get; init; }
+
+	/// <summary>
+	/// Gets an item in the player's fifth slot
+	/// </summary>
+	[JsonPropertyName("item_4")]
+	public long Item4 { get; init; }
+
+	/// <summary>
+	/// Gets an item in the player's sixth slot
+	/// </summary>
+	[JsonPropertyName("item_5")]
+	public long Item5 { get; init; }
+
+	/// <summary>
+	/// Gets a dictionary containing information about how many times a player used items
+	/// </summary>
+	[JsonPropertyName("item_uses")]
+	public Dictionary<string, int> ItemUses { get; init; } = new();
+
+	/// <summary>
+	/// Gets a dictionary containing information about the player's killstreaks
+	/// </summary>
+	[JsonPropertyName("kill_streaks")]
+	public Dictionary<string, int> KillStreaks { get; init; } = new();
+
+	/// <summary>
+	/// Gets a dictionary containing information about what units the player killed
+	/// </summary>
+	[JsonPropertyName("killed")]
+	public Dictionary<string, int> UnitsKilled { get; init; } = new();
+
+	/// <summary>
+	/// Gets a dictionary containing information about who killed the player
+	/// </summary>
+	[JsonPropertyName("killed_by")]
+	public Dictionary<string, int> KilledBy { get; init; } = new();
+
+	/// <summary>
+	/// Gets a number of kills
+	/// </summary>
+	[JsonPropertyName("kills")]
+	public long Kills { get; init; }
+
+	/// <summary>
+	/// Gets a list containing information on which hero the player killed at what time
+	/// </summary>
+	[JsonPropertyName("kills_log")]
+	public List<KillLog> KillsLog { get; init; } = [];
+
+	/// <summary>
+	/// Gets a object containing information on lane position
+	/// </summary>
+	[JsonPropertyName("lane_pos")]
+	public Dictionary<string, Dictionary<string, int>> LanePos { get; init; } = new();
+
+	/// <summary>
+	/// Gets a number of last hits
+	/// </summary>
+	[JsonPropertyName("last_hits")]
+	public int LastHits { get; init; }
+
+	/// <summary>
+	/// Gets an integer describing whether or not the player left the game. 0: didn't leave. 1: left safely. 2+: Abandoned
+	/// </summary>
+	[JsonPropertyName("leaver_status")]
+	public int LeaverStatus { get; init; }
+
+	/// <summary>
+	/// Gets a level at the end of the game
+	/// </summary>
+	[JsonPropertyName("level")]
+	public int Level { get; init; }
+
+	/// <summary>
+	/// Gets a list describing last hits at each minute in the game
+	/// </summary>
+	[JsonPropertyName("lh_t")]
+	public List<int> LastHitsEachMinute { get; init; } = [];
+
+	/// <summary>
+	/// Gets a dictionary with information on the life state of the player
+	/// </summary>
+	[JsonPropertyName("life_state")]
+	public Dictionary<string, long> LifeState { get; init; } = new();
+
+	/// <summary>
+	/// Gets a dictionary with information on the highest damage instance the player inflicted
+	/// </summary>
+	[JsonPropertyName("max_hero_hit")]
+	public MaxHeroHit MaxHeroHit { get; init; } = new();
+
+	/// <summary>
+	/// Gets a dictionary with information on the number of the number of multikills the player had
+	/// </summary>
+	[JsonPropertyName("multi_kills")]
+	public Dictionary<string, int> MultiKills { get; init; } = new();
+
+	/// <summary>
+	/// Gets a dictionary with information on where the player placed observer wards. The location takes the form (outer number, inner number) and are from ~64-192.
+	/// </summary>
+	[JsonPropertyName("obs")]
+	public Dictionary<string, Dictionary<string, int>> Obs { get; init; } = new();
+
+	/// <summary>
+	/// Gets a list containing information on when and where the player left observer wards
+	/// </summary>
+	[JsonPropertyName("obs_left_log")]
+	public List<WardLog> ObsLeftLog { get; init; } = [];
+
+	/// <summary>
+	/// Gets a list containing information on when and where the player placed observer wards
+	/// </summary>
+	[JsonPropertyName("obs_log")]
+	public List<WardLog> ObsLog { get; init; } = [];
+
+	/// <summary>
+	/// Gets a total number of observer wards placed
+	/// </summary>
+	[JsonPropertyName("obs_placed")]
+	public int ObsPlaced { get; init; }
+
+	/// <summary>
+	/// Gets a party ID
+	/// </summary>
+	[JsonPropertyName("party_id")]
+	public int PartyId { get; init; }
+
+	/// <summary>
+	/// Gets a size of the players party. If not in a party, will return 1.
+	/// </summary>
+	[JsonPropertyName("party_size")]
+	public int PartySize { get; init; }
+
+	// TODO: ???
+	// [JsonPropertyName("performance_others")]
+	// public object PerformanceOthers { get; init; }
+
+	/// <summary>
+	/// Gets a list describing permanent buffs the player had at the end of the game. List of constants can be found here: https://github.com/odota/dotaconstants/blob/master/json/permanent_buffs.json
+	/// </summary>
+	[JsonPropertyName("permanent_buffs")]
+	public List<PermanentBuff> PermanentBuffs { get; init; } = [];
+
+	/// <summary>
+	/// Gets a total number of pings
+	/// </summary>
+	[JsonPropertyName("pings")]
+	public int Pings { get; init; }
+
+	/// <summary>
+	/// Gets whether the player predicted victory
+	/// </summary>
+	[JsonPropertyName("pred_vict")]
+	public bool? PredVict { get; init; }
+
+	/// <summary>
+	/// Gets a dictionary containing information on the items the player purchased (item, times purchased)
+	/// </summary>
+	[JsonPropertyName("purchase")]
+	public Dictionary<string, long?> Purchase { get; init; } = new();
+
+	/// <summary>
+	/// Gets a list containing information on when items were purchased
+	/// </summary>
+	[JsonPropertyName("purchase_log")]
+	public List<PurchaseLog> PurchaseLog { get; init; } = [];
+
+	/// <summary>
+	/// Gets whether the player randomed or not
+	/// </summary>
+	[JsonPropertyName("randomed")]
+	public bool? Randomed { get; init; }
+
+	/// <summary>
+	/// Gets whether the player repicked or not (no longer a thing?)
+	/// </summary>
+	[JsonPropertyName("repicked")]
+	public bool? Repicked { get; init; }
+
+	/// <summary>
+	/// Gets a total number of roshan kills (last hit on roshan) the player had
+	/// </summary>
+	[JsonPropertyName("roshans_killed")]
+	public int RoshansKilled { get; init; }
+
+	/// <summary>
+	/// Gets a number of runes picked up
+	/// </summary>
+	[JsonPropertyName("rune_pickups")]
+	public int RunePickups { get; init; }
+
+	/// <summary>
+	/// Gets a dictionary with information about which runes the player picked up
+	/// </summary>
+	[JsonPropertyName("runes")]
+	public Dictionary<string, int> Runes { get; init; } = new();
+
+	/// <summary>
+	/// Gets a list with information on when runes were picked up
+	/// </summary>
+	[JsonPropertyName("runes_log")]
+	public List<RuneLog> RuneLogs { get; init; } = [];
+
+	/// <summary>
+	/// Gets an object with information on where sentries were placed. The location takes the form (outer number, inner number) and are from ~64-192.
+	/// </summary>
+	[JsonPropertyName("sen")]
+	public Dictionary<string, Dictionary<string, int>> Sen { get; init; } = new();
+
+	/// <summary>
+	/// Gets a list containing information on when and where the player placed sentries
+	/// </summary>
+	[JsonPropertyName("sen_left_log")]
+	public List<WardLog> SenLeftLog { get; init; } = [];
+
+	/// <summary>
+	/// Gets a list with information on when and where sentries were placed by the player
+	/// </summary>
+	[JsonPropertyName("sen_log")]
+	public List<WardLog> SenLog { get; init; } = [];
+
+	/// <summary>
+	/// Gets how many sentries were placed by the player
+	/// </summary>
+	[JsonPropertyName("sen_placed")]
+	public int SenPlaced { get; init; }
+
+	/// <summary>
+	/// Gets a total stun duration of all stuns by the player
+	/// </summary>
+	[JsonPropertyName("stuns")]
+	public double Stuns { get; init; }
+
+	/// <summary>
+	/// Gets a percentage of total teamfight participation by the player (value between 0-1)
+	/// </summary>
+	[JsonPropertyName("teamfight_participation")]
+	public double TeamfightParticipation { get; init; }
+
+	/// <summary>
+	/// Gets a list of time in seconds corresponding to the time of entries of other arrays in the match.
+	/// </summary>
+	[JsonPropertyName("times")]
+	public List<int> Times { get; init; } = [];
+
+	/// <summary>
+	/// Gets a total tower damage done by the player
+	/// </summary>
+	[JsonPropertyName("tower_damage")]
+	public int TowerDamage { get; init; }
+
+	/// <summary>
+	/// Gets a total number of tower kills (last hit on tower) the player had
+	/// </summary>
+	[JsonPropertyName("towers_killed")]
+	public int TowersKilled { get; init; }
+
+	/// <summary>
+	/// Gets a experience per minute obtained by the player
+	/// </summary>
+	[JsonPropertyName("xp_per_min")]
+	public int XpPerMin { get; init; }
+
+	/// <summary>
+	/// Gets a dictionary containing information on the sources of this player's experience
+	/// </summary>
+	[JsonPropertyName("xp_reasons")]
+	public Dictionary<string, int> XpReasons { get; init; } = new();
+
+	/// <summary>
+	/// Gets a list of experience at each minute of the game
+	/// </summary>
+	[JsonPropertyName("xp_t")]
+	public List<long> XpEachMinute { get; init; } = [];
+
+	/// <summary>
+	/// Gets a persona name of the player
+	/// </summary>
+	[JsonPropertyName("personaname")]
+	public string Personaname { get; init; } = string.Empty;
+
+	/// <summary>
+	/// Gets a name of the player
+	/// </summary>
+	[JsonPropertyName("name")]
+	public string Name { get; init; } = string.Empty;
+
+	/// <summary>
+	/// Gets a time in seconds of last login of the player
+	/// </summary>
+	[JsonPropertyName("last_login")]
+	public DateTimeOffset? LastLogin { get; init; }
+
+	/// <summary>
+	/// Gets a boolean indicating whether Radiant won the match
+	/// </summary>
+	[JsonPropertyName("radiant_win")]
+	public bool RadiantWin { get; init; }
+
+	/// <summary>
+	/// Gets a start time of the match in seconds since 1970
+	/// </summary>
+	[JsonPropertyName("start_time")]
+	public long StartTime { get; init; }
+
+	/// <summary>
+	/// Gets a duration of the game in seconds
+	/// </summary>
+	[JsonPropertyName("duration")]
+	public int Duration { get; init; }
+
+	/// <summary>
+	/// Gets the cluster of the match
+	/// </summary>
+	[JsonPropertyName("cluster")]
+	public long Cluster { get; init; }
+
+	/// <summary>
+	/// Gets integer corresponding to lobby type of match.
 	/// List of constants can be found here: https://github.com/odota/dotaconstants/blob/master/json/lobby_type.json.
 	/// </summary>
 	[JsonPropertyName("lobby_type")]
-	public int LobbyType { get; set; }
+	public int LobbyType { get; init; }
 
 	/// <summary>
-	/// Gets or sets an integer corresponding to game mode played.
+	/// Gets an integer corresponding to game mode played.
 	/// List of constants can be found here: https://github.com/odota/dotaconstants/blob/master/json/game_mode.json.
 	/// </summary>
 	[JsonPropertyName("game_mode")]
-	public int GameMode { get; set; }
+	public int GameMode { get; init; }
 
-	// Whether the player is a contributor to OpenDota or not
+	/// <summary>
+	/// Gets whether the player is a contributor to OpenDota or not
+	/// </summary>
 	[JsonPropertyName("is_contributor")]
-	public bool IsContributor { get; set; }
+	public bool IsContributor { get; init; }
 
-	// Integer representing the patch the game was played on
+	/// <summary>
+	/// Gets integer representing the patch the game was played on
+	/// </summary>
 	[JsonPropertyName("patch")]
-	public long Patch { get; set; }
+	public long Patch { get; init; }
 
-	// Boolean for whether or not the player is on Radiant
+	/// <summary>
+	/// Gets boolean for whether or not the player is on Radiant
+	/// </summary>
 	[JsonPropertyName("isRadiant")]
-	public bool IsRadiant { get; set; }
+	public bool IsRadiant { get; init; }
 
-	// Binary integer representing whether or not the player won
+	/// <summary>
+	/// Gets binary integer representing whether or not the player won
+	/// </summary>
 	[JsonPropertyName("win")]
-	public int Win { get; set; }
+	public int Win { get; init; }
 
-	// Binary integer representing whether or not the player lost
+	/// <summary>
+	/// Gets binary integer representing whether or not the player lost
+	/// </summary>
 	[JsonPropertyName("lose")]
-	public int Lose { get; set; }
+	public int Lose { get; init; }
 
-	// Total gold at the end of the game
+	/// <summary>
+	/// Gets total gold at the end of the game
+	/// </summary>
 	[JsonPropertyName("total_gold")]
-	public long TotalGold { get; set; }
+	public long TotalGold { get; init; }
 
-	// Total experience at the end of the game
+	/// <summary>
+	/// Gets total experience at the end of the game
+	/// </summary>
 	[JsonPropertyName("total_xp")]
-	public long TotalXp { get; set; }
+	public long TotalXp { get; init; }
 
-	// Number of kills per minute
+	/// <summary>
+	/// Gets a number of kills per minute
+	/// </summary>
 	[JsonPropertyName("kills_per_min")]
-	public double KillsPerMin { get; set; }
+	public double KillsPerMin { get; init; }
 
-	// Kills deaths assists ratio (K+A)/D
+	/// <summary>
+	/// Gets a kills deaths assists ratio (K+A)/D
+	/// </summary>
 	[JsonPropertyName("kda")]
-	public long Kda { get; set; }
+	public double Kda { get; init; }
 
-	// Abandons
+	/// <summary>
+	/// Gets an abandons
+	/// </summary>
 	[JsonPropertyName("abandons")]
-	public int Abandons { get; set; }
+	public int Abandons { get; init; }
 
-	// Total number of neutral creeps killed
+	/// <summary>
+	/// Gets a total number of neutral creeps killed
+	/// </summary>
 	[JsonPropertyName("neutral_kills")]
-	public int NeutralKills { get; set; }
+	public int NeutralKills { get; init; }
 
-	// Total number of tower kills the player had
+	/// <summary>
+	/// Gets a total number of tower kills the player had
+	/// </summary>
 	[JsonPropertyName("tower_kills")]
-	public int TowerKills { get; set; }
+	public int TowerKills { get; init; }
 
-	// Total number of courier kills the player had
+	/// <summary>
+	/// Gets a total number of courier kills the player had
+	/// </summary>
 	[JsonPropertyName("courier_kills")]
-	public int CourierKills { get; set; }
+	public int CourierKills { get; init; }
 
-	// Total number of lane creeps killed by the player
+	/// <summary>
+	/// Gets a total number of lane creeps killed by the player
+	/// </summary>
 	[JsonPropertyName("lane_kills")]
-	public int LaneKills { get; set; }
+	public int LaneKills { get; init; }
 
-	// Total number of heroes killed by the player
+	/// <summary>
+	/// Gets a total number of heroes killed by the player
+	/// </summary>
 	[JsonPropertyName("hero_kills")]
-	public int HeroKills { get; set; }
+	public int HeroKills { get; init; }
 
-	// Total number of observer wards killed by the player
+	/// <summary>
+	/// Gets a total number of observer wards killed by the player
+	/// </summary>
 	[JsonPropertyName("observer_kills")]
-	public int ObserverKills { get; set; }
+	public int ObserverKills { get; init; }
 
-	// Total number of sentry wards killed by the player
+	/// <summary>
+	/// Gets a total number of sentry wards killed by the player
+	/// </summary>
 	[JsonPropertyName("sentry_kills")]
-	public int SentryKills { get; set; }
+	public int SentryKills { get; init; }
 
-	// Total number of roshan kills (last hit on roshan) the player had
+	/// <summary>
+	/// Gets a total number of roshan kills (last hit on roshan) the player had
+	/// </summary>
 	[JsonPropertyName("roshan_kills")]
-	public int RoshanKills { get; set; }
+	public int RoshanKills { get; init; }
 
-	// Total number of Necronomicon creeps killed by the player
+	/// <summary>
+	/// Gets a total number of Necronomicon creeps killed by the player
+	/// </summary>
 	[JsonPropertyName("necronomicon_kills")]
-	public int NecronomiconKills { get; set; }
+	public int NecronomiconKills { get; init; }
 
-	// Total number of Ancient creeps killed by the player
+	/// <summary>
+	/// Gets a total number of Ancient creeps killed by the player
+	/// </summary>
 	[JsonPropertyName("ancient_kills")]
-	public int AncientKills { get; set; }
+	public int AncientKills { get; init; }
 
-	// Total number of buyback the player used
+	/// <summary>
+	/// Gets a total number of buyback the player used
+	/// </summary>
 	[JsonPropertyName("buyback_count")]
-	public int BuybackCount { get; set; }
+	public int BuybackCount { get; init; }
 
-	// Number of observer wards used
+	/// <summary>
+	/// Gets a number of observer wards used
+	/// </summary>
 	[JsonPropertyName("observer_uses")]
-	public int ObserverUses { get; set; }
+	public int ObserverUses { get; init; }
 
-	// Number of sentry wards used
+	/// <summary>
+	/// Gets a number of sentry wards used
+	/// </summary>
 	[JsonPropertyName("sentry_uses")]
-	public int SentryUses { get; set; }
+	public int SentryUses { get; init; }
 
-	// Lane efficiency of the player (value between 0-1)
+	/// <summary>
+	/// Gets a lane efficiency of the player (value between 0-1)
+	/// </summary>
 	[JsonPropertyName("lane_efficiency")]
-	public double LaneEfficiency { get; set; }
+	public double LaneEfficiency { get; init; }
 
-	// Percentage of lane efficiency (0-100)
+	/// <summary>
+	/// Gets a percentage of lane efficiency (0-100)
+	/// </summary>
 	[JsonPropertyName("lane_efficiency_pct")]
-	public int LaneEfficiencyPct { get; set; }
+	public int LaneEfficiencyPct { get; init; }
 
-	// Integer referring to which lane the hero laned in
+	/// <summary>
+	/// Gets integer referring to which lane the hero laned in
+	/// </summary>
 	[JsonPropertyName("lane")]
-	public int Lane { get; set; }
+	public int Lane { get; init; }
 
-	// Lane role
+	/// <summary>
+	/// Gets a lane role
+	/// </summary>
 	[JsonPropertyName("lane_role")]
-	public int LaneRole { get; set; }
+	public int LaneRole { get; init; }
 
-	// Boolean referring to whether or not the player roamed
+	/// <summary>
+	/// Gets a boolean referring to whether or not the player roamed
+	/// </summary>
 	[JsonPropertyName("is_roaming")]
-	public bool IsRoaming { get; set; }
+	public bool IsRoaming { get; init; }
 
-	// Object with information on when the player last purchased an item
+	/// <summary>
+	/// Gets object with information on when the player last purchased an item
+	/// </summary>
 	[JsonPropertyName("purchase_time")]
-	public IDictionary<string, int?> PurchaseTime { get; set; }
+	public Dictionary<string, int> PurchaseTime { get; init; } = new();
 
-	// Object with information on when the player first puchased an item
+	/// <summary>
+	/// Gets object with information on when the player first puchased an item
+	/// </summary>
 	[JsonPropertyName("first_purchase_time")]
-	public IDictionary<string, int?> FirstPurchaseTime { get; set; }
+	public Dictionary<string, int> FirstPurchaseTime { get; init; } = new();
 
-	// Object with information on whether or not the item won
+	/// <summary>
+	/// Gets object with information on whether or not the item won
+	/// </summary>
 	[JsonPropertyName("item_win")]
-	public IDictionary<string, int?> ItemWin { get; set; }
+	public Dictionary<string, int> ItemWin { get; init; } = new();
 
-	// Object containing binary integers that tell whether the item was purchased by the player (note: this is always 1)
+	/// <summary>
+	/// Gets object containing binary integers that tell whether the item was purchased by the player (note: this is always 1)
+	/// </summary>
 	[JsonPropertyName("item_usage")]
-	public IDictionary<string, int?> ItemUsage { get; set; }
+	public Dictionary<string, int> ItemUsage { get; init; } = new();
 
-	// Total number of TP scrolls purchased by the player
+	/// <summary>
+	/// Gets a total number of TP scrolls purchased by the player
+	/// </summary>
 	[JsonPropertyName("purchase_tpscroll")]
-	public int PurchaseTpscroll { get; set; }
+	public int PurchaseTpscroll { get; init; }
 
-	// Actions per minute
+	/// <summary>
+	/// Gets amount of actions per minute
+	/// </summary>
 	[JsonPropertyName("actions_per_min")]
-	public int ActionsPerMin { get; set; }
+	public int ActionsPerMin { get; init; }
 
+	/// <summary>
+	/// Gets a life state of the player
+	/// </summary>
 	[JsonPropertyName("life_state_dead")]
-	public int LifeStateDead { get; set; }
+	public int LifeStateDead { get; init; }
 
-	// The rank tier of the player. Tens place indicates rank, ones place indicates stars.
+	/// <summary>
+	/// Gets the rank tier of the player. Tens place indicates rank, ones place indicates stars.
+	/// </summary>
 	[JsonPropertyName("rank_tier")]
-	public int? RankTier { get; set; }
+	public int RankTier { get; init; }
 
-	// Cosmetics
+	/// <summary>
+	/// Gets a list of cosmetics
+	/// </summary>
 	[JsonPropertyName("cosmetics")]
-	public IEnumerable<Cosmetic> Cosmetics { get; set; }
+	public List<Cosmetic> Cosmetics { get; init; } = [];
 
-	// Object containing information on certain benchmarks like GPM, XPM, KDA, tower damage, etc
+	/// <summary>
+	/// Gets an object containing information on certain benchmarks like GPM, XPM, KDA, tower damage, etc
+	/// </summary>
 	[JsonPropertyName("benchmarks")]
-	public MatchPlayerBenchmarks Benchmarks { get; set; }
+	public MatchPlayerBenchmarks Benchmarks { get; init; } = new();
 
-	// Total amount of observer wards purchased by the player
+	/// <summary>
+	/// Gets a total amount of observer wards purchased by the player
+	/// </summary>
 	[JsonPropertyName("purchase_ward_observer")]
-	public long? PurchaseWardObserver { get; set; }
+	public long PurchaseWardObserver { get; init; }
 
-	// Total amount of sentry wards purchased by the player
+	/// <summary>
+	/// Gets a total amount of sentry wards purchased by the player
+	/// </summary>
 	[JsonPropertyName("purchase_ward_sentry")]
-	public long? PurchaseWardSentry { get; set; }
+	public long PurchaseWardSentry { get; init; }
 
-	// Total amount of gems purchased by the player
+	/// <summary>
+	/// Gets a total amount of gems purchased by the player
+	/// </summary>
 	[JsonPropertyName("purchase_gem")]
-	public long? PurchaseGem { get; set; }
+	public long PurchaseGem { get; init; }
 }
