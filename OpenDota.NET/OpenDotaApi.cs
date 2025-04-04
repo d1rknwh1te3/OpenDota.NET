@@ -8,11 +8,14 @@ public class OpenDotaApi : IOpenDotaApi
 	/// <summary>
 	/// Creates new instance of <see cref="OpenDotaApi"/>
 	/// </summary>
-	/// <param name="apiKey">OpenDota API Key.</param>
-	/// <param name="proxy">Proxy (if needed).</param>
-	public OpenDotaApi(string? apiKey = null, IWebProxy? proxy = null)
+	/// <param name="configure">The configure.</param>
+	public OpenDotaApi(Action<OpenDotaSettings>? configure = null)
 	{
-		var request = new Requester(apiKey, proxy);
+		var settings = new OpenDotaSettings();
+
+		configure?.Invoke(settings);
+
+		var request = new Requester(settings);
 		
 		Matches = new MatchesEndpoint(request);
 		Players = new PlayersEndpoint(request);
@@ -26,7 +29,6 @@ public class OpenDotaApi : IOpenDotaApi
 		Search = new SearchEndpoint(request);
 		Rankings = new RankingsEndpoint(request);
 		Benchmarks = new BenchmarksEndpoint(request);
-		Status = new StatusEndpoint(request);
 		Health = new HealthEndpoint(request);
 		Request = new RequestEndpoint(request);
 		FindMatches = new FindMatchesEndpoint(request);
@@ -42,52 +44,22 @@ public class OpenDotaApi : IOpenDotaApi
 	}
 
 	/// <inheritdoc />
-	public IMatchesEndpoint Matches { get; }
+	public IBenchmarkEndpoint Benchmarks { get; }
 
 	/// <inheritdoc />
-	public IPlayersEndpoint Players { get; }
-
-	/// <inheritdoc />
-	public IProPlayersEndpoint ProPlayers { get; }
-
-	/// <inheritdoc />
-	public IProMatchEndpoint ProMatches { get; }
-
-	/// <inheritdoc />
-	public IPublicMatchesEndpoint PublicMatches { get; }
-
-	/// <inheritdoc />
-	public IParsedMatchesEndpoint ParsedMatches { get; }
-
-	/// <inheritdoc />
-	public IExplorerEndpoint Explorer { get; }
-
-	/// <inheritdoc />
-	public IMetadataEndpoint Metadata { get; }
+	public IConstantsEndpoint Constants { get; }
 
 	/// <inheritdoc />
 	public IDistributionsEndpoint Distributions { get; }
 
 	/// <inheritdoc />
-	public ISearchEndpoint Search { get; }
-
-	/// <inheritdoc />
-	public IRankingsEndpoint Rankings { get; }
-
-	/// <inheritdoc />
-	public IBenchmarkEndpoint Benchmarks { get; }
-
-	/// <inheritdoc />
-	public IStatusEndpoint Status { get; }
-
-	/// <inheritdoc />
-	public IHealthEndpoint Health { get; }
-
-	/// <inheritdoc />
-	public IRequestEndpoint Request { get; }
+	public IExplorerEndpoint Explorer { get; }
 
 	/// <inheritdoc />
 	public IFindMatchesEndpoint FindMatches { get; }
+
+	/// <inheritdoc />
+	public IHealthEndpoint Health { get; }
 
 	/// <inheritdoc />
 	public IHeroesEndpoint Heroes { get; }
@@ -99,13 +71,35 @@ public class OpenDotaApi : IOpenDotaApi
 	public ILeagueEndpoint League { get; }
 
 	/// <inheritdoc />
-	public ITeamsEndpoint Teams { get; }
+	public ILiveEndpoint Live { get; }
+
+	/// <inheritdoc />
+	public IMatchesEndpoint Matches { get; }
+
+	/// <inheritdoc />
+	public IMetadataEndpoint Metadata { get; }
+
+	/// <inheritdoc />
+	public IParsedMatchesEndpoint ParsedMatches { get; }
+
+	/// <inheritdoc />
+	public IPlayersEndpoint Players { get; }
+
+	/// <inheritdoc />
+	public IProMatchEndpoint ProMatches { get; }
+
+	/// <inheritdoc />
+	public IProPlayersEndpoint ProPlayers { get; }
+	/// <inheritdoc />
+	public IPublicMatchesEndpoint PublicMatches { get; }
+	/// <inheritdoc />
+	public IRankingsEndpoint Rankings { get; }
 
 	/// <inheritdoc />
 	public IRecordsEndpoint Records { get; }
 
 	/// <inheritdoc />
-	public ILiveEndpoint Live { get; }
+	public IRequestEndpoint Request { get; }
 
 	/// <inheritdoc />
 	public IScenariosEndpoint Scenarios { get; }
@@ -114,5 +108,8 @@ public class OpenDotaApi : IOpenDotaApi
 	public ISchemaEndpoint Schema { get; }
 
 	/// <inheritdoc />
-	public IConstantsEndpoint Constants { get; }
+	public ISearchEndpoint Search { get; }
+	
+	/// <inheritdoc />
+	public ITeamsEndpoint Teams { get; }
 }

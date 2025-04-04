@@ -1,39 +1,31 @@
 ﻿namespace OpenDotaDotNet.Utilities;
 
-/// <summary>
-/// Represents an OpenDota API request.
-/// </summary>
-/// <seealso cref="IDisposable" />
 public sealed class Requester : IDisposable
 {
 	private readonly HttpClient _httpClient;
 	private readonly HttpClientHandler _httpClientHandler;
+	
 
 	private const string OpenDotaApi = "https://api.opendota.com/api/";
 
 	/// <summary>
 	/// Initializes a new instance of the <see cref="Requester"/> class.
 	/// </summary>
-	/// <param name="apiKey">OpenDota API Key.</param>
-	/// <param name="proxy">Proxy (if needed).</param>
-	public Requester(string? apiKey = null, IWebProxy? proxy = null)
+	public Requester(OpenDotaSettings? settings = null)
 	{
-		ApiKey = apiKey;
+		settings ??= new OpenDotaSettings();
 
-		_httpClientHandler = new HttpClientHandler { UseProxy = true, Proxy = proxy, };
+		ApiKey = settings.ApiKey;
+		Options = settings.JsonSerializerOptions;
+
+		_httpClientHandler = new HttpClientHandler { UseProxy = true, Proxy = settings.Proxy, };
 		_httpClient = new HttpClient(_httpClientHandler) { Timeout = TimeSpan.FromSeconds(60), BaseAddress = new Uri(OpenDotaApi), };
 	}
 
 	private string? ApiKey { get; }
+	private JsonSerializerOptions? Options { get; }
 
-	/// <summary>
-	/// Gets the response asynchronous.
-	/// </summary>
-	/// <typeparam name="T">Response type.</typeparam>
-	/// <param name="url">The URL.</param>
-	/// <param name="queryParameters">The query parameters.</param>
-	/// <returns>Response.</returns>
-	public async Task<T?> GetResponseAsync<T>(string url, IEnumerable<string>? queryParameters = null)
+	internal async Task<T?> GetResponseAsync<T>(string url, List<string>? queryParameters = null)
 		where T : class
 	{
 		var response = await GetRequestResponseMessageAsync(url, queryParameters?.ToList());
@@ -44,20 +36,11 @@ public sealed class Requester : IDisposable
 		if (string.IsNullOrEmpty(textResponse))
 			return null;
 
-		var data = JsonSerializer.Deserialize<T>(textResponse);
+		var data = JsonSerializer.Deserialize<T>(textResponse, Options);
 		return data;
 	}
 
-	/// <summary>
-	/// Posts the request asynchronous.
-	/// </summary>
-	/// <param name="url">The URL.</param>
-	/// <param name="content">The content.</param>
-	/// <returns>Response message.</returns>
-	public Task<HttpResponseMessage> PostRequestAsync(string url, HttpContent? content = null)
-	{
-		return _httpClient.PostAsync(url, content);
-	}
+	internal Task<HttpResponseMessage> PostRequestAsync(string url, HttpContent? content = null) => _httpClient.PostAsync(url, content);
 
 	/// <summary>
 	/// Releases unmanaged and - optionally - managed resources.
