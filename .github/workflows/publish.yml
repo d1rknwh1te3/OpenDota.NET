@@ -39,13 +39,13 @@ jobs:
         run: dotnet restore
 
       - name: Build project
-        run: dotnet build --configuration ExportRelease --no-restore
+        run: dotnet build --configuration Release --no-restore
 
       - name: Run tests
-        run: dotnet test --configuration ExportRelease --no-build
+        run: dotnet test --configuration Release --no-build
 
       - name: Pack project
-        run: dotnet pack --configuration ExportRelease --no-build --output ./nupkg -p:PackageVersion=${{ steps.gitversion.outputs.nuGetVersionV2 }}
+        run: dotnet pack --configuration Release --no-build --output ./nupkg -p:PackageVersion=${{ steps.gitversion.outputs.nuGetVersionV2 }}
 
       - name: Publish to GitHub Packages
         run: dotnet nuget push ./nupkg/*.nupkg --source https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json --api-key ${{ github.token }} --skip-duplicate
