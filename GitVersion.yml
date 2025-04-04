@@ -3,15 +3,15 @@ branches:
   major:
     regex: ^major$
     increment: Major
-    tag: ''
+    label: ''
   release:
     regex: ^release$
     increment: Minor
-    tag: ''
+    label: ''
   feature:
     regex: ^feature$
     increment: Patch
-    tag: beta
+    label: beta
 next-version: 3.1.0
 assembly-versioning-scheme: MajorMinorPatch
 commit-message-incrementing: Enabled
